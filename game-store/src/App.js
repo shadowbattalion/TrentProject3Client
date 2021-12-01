@@ -14,10 +14,10 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/login">About</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/games">Contact Us</Link>
+            <Link to="/games">Games</Link>
           </li>
         </ul>
       </nav>
