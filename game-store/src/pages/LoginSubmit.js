@@ -9,20 +9,26 @@ export default function SubmittedForm(){
     let display_name_email = location.state.login.display_name_email
     let password = location.state.login.password
 
+    const [activePost, setActivePost] = useState({})
 
-    useEffect(
-        
-        ()=>{
-        const fetchPost = async (postId) => {
-          const response = await axios.get('https://jsonplaceholder.typicode.com/posts/' + postId);
-          
-          setActivePost(response.data)
+    useEffect(() => {
+        const fetchPost = async (display_name_email, password) =>{
+            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-login',{
+                "display_name_email":display_name_email,
+                "password":password
+            })
+            console.log(response.data) 
+            setActivePost(response.data)
         }
-  
-        fetchPost(activePostId)
 
+        if(display_name_email || password){
+            fetchPost(display_name_email, password)
+        }
 
     }, [display_name_email, password])
+
+
+
 
     if(false){
 
@@ -40,7 +46,7 @@ export default function SubmittedForm(){
 
     return (
         <React.Fragment>
-            
+        <h1>TEST</h1>
         </React.Fragment>
     )
 }
