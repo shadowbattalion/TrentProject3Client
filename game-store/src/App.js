@@ -1,39 +1,50 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import{
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
 
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Login from './pages/Login'
-import Games from './pages/Games'
-import LoginSubmit from './pages/LoginSubmit'
 
-function App() {
-  return (
-    <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/games">Games</Link>
-          </li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route exact path="/login">
-          <Login/>
-        </Route>
-        <Route exact path="/games">
-          <Games/>
-        </Route>
-        <Route exact path="/login-submit">
-          <LoginSubmit/>
-      </Route>
-      </Switch>
-    </Router>
+
+
+import CredentialsProvider from './providers/CredentialsProvider';
+import LoginPage from './pages/LoginPage'
+
+
+function App(){
+
+  return(
+    <React.Fragment>
+      <Router>
+          <nav>
+            <ul>
+              <li>
+                  <Link to ="/">Login</Link>
+              </li>
+            </ul>
+          </nav>
+          <CredentialsProvider>
+            <Switch>
+              <Route exact path="/">
+                  <LoginPage/>
+              </Route>         
+            </Switch>
+          </CredentialsProvider>
+        </Router>
+      </React.Fragment>
+
   )
+
+
+
 }
+
+
 
 export default App;
