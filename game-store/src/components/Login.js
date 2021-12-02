@@ -21,26 +21,21 @@ export default function LoginPage() {
     async function loginSubmit (){
 
         if(field.display_name_email && field.password){
-            let response = await context.login(field.display_name_email, field.password)
-            if (response.data?.access_token){
-                console.log(response.data)
-                localStorage.setItem('access_token', response.data.access_token);
-                localStorage.setItem('refresh_token', response.data.refresh_token);
-                
+            let login_outcome = await context.login(field.display_name_email, field.password)
+            if (login_outcome){
+                setFail("")     
                 setValidation({
                     "display_name_email_missing":"",
                     "password_missing":"",
                 })
 
             } else {
-                console.log(response.data)
                 setFail("Display Name, Email or Password is incorrect")
-                
                 setValidation({
                     "display_name_email_missing":"",
                     "password_missing":"",
                 })
-                    
+
             }
         }else{
             
