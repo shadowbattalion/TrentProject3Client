@@ -15,40 +15,53 @@ import{
 
 import CredentialsProvider from './providers/CredentialsProvider';
 import GamesProvider from './providers/GamesProvider';
+import CartProvider from './providers/CartProvider';
 import LoginPage from './pages/LoginPage'
 import GamesPage from './pages/GamesPage';
 import GameDetailsPage from './pages/GameDetailPage';
+import CartPage from './pages/CartPage';
+
 
 function App(){
 
   return(
     <React.Fragment>
       <CredentialsProvider>
-      <Router>
-          <nav>
-            <ul>
-              <li>
-                  <Link to ="/">Login</Link>
-              </li>
-              <li>
-                  <Link to ="/games">Games List</Link>
-              </li>
-            </ul>
-          </nav>
-            <Switch>
-              <Route exact path="/">
-                  <LoginPage/>
-              </Route>
-              <GamesProvider>
-                <Route exact path="/games">
-                    <GamesPage/>
+        <CartProvider>
+        <Router>
+            <nav>
+              <ul>
+                <li>
+                    <Link to ="/">Login</Link>
+                </li>
+                <li>
+                    <Link to ="/games">Games List</Link>
+                </li>
+                <li>
+                    <Link to ="/cart">Cart</Link>
+                </li>
+              </ul>
+            </nav>
+              <Switch>
+                <Route exact path="/">
+                    <LoginPage/>
                 </Route>
-                <Route exact path="/game-details/:gameId">
-                    <GameDetailsPage/>
-                </Route>
-              </GamesProvider>
-            </Switch>
-        </Router>
+                
+                  <GamesProvider>
+                    <Route exact path="/games">
+                        <GamesPage/>
+                    </Route>
+                    <Route exact path="/game-details/:gameId">
+                        <GameDetailsPage/>
+                    </Route>
+                  </GamesProvider>
+                  <Route exact path="/cart">
+                      <CartPage/>
+                  </Route>
+                
+              </Switch>
+          </Router>
+        </CartProvider>
         </CredentialsProvider>
       </React.Fragment>
 

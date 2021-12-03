@@ -19,9 +19,12 @@ export default function Login() {
     const context = useContext(StoreContext)
 
 
+    
+
     async function loginSubmit (){
 
         if(field.display_name_email && field.password){
+            //set current cart to CartProvider state
             let login_outcome = await context.login(field.display_name_email, field.password)
             if (login_outcome){
                 setFail("")     
