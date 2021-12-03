@@ -4,7 +4,7 @@ import StoreContext from "../StoreContext"
 
 export default function LoginPage() {
 
-    
+    const history = useHistory()
     const [field, setField] = useState({
         "display_name_email":"",
         "password":""
@@ -28,7 +28,7 @@ export default function LoginPage() {
                     "display_name_email_missing":"",
                     "password_missing":"",
                 })
-
+                history.push("/games")
             } else {
                 setFail("Display Name, Email or Password is incorrect")
                 setValidation({
@@ -88,52 +88,3 @@ export default function LoginPage() {
 
 
 
-
-
-// const history = useHistory()
-// const location = useLocation()
-// let message
-// let validation
-// if(location.state){
-
-//     message = location.state.message?location.state.message:""
-//     validation = location.state.validation?location.state.validation:""
-
-// }
-
-
-// function loginSubmit(){
-
-//     if(login.display_name_email && login.password){
-//         history.push('/login-submit',{
-//             "login":login
-//         })
-//     } else {
-
-//         let validation = {
-//             "missing_name_email":!login.display_name_email?"Please enter Display Name or Email":"",
-//             "missing_password":!login.password?"Please enter Password":"",
-//         }
-
-//         history.push('/login',{
-//             "validation":validation
-//         })
-
-//     }
-
-// }
-
-// const [login, setLogin] = useState({
-//     "display_name_email":"",
-//     "password":""
-
-// })
-
-// const updateState = (e) =>{
-
-//     setLogin({
-//         ...login,
-//         [e.target.name]:e.target.value
-//     })
-
-// }

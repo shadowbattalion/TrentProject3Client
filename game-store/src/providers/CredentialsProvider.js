@@ -1,13 +1,15 @@
 import React, {useState} from "react"
 import StoreContext from "../StoreContext"
 import axios from "axios"
+import { useHistory } from 'react-router-dom'
 
 
 export default function CredentialsProvider(props){
 
 
 
-    const [products, setProducts] = useState({
+    
+    const [credentials, setCredentials] = useState({
           "display_name": "",
           "password": ""
     })
@@ -27,11 +29,13 @@ export default function CredentialsProvider(props){
                 localStorage.setItem('access_token', response.data.access_token);
                 localStorage.setItem('refresh_token', response.data.refresh_token);
 
-                setProducts({
+                setCredentials({
                     "display_name_email":display_name_email,
                     "password":password
                 })
                 
+                
+
                 return true
 
             } else {
