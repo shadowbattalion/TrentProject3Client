@@ -17,7 +17,7 @@ import CredentialsProvider from './providers/CredentialsProvider';
 import GamesProvider from './providers/GamesProvider';
 import LoginPage from './pages/LoginPage'
 import GamesPage from './pages/GamesPage';
-
+import GameDetailsPage from './pages/GameDetailPage';
 
 function App(){
 
@@ -42,6 +42,9 @@ function App(){
               <GamesProvider>
                 <Route exact path="/games">
                     <GamesPage/>
+                </Route>
+                <Route exact path="/game-details/:gameId">
+                    <GameDetailsPage/>
                 </Route>
               </GamesProvider>
             </Switch>

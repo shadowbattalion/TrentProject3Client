@@ -16,11 +16,13 @@ export default function GamesProvider(props){
         
         getGames: async () =>{
             try{
-                console.log(localStorage.getItem('access_token'))
                 let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
+                
+                setGames(response.data)
 
+                
                 return response
 
             } catch(e){
@@ -32,6 +34,24 @@ export default function GamesProvider(props){
             
             
         },
+        getGameDetails: async (gameId)=>{
+            try{
+                // console.log(gameId)
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games/'+gameId+'/details',{
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                })
+                
+                console.log(response.data)
+                
+                return response
+
+            } catch(e){
+                
+                
+                return null
+            
+            }
+        }
         // addProduct:(new_product_name, cost) => {
         //     console.log(new_product_name, cost)
         //     let id = Math.floor(Math.random() * 10000 + 9999)

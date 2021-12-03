@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState} from "react"
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import StoreContext from "../StoreContext"
 
-export default function LoginPage() {
+export default function Login() {
 
     const history = useHistory()
+    const location = useLocation()
     const [field, setField] = useState({
         "display_name_email":"",
         "password":""
@@ -64,6 +65,7 @@ export default function LoginPage() {
     return (
         <React.Fragment>
             <h1>Login</h1>
+            <h2>{location.state?.message}</h2>
             <h2>{fail}</h2>
             <div>
                 <div>
