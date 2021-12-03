@@ -15,11 +15,12 @@ export default function GameDetails() {
 
 
         const requestGameDetail = async() =>{
-            let selected_game = context.getGameDetails(gameId);
-            // console.log(selected_game.data)
+            let selected_game = await context.getGameDetails(gameId);
+            
+            // !="No such games"
             if(selected_game){
 
-                setGame(selected_game.data)
+                setGame(selected_game.data.message)
 
             // } else if(selected_game?.message){
 
@@ -44,21 +45,28 @@ export default function GameDetails() {
 
     let game_jsx
 
-    // console.log(game)
-
+   
     if(game){
+        if(game!="No such games"){
 
-        game_jsx=(<React.Fragment>
-            <h1>Game List</h1>
-            <div>
-                <h1>Product Name: {game.title}</h1>
-                <h2>Cost: {game.cost}</h2>
-            </div>
-        </React.Fragment>)
+            game_jsx=(<React.Fragment>
+                <h1>{game.title}</h1>
+                <div>
+                    <h2>Cost: {game.cost}</h2>
+                </div>
+            </React.Fragment>)
 
 
 
-    } 
+        } else {
+
+            game_jsx=(<React.Fragment>
+                <h1>There is no such games</h1>
+            </React.Fragment>)
+
+        }
+
+    }
 
     return (
         (<React.Fragment>

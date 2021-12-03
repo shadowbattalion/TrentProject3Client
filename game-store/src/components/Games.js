@@ -16,7 +16,7 @@ export default function Games() {
             
             if(gameList){
 
-                setGameList(gameList.data)
+                setGameList(gameList.data.games)
 
             } else {
                 
@@ -38,8 +38,8 @@ export default function Games() {
     let game_list_jsx
 
 
-    if(gameList){
-        let games = gameList.games
+    if(gameList){ //always check if got null or not because useEffect will run later and change the state
+        let games = gameList
         if(games.length!=0){
             game_list_jsx=(<React.Fragment>
                 <h1>Game List</h1>

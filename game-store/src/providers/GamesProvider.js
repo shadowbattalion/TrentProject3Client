@@ -36,12 +36,12 @@ export default function GamesProvider(props){
         },
         getGameDetails: async (gameId)=>{
             try{
-                // console.log(gameId)
+                
                 let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games/'+gameId+'/details',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                 
-                console.log(response.data)
+                
                 
                 return response
 
