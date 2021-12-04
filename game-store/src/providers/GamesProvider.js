@@ -20,7 +20,7 @@ export default function GamesProvider(props){
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                 
-                setGames(response.data)
+                setGames(response.data)//check what it saved
 
                 
                 return response

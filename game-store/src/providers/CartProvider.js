@@ -8,7 +8,7 @@ export default function CartProvider(props){
 
 
     
-    const [cart, setCart] = useState(["test"])
+    const [cart, setCart] = useState([])
 
 
 
@@ -16,12 +16,27 @@ export default function CartProvider(props){
         
         getCart: async () =>{
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games',{
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/cart/',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                 
-                // setGames(response.data)
+                let cartResponse = JSON.parse(JSON.stringify(response))
+                let {cart_games_list, total} = cartResponse.data
+                
 
+                cart_games_list.map(cartItem=>{
+                    delete cartItem.game
+                    delete cartItem.sub_total    
+                })
+
+                
+                
+                setCart(cart_games_list)
+
+
+      
+            
+                
                 
                 return response
 
@@ -33,8 +48,7 @@ export default function CartProvider(props){
             }
             
             
-        },
-        test: () =>{return cart}
+        }
         // addProduct:(new_product_name, cost) => {
         //     console.log(new_product_name, cost)
         //     let id = Math.floor(Math.random() * 10000 + 9999)
