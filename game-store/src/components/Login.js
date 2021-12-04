@@ -28,8 +28,11 @@ export default function Login() {
             //set current cart to CartProvider state
             let login_outcome = await credsContext.login(field.display_name_email, field.password)
            
-            
-            if (login_outcome){
+            if(login_outcome===null){
+
+                history.push("/error-page")
+
+            } else if (login_outcome){
                 setFail("")     
                 setValidation({
                     "display_name_email_missing":"",

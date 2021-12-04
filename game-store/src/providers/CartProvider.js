@@ -49,11 +49,20 @@ export default function CartProvider(props){
             
             
         },
-        addGame:(game_id) => {
+        addGame: async(game_id) => {
 
-            console.log(game_id)
+
+            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/add',"",{
+                headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+            })
+                
+                                   
             
+                
+                
+            return response
 
+          
             
         },
     

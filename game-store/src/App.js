@@ -17,6 +17,7 @@ import CredentialsProvider from './providers/CredentialsProvider';
 import GamesProvider from './providers/GamesProvider';
 import CartProvider from './providers/CartProvider';
 import LoginPage from './pages/LoginPage'
+import ErrorPage from'./pages/ErrorPage'
 import GamesPage from './pages/GamesPage';
 import GameDetailsPage from './pages/GameDetailPage';
 import CartPage from './pages/CartPage';
@@ -46,22 +47,20 @@ function App(){
               <Switch>
               
                 <Route exact path="/">
-                    <LoginPage/>
+                  <LoginPage/>
                 </Route>
-                
-                  
-                    <Route exact path="/cart">
-                        <CartPage/>
-                    </Route>
-                  
-                  
-                  
-                    <Route exact path="/games">
-                        <GamesPage/>
-                    </Route>
-                    <Route exact path="/game-details/:gameId">
-                        <GameDetailsPage/>
-                    </Route>
+                <Route exact path="/error-page">
+                  <ErrorPage/>
+                </Route>
+                <Route exact path="/cart">
+                  <CartPage/>
+                </Route>
+                <Route exact path="/games">
+                  <GamesPage/>
+                </Route>
+                <Route exact path="/game-details/:gameId">
+                  <GameDetailsPage/>
+                </Route>
                     
                       
               </Switch>
