@@ -41,11 +41,22 @@ export default function Games() {
     },[localStorage.getItem('access_token')])
 
 
-    async function addGame(game_id){
+    async function addGame(game_id, title){
 
 
-        message = await cartContext.addGame(game_id) 
-        setMessage(message.data.message)
+        message = await cartContext.addGame(game_id)
+
+        
+        if(message.data.message==true){
+            
+            setMessage(title+" added to cart!")
+
+        }else{
+
+            setMessage(message.data.message)
+
+        } 
+        
 
 
     }
@@ -60,11 +71,11 @@ export default function Games() {
         if(games.length!=0){
             game_list_jsx=(<React.Fragment>
                 <h1>Game List</h1>
-                <h2>{message==true?"":message}</h2>
+                <h2>{message}</h2>
                 <div>
                     <ul>
                         {
-                            games?games.map((game)=>{return <li key={game.id}>{game.title}<Link to={"/game-details/" + game.id}>More...</Link>  <input type="button" onClick={()=>{addGame(game.id)}} value="Add To Cart"/> </li>}):""
+                            games?games.map((game)=>{return <li key={game.id}>{game.title}<Link to={"/game-details/" + game.id}>More...</Link>  <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="Add To Cart"/> </li>}):""
                         
                         }
                     </ul>
@@ -81,8 +92,7 @@ export default function Games() {
 
     }
     
-    console.log(message)
-
+  
   
   
 
