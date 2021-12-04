@@ -18,7 +18,7 @@ export default function Cart() {
 
 
         const requestCart =  async() =>{
-            // await context.saveCart()
+            
             let cart = await context.getCart()
             
             if(cart){

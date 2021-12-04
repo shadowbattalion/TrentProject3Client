@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import CredentialsContext from "../contexts/CredentialsContext"
+import CredentialsContext from "./CredentialsContext"
 import axios from "axios"
 import { useHistory } from 'react-router-dom'
 
@@ -39,7 +39,7 @@ export default function CredentialsProvider(props){
             }
             
         },
-        setProfile: async () =>{
+        getProfile: async () =>{
 
             try{
 
@@ -50,11 +50,11 @@ export default function CredentialsProvider(props){
 
                
 
-                setCredentials(response.data.user)
+             
                 
                 
 
-                return true
+                return response.data.user
 
             } catch(e) {
                
@@ -63,10 +63,7 @@ export default function CredentialsProvider(props){
             }
             
         },
-        getProfile: () =>{
-            return credentials
-        }
-
+    
 
     }
 

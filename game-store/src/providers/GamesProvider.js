@@ -52,19 +52,7 @@ export default function GamesProvider(props){
             
             }
         }
-        // addProduct:(new_product_name, cost) => {
-        //     console.log(new_product_name, cost)
-        //     let id = Math.floor(Math.random() * 10000 + 9999)
-        //     setProducts([...products,{
-        //         "id":id,
-        //         "product_name":new_product_name,
-        //         "cost":cost
-        //     }])
-        // },
-        // getProductById:(productID)=>{
-        //     return products.filter(p=>p.id === parseInt(productID))[0]
-        // }
-
+     
     }
 
     

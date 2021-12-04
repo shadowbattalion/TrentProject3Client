@@ -18,7 +18,7 @@ export default function GameDetails() {
 
         const requestGameDetail = async() =>{
             let selected_game = await gamesContext.getGameDetails(gameId);
-            await cartContext.getCart()
+           
             // !="No such games"
             if(selected_game){
 
