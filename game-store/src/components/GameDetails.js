@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import GamesContext from "../contexts/GamesContext";
+import CartContext from "../contexts/CartContext";
 
 export default function GameDetails() {
 
@@ -8,15 +9,16 @@ export default function GameDetails() {
     const { gameId } = useParams();
     // console.log(gameId)
     const [ game, setGame ] = useState(null);
-    const context = useContext(GamesContext);
+    const gamesContext = useContext(GamesContext);
+    const cartContext = useContext(CartContext);
 
     useEffect(() => {
 
 
 
         const requestGameDetail = async() =>{
-            let selected_game = await context.getGameDetails(gameId);
-            
+            let selected_game = await gamesContext.getGameDetails(gameId);
+            await cartContext.getCart()
             // !="No such games"
             if(selected_game){
 

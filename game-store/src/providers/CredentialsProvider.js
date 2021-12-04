@@ -9,10 +9,7 @@ export default function CredentialsProvider(props){
 
 
     
-    const [credentials, setCredentials] = useState({
-          "display_name": "",
-          "password": ""
-    })
+    const [credentials, setCredentials] = useState({})
 
 
 
@@ -29,10 +26,7 @@ export default function CredentialsProvider(props){
                 localStorage.setItem('access_token', response.data.access_token);
                 localStorage.setItem('refresh_token', response.data.refresh_token);
 
-                setCredentials({
-                    "display_name_email":display_name_email,
-                    "password":password
-                })
+                
                 
                 
 
@@ -44,7 +38,35 @@ export default function CredentialsProvider(props){
                
             }
             
+        },
+        setProfile: async () =>{
+
+            try{
+
+                
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/users/user-profile',{
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                })
+
+               
+
+                setCredentials(response.data.user)
+                
+                
+
+                return true
+
+            } catch(e) {
+               
+                return null
+               
+            }
+            
+        },
+        getProfile: () =>{
+            return credentials
         }
+
 
     }
 

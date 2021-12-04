@@ -48,16 +48,41 @@ export default function CartProvider(props){
             }
             
             
-        }
-        // addProduct:(new_product_name, cost) => {
-        //     console.log(new_product_name, cost)
-        //     let id = Math.floor(Math.random() * 10000 + 9999)
-        //     setProducts([...products,{
-        //         "id":id,
-        //         "product_name":new_product_name,
-        //         "cost":cost
-        //     }])
-        // },
+        },
+        addGame:(user_id, game_id) => {
+
+            // console.log(user_id,game_id)
+            
+
+            for (let item of cart){
+
+                if(item.game_id == game_id){
+                    console.log("1")
+                    item.quantity=item.quantity+1
+
+                }else{
+                    console.log("2")
+                    cart.push({
+                        "id":"+",
+                        "quantity": 1,
+                        "user_id": user_id,
+                        "game_id": game_id,
+
+                    })
+
+                }
+
+                console.log(cart)
+
+            }
+            // console.log(new_product_name, cost)
+            // let id = Math.floor(Math.random() * 10000 + 9999)
+            // setProducts([...products,{
+            //     "id":id,
+            //     "product_name":new_product_name,
+            //     "cost":cost
+            // }])
+        },
         // getProductById:(productID)=>{
         //     return products.filter(p=>p.id === parseInt(productID))[0]
         // }

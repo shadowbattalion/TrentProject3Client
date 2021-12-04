@@ -1,21 +1,28 @@
 import React, { useContext, useEffect, useState} from "react"
 import { Link, useHistory } from 'react-router-dom';
 import GamesContext from "../contexts/GamesContext";
+import CartContext from "../contexts/CartContext";
+import CredentialsContext from "../contexts/CredentialsContext";
 
 export default function Games() {
 
     const history = useHistory()
     const [gameList, setGameList] = useState(null)
-    const context = useContext(GamesContext)
+    const [user, setUser] = useState(null)
+    const gamesContext = useContext(GamesContext)
+    const credsContext = useContext(CredentialsContext)
+    const cartContext = useContext(CartContext)
 
     useEffect(()=>{
 
-
+        
         const requestGames =  async() =>{
-            let gameList = await context.getGames()
-            
-            if(gameList){
+            let gameList = await gamesContext.getGames()
+            let user = credsContext.getProfile()
+            await cartContext.getCart()
 
+            if(gameList){
+                setUser(user)
                 setGameList(gameList.data.games)
 
             } else {
@@ -46,7 +53,7 @@ export default function Games() {
                 <div>
                     <ul>
                         {
-                            games?games.map((game)=>{return <li key={game.id}>{game.title}<Link to={"/game-details/" + game.id}>More...</Link></li>}):""
+                            games?games.map((game)=>{return <li key={game.id}>{game.title}<Link to={"/game-details/" + game.id}>More...</Link>  <input type="button" onClick={()=>{cartContext.addGame(user.id, game.id)}} value="Add To Cart"/> </li>}):""
                         
                         }
                     </ul>

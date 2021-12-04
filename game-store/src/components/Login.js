@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
+import CartContext from "../contexts/CartContext";
 
 export default function Login() {
 
@@ -16,8 +17,8 @@ export default function Login() {
     })
     const [fail, setFail] = useState("")
  
-    const context = useContext(CredentialsContext)
-
+    const credsContext = useContext(CredentialsContext)
+    const cartContext  =useContext(CartContext)
 
     
 
@@ -25,7 +26,9 @@ export default function Login() {
 
         if(field.display_name_email && field.password){
             //set current cart to CartProvider state
-            let login_outcome = await context.login(field.display_name_email, field.password)
+            let login_outcome = await credsContext.login(field.display_name_email, field.password)
+            await credsContext.setProfile()
+            
             if (login_outcome){
                 setFail("")     
                 setValidation({
