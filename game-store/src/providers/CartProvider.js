@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import StoreContext from "../StoreContext"
+import CartContext from "../contexts/CartContext"
 import axios from "axios"
 import { useHistory } from 'react-router-dom'
 
@@ -52,9 +52,9 @@ export default function CartProvider(props){
 
     
     return(
-        <StoreContext.Provider value={context}>
+        <CartContext.Provider value={context}>
             {props.children}
-        </StoreContext.Provider>
+        </CartContext.Provider>
     )
 
 }

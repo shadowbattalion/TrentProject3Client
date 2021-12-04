@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import StoreContext from "../StoreContext"
+import CredentialsContext from "../contexts/CredentialsContext"
 import axios from "axios"
 import { useHistory } from 'react-router-dom'
 
@@ -50,9 +50,9 @@ export default function CredentialsProvider(props){
 
     
     return(
-        <StoreContext.Provider value={context}>
+        <CredentialsContext.Provider value={context}>
             {props.children}
-        </StoreContext.Provider>
+        </CredentialsContext.Provider>
     )
 
 }

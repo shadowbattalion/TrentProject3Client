@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
-import StoreContext from "../StoreContext"
+import GamesContext from "../contexts/GamesContext";
 
 export default function GameDetails() {
 
@@ -8,7 +8,7 @@ export default function GameDetails() {
     const { gameId } = useParams();
     // console.log(gameId)
     const [ game, setGame ] = useState(null);
-    const context = useContext(StoreContext);
+    const context = useContext(GamesContext);
 
     useEffect(() => {
 

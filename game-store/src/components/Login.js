@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
-import StoreContext from "../StoreContext"
+import CredentialsContext from "../contexts/CredentialsContext"
 
 export default function Login() {
 
@@ -16,7 +16,7 @@ export default function Login() {
     })
     const [fail, setFail] = useState("")
  
-    const context = useContext(StoreContext)
+    const context = useContext(CredentialsContext)
 
 
     

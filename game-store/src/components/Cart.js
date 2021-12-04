@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
-import StoreContext from "../StoreContext"
+import CartContext from "../contexts/CartContext";
 
 
 
 
 export default function Cart() {
     
-    const context = useContext(StoreContext);
+    const context = useContext(CartContext);
 
-    context.test()
+    console.log(context.test())
     return (
         <React.Fragment>
           <h1>trhttrhtrhtsrhh</h1>

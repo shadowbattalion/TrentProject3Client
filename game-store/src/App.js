@@ -28,6 +28,7 @@ function App(){
     <React.Fragment>
       <CredentialsProvider>
         <CartProvider>
+          <GamesProvider>
         <Router>
             <nav>
               <ul>
@@ -43,26 +44,33 @@ function App(){
               </ul>
             </nav>
               <Switch>
+              
                 <Route exact path="/">
                     <LoginPage/>
                 </Route>
                 
-                  <GamesProvider>
+                  
+                    <Route exact path="/cart">
+                        <CartPage/>
+                    </Route>
+                  
+                  
+                  
                     <Route exact path="/games">
                         <GamesPage/>
                     </Route>
                     <Route exact path="/game-details/:gameId">
                         <GameDetailsPage/>
                     </Route>
-                  </GamesProvider>
-                  <Route exact path="/cart">
-                      <CartPage/>
-                  </Route>
-                
+                    
+                      
               </Switch>
+              
           </Router>
+          </GamesProvider>
         </CartProvider>
-        </CredentialsProvider>
+      </CredentialsProvider> 
+        
       </React.Fragment>
 
   )

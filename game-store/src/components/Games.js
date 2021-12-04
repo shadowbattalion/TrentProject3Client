@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState} from "react"
 import { Link, useHistory } from 'react-router-dom';
-import StoreContext from "../StoreContext"
+import GamesContext from "../contexts/GamesContext";
 
 export default function Games() {
 
     const history = useHistory()
     const [gameList, setGameList] = useState(null)
-    const context = useContext(StoreContext)
+    const context = useContext(GamesContext)
 
     useEffect(()=>{
 

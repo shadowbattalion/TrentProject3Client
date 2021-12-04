@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import StoreContext from "../StoreContext"
+import GamesContext from "../contexts/GamesContext"
 import axios from "axios"
 import { useHistory } from 'react-router-dom'
 
@@ -69,9 +69,9 @@ export default function GamesProvider(props){
 
     
     return(
-        <StoreContext.Provider value={context}>
+        <GamesContext.Provider value={context}>
             {props.children}
-        </StoreContext.Provider>
+        </GamesContext.Provider>
     )
 
 }
