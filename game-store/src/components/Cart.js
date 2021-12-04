@@ -54,7 +54,7 @@ export default function Cart() {
                 <div>
                     <ul>
                         {
-                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity}</li>}):""
+                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="-"/> <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="+"/> </li>}):""
                         
                         }
                     </ul>
