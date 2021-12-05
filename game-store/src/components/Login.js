@@ -38,7 +38,18 @@ export default function Login() {
                     "display_name_email_missing":"",
                     "password_missing":"",
                 })
-                history.push("/games")
+
+
+                if ("page_redirect" in location.state){
+
+                    history.push("/"+location.state.page_redirect)
+            
+                }else{
+            
+                    history.push("/games")
+            
+                }
+                
             } else {
                 setFail("Display Name, Email or Password is incorrect")
                 setValidation({
@@ -93,6 +104,8 @@ export default function Login() {
 
     )
 }
+
+
 
 
 

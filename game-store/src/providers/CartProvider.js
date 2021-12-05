@@ -65,6 +65,38 @@ export default function CartProvider(props){
           
             
         },
+        increaseQuantity: async(game_id)=>{
+
+            
+
+            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/add',"",{
+                headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+            })
+
+
+            return response
+
+        },
+        decreaseQuantity: async(game_id)=>{
+
+            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/subtract',"",{
+                headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+            })
+
+            return response
+
+        },
+        removeGame: async(game_id)=>{
+
+            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/delete',"",{
+                headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+            })
+
+
+
+            return response
+
+        }
     
 
     }

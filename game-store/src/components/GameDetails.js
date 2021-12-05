@@ -7,7 +7,7 @@ export default function GameDetails() {
 
     const history = useHistory()
     const { gameId } = useParams();
-    // console.log(gameId)
+
     const [ game, setGame ] = useState(null);
     const gamesContext = useContext(GamesContext);
     const cartContext = useContext(CartContext);
@@ -24,7 +24,7 @@ export default function GameDetails() {
 
                 setGame(selected_game.data.message)
 
-            // } else if(selected_game?.message){
+            
 
 
             } else {

@@ -8,10 +8,13 @@ import CartContext from "../contexts/CartContext";
 
 export default function Cart() {
     
-    const context = useContext(CartContext);
+    const cartContext = useContext(CartContext);
 
     const history = useHistory()
+    let [message, setMessage] = useState("")
+    let [trigger, setTrigger] = useState(0)
     const [cartStatus, setCartStatus] = useState(null)
+
   
 
     useEffect(()=>{
@@ -19,7 +22,7 @@ export default function Cart() {
 
         const requestCart =  async() =>{
             
-            let cart = await context.getCart()
+            let cart = await cartContext.getCart()
             
             if(cart){
 
@@ -28,7 +31,8 @@ export default function Cart() {
             } else {
                 
                 history.push("/",{
-                    "message":"Please Login to Access this Page"
+                    "message":"Please Login to Access this Page",
+                    "page_redirect":"cart"
                 })
 
             }
@@ -39,7 +43,62 @@ export default function Cart() {
         requestCart()
         
 
-    },[])
+    },[trigger])
+
+
+
+    async function updateQuantityGame(game_id, title, operation){
+
+        if (operation=="+"){
+
+            message = await cartContext.increaseQuantity(game_id)
+
+        
+            if(message.data.message==true){
+                
+                setMessage("Quantity of item "+title+" increased")
+    
+            }else{
+    
+                setMessage(message.data.message)
+    
+            } 
+
+            if (trigger==0){
+                setTrigger(1)
+            }else if(trigger==1){
+                setTrigger(0)
+            }
+
+        } else if (operation=="-"){
+
+            message = await cartContext.increaseQuantity(game_id)
+
+        
+            if(message.data.message==true){
+                
+                setMessage("Quantity of item "+title+" reduced")
+    
+            }else{
+    
+                setMessage(message.data.message)
+    
+            } 
+
+            if (trigger==0){
+                setTrigger(1)
+            }else if(trigger==1){
+                setTrigger(0)
+            }
+
+        }
+
+
+       
+        
+
+
+    }
 
 
     let cart_jsx
@@ -51,10 +110,11 @@ export default function Cart() {
         if(cart.length!=0){
             cart_jsx=(<React.Fragment>
                 <h1>Game List</h1>
+                <h2>{message}</h2>
                 <div>
                     <ul>
                         {
-                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="-"/> <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="+"/> </li>}):""
+                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}} value="-"/> <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}} value="+"/> </li>}):""
                         
                         }
                     </ul>
