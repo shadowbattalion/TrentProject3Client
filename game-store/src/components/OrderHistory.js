@@ -46,7 +46,6 @@ export default function GameDetails() {
     if(orderHistory){
         if(orderHistory.length!=0){
 
-
             orderHistory_jsx=(<React.Fragment>
                 <h1>Order History</h1>
                 <div>
@@ -62,7 +61,7 @@ export default function GameDetails() {
 
 
         } else {
-
+            
             orderHistory_jsx=(<React.Fragment>
                 <h1>There are no order currently</h1>
             </React.Fragment>)

@@ -155,6 +155,23 @@ export default function CartProvider(props){
             }
 
         },
+        orderHistoryLatest:async()=>{
+
+            try{
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/order/user-orders-latest',{
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                })
+
+                console.log(response.data.latest_user_order)
+                return response
+            } catch(e){
+                    
+                    
+                return null
+            
+            }
+
+        },
     
 
     }
