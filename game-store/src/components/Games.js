@@ -47,16 +47,22 @@ export default function Games() {
 
         message = await cartContext.addGame(game_id)
 
+        if(message){
+            if(message.data.message==true){
+                
+                setMessage(title+" added to cart!")
+
+            }else{
+
+                setMessage(message.data.message)
+
+            }
         
-        if(message.data.message==true){
-            
-            setMessage(title+" added to cart!")
+        } else {
 
-        }else{
+            history.push("/error-page")
 
-            setMessage(message.data.message)
-
-        } 
+        }
         
 
 

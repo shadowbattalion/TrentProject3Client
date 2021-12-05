@@ -53,15 +53,20 @@ export default function Cart() {
 
             message = await cartContext.increaseQuantity(game_id)
 
+            if(message){
+                if(message.data.message==true){
+                    
+                    setMessage("Quantity of item "+title+" increased")
         
-            if(message.data.message==true){
-                
-                setMessage("Quantity of item "+title+" increased")
-    
-            }else{
-    
-                setMessage(message.data.message)
-    
+                }else{
+        
+                    setMessage(message.data.message)
+        
+                }
+            } else {
+
+                history.push("/error-page")
+
             } 
 
             if (trigger==0){
@@ -75,15 +80,22 @@ export default function Cart() {
             message = await cartContext.decreaseQuantity(game_id)
 
             console.log(message)
-            if(message.data.message==true){
+            if(message){
+                if(message.data.message==true){
+                    
+                    setMessage("Quantity of item "+title+" reduced")
+        
+                }else{
+        
+                    setMessage(message.data.message)
+        
+                }
                 
-                setMessage("Quantity of item "+title+" reduced")
-    
-            }else{
-    
-                setMessage(message.data.message)
-    
-            } 
+            } else {
+
+                history.push("/error-page")
+
+            }
 
             if (trigger==0){
                 setTrigger(1)
@@ -94,9 +106,40 @@ export default function Cart() {
         }
 
 
-       
-        
 
+    }
+
+
+    async function removeGame(game_id, title){
+
+
+            message = await cartContext.removeGame(game_id)
+
+            if(message){
+                if(message.data.message==true){
+                    
+                    setMessage(title+" has been removed")
+        
+                }else{
+        
+                    setMessage(message.data.message)
+        
+                } 
+            } else {
+
+                history.push("/error-page")
+
+            }
+
+
+
+            if (trigger==0){
+                setTrigger(1)
+            }else if(trigger==1){
+                setTrigger(0)
+            }
+
+       
 
     }
 
@@ -114,7 +157,7 @@ export default function Cart() {
                 <div>
                     <ul>
                         {
-                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}} value="-"/> <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}} value="+"/> </li>}):""
+                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}} value="-"/> <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}} value="+"/> <input type="button" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} value="Remove"/>  </li>}):""
                         
                         }
                     </ul>
