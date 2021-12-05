@@ -92,6 +92,30 @@ export default function CredentialsProvider(props){
             }
             
         },
+        logout: async()=>{
+
+            try{
+                if (localStorage.getItem('refresh_token')){
+                    
+                    let response = await axios.post("https://mhu-game-store.herokuapp.com/api/users/user-logout", {
+                        'refresh_token': localStorage.getItem('refresh_token')
+                    });
+                
+                    console.log(response.data);
+                
+                
+                    localStorage.setItem('access_token','')
+                    localStorage.setItem('refresh_token','')
+                }
+
+                return true
+            } catch(e) {
+                
+                return null
+            
+            }
+
+        }
     
 
     }

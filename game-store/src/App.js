@@ -26,7 +26,7 @@ import CheckoutPage from './pages/CheckoutPage'
 import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
 import OrderFailurePage from './pages/OrderFailurePage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
-
+import Logout from './components/Logout'
 
 function App(){
 
@@ -40,6 +40,9 @@ function App(){
               <ul>
                 <li>
                     <Link to ="/">Login</Link>
+                </li>
+                <li>
+                    <Logout/>
                 </li>
                 <li>
                     <Link to ="/user-reg">Sign Up</Link>
