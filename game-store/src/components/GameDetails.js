@@ -30,7 +30,8 @@ export default function GameDetails() {
             } else {
 
                 history.push("/",{
-                    "message":"Please Login to Access this Page"
+                    "message":"Please Login to Access this Page",
+                    "page_redirect":"game-details/"+gameId
                 })
 
             }

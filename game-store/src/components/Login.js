@@ -39,8 +39,8 @@ export default function Login() {
                     "password_missing":"",
                 })
 
-
-                if ("page_redirect" in location.state){
+                console.log(location)
+                if (location.state!==undefined){
 
                     history.push("/"+location.state.page_redirect)
             
