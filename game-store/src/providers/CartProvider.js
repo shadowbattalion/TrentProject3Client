@@ -120,7 +120,41 @@ export default function CartProvider(props){
             
             }
 
-        }
+        },
+        checkout: async()=>{
+
+            try{
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/checkout/',{
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                })
+
+
+                return response
+            } catch(e){
+                    
+                    
+                return null
+            
+            }
+
+        },
+        orderHistory:async()=>{
+
+            try{
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/order/user-orders',{
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                })
+
+
+                return response
+            } catch(e){
+                    
+                    
+                return null
+            
+            }
+
+        },
     
 
     }

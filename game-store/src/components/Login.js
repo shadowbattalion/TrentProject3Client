@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
-import CredentialsContext from "../providers/CredentialsContext"
+import CredentialsContext from "../contexts/CredentialsContext"
 import CartContext from "../contexts/CartContext";
 
 export default function Login() {

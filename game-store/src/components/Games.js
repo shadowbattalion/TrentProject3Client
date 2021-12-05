@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState} from "react"
 import { Link, useHistory } from 'react-router-dom';
 import GamesContext from "../contexts/GamesContext";
 import CartContext from "../contexts/CartContext";
-import CredentialsContext from "../providers/CredentialsContext";
+import CredentialsContext from "../contexts/CredentialsContext";
 
 export default function Games() {
 

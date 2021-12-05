@@ -21,6 +21,10 @@ import ErrorPage from'./pages/ErrorPage'
 import GamesPage from './pages/GamesPage';
 import GameDetailsPage from './pages/GameDetailPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage'
+import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
+import OrderFailurePage from './pages/OrderFailurePage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 
 
 function App(){
@@ -42,6 +46,9 @@ function App(){
                 <li>
                     <Link to ="/cart">Cart</Link>
                 </li>
+                <li>
+                    <Link to ="/order-history">Order History</Link>
+                </li>
               </ul>
             </nav>
               <Switch>
@@ -52,8 +59,20 @@ function App(){
                 <Route exact path="/error-page">
                   <ErrorPage/>
                 </Route>
+                <Route exact path="/order-history">
+                  <OrderHistoryPage/>
+                </Route>
                 <Route exact path="/cart">
                   <CartPage/>
+                </Route>
+                <Route exact path="/checkout">
+                  <CheckoutPage/>
+                </Route>
+                <Route exact path="/order-success">
+                  <OrderSuccessfulPage/>
+                </Route>
+                <Route exact path="/order-fail">
+                  <OrderFailurePage/>
                 </Route>
                 <Route exact path="/games">
                   <GamesPage/>

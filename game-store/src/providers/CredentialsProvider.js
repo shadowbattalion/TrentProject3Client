@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import CredentialsContext from "./CredentialsContext"
+import CredentialsContext from "../contexts/CredentialsContext"
 import axios from "axios"
 import { useHistory } from 'react-router-dom'
 

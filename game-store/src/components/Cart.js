@@ -144,6 +144,46 @@ export default function Cart() {
     }
 
 
+    async function checkout(){
+
+        message = await cartContext.checkout()
+
+        console.log(message)
+        if(message){
+
+            if(message.data.message==true){
+
+            
+                
+                
+                console.log(message.data.stripe_url)
+                history.push("/checkout", {"stripe_url":message.data.stripe_url})
+
+       
+        
+
+
+            }else if(message.data.message==false){
+                        
+                setMessage("Please select at least one item in the cart")
+
+            }
+
+        } else {
+
+            history.push("/error-page")
+
+        }
+
+
+        if (trigger==0){
+            setTrigger(1)
+        }else if(trigger==1){
+            setTrigger(0)
+        }
+    }
+
+
     let cart_jsx
 
     
@@ -164,6 +204,7 @@ export default function Cart() {
                 </div>
                 <div>
                   <h2>Total: {total}</h2>
+                  <input type="button" onClick={()=>{checkout()}} value="Checkout"/>
                 </div>
             </React.Fragment>)
         } else {
