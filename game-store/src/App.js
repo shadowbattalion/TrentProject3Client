@@ -17,6 +17,7 @@ import CredentialsProvider from './providers/CredentialsProvider';
 import GamesProvider from './providers/GamesProvider';
 import CartProvider from './providers/CartProvider';
 import LoginPage from './pages/LoginPage'
+import UserRegPage from './pages/UserRegPage';
 import ErrorPage from'./pages/ErrorPage'
 import GamesPage from './pages/GamesPage';
 import GameDetailsPage from './pages/GameDetailPage';
@@ -41,6 +42,9 @@ function App(){
                     <Link to ="/">Login</Link>
                 </li>
                 <li>
+                    <Link to ="/user-reg">Sign Up</Link>
+                </li>
+                <li>
                     <Link to ="/games">Games List</Link>
                 </li>
                 <li>
@@ -55,6 +59,9 @@ function App(){
               
                 <Route exact path="/">
                   <LoginPage/>
+                </Route>
+                <Route exact path="/user-reg">
+                  <UserRegPage/>
                 </Route>
                 <Route exact path="/error-page">
                   <ErrorPage/>

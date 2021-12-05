@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState} from "react"
+import React, { useContext, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
-import CartContext from "../contexts/CartContext";
+
 
 export default function Login() {
 
@@ -25,7 +25,7 @@ export default function Login() {
     async function loginSubmit (){
 
         if(field.display_name_email && field.password){
-            //set current cart to CartProvider state
+            
             let login_outcome = await credsContext.login(field.display_name_email, field.password)
            
             if(login_outcome===null){
@@ -61,7 +61,7 @@ export default function Login() {
         }else{
             
             setValidation({
-                "display_name_email_missing":field.display_name_email?"":"Email is missing",
+                "display_name_email_missing":field.display_name_email?"":"Display Name or Email is missing",
                 "password_missing":field.password?"":"Password is missing",
             })
             
@@ -96,7 +96,7 @@ export default function Login() {
                 <div>
                     <label>Password:</label>
                     <p>{validation?.password_missing}</p>
-                    <input type="text" name="password" value={field.password} onChange={updateState}/>
+                    <input type="password" name="password" value={field.password} onChange={updateState}/>
                 </div>
                 <input type="button" onClick={loginSubmit} value="Submit"/>
             </div>
