@@ -72,9 +72,9 @@ export default function Cart() {
 
         } else if (operation=="-"){
 
-            message = await cartContext.increaseQuantity(game_id)
+            message = await cartContext.decreaseQuantity(game_id)
 
-        
+            console.log(message)
             if(message.data.message==true){
                 
                 setMessage("Quantity of item "+title+" reduced")

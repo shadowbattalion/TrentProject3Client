@@ -69,7 +69,7 @@ export default function CartProvider(props){
 
             
 
-            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/add',"",{
+            let response = await axios.put('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/add',"",{
                 headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
             })
 
@@ -79,7 +79,7 @@ export default function CartProvider(props){
         },
         decreaseQuantity: async(game_id)=>{
 
-            let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/subtract',"",{
+            let response = await axios.put('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/subtract',"",{
                 headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
             })
 
