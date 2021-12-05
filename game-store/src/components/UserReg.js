@@ -10,12 +10,14 @@ export default function UserReg() {
     const [field, setField] = useState({
         "display_name":"",
         "email":"",
+        "device_specs":"",
         "password":"",
         "confirm_password":""
     })
     const[validation, setValidation] = useState({
         "display_name_missing":"",
         "email_missing":"",
+        "device_specs_missing":"",
         "password_missing":"",
         "confirm_password_missing":""
     })
@@ -43,6 +45,7 @@ export default function UserReg() {
                 setValidation({
                     "display_name_missing":"",
                     "email_missing":"",
+                    "device_specs_missing":"",
                     "password_missing":"",
                     "confirm_password_missing":""
                 })
@@ -56,6 +59,7 @@ export default function UserReg() {
                 setValidation({
                     "display_name_missing":"",
                     "email_missing":"",
+                    "device_specs_missing":"",
                     "password_missing":"",
                     "confirm_password_missing":""
                 })
@@ -69,6 +73,7 @@ export default function UserReg() {
             setValidation({
                 "display_name_missing":field.display_name?"":"Display Name is missing",
                 "email_missing":!field.email?"Email is missing":(!/\w*@\w*(\.\w{2,3})+/.test(field.email)?"Invalid Email format":""),
+                "device_specs_missing":!field.device_specs?"Device Specification is missing":(field.device_specs.length>600?"Word length limit reached":""),
                 "password_missing":field.password?"":"Password is missing",
                 "confirm_password_missing":match_password?"":"Password does not match",
             })
@@ -105,6 +110,11 @@ export default function UserReg() {
                     <label>Enter Email Address:</label>
                     <p>{validation?.email_missing}</p>
                     <input type="text" name="email" value={field.email} onChange={updateState}/>
+                </div>
+                <div>
+                    <label>Device Specifications:</label>
+                    <p>{validation?.device_specs_missing}</p>
+                    <textarea name="device_specs" rows="4" cols="50" value={field.device_specs} onChange={updateState}/>
                 </div>
                 <div>
                     <label>Password:</label>
