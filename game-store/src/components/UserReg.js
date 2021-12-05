@@ -34,13 +34,15 @@ export default function UserReg() {
             console.log(field.display_name, field.email, field.password)
             console.log("sign in successful")
          
-            let reg_outcome = await credsContext.login(field.display_name_email, field.password)
-           
+            let reg_outcome = await credsContext.register(field.display_name, field.password, field.email, field.device_specs)
+            
+            console.log(reg_outcome.data.message)
+
             if(reg_outcome===null){
 
                 history.push("/error-page")
 
-            } else if (reg_outcome){
+            } else if (reg_outcome.data.message=="User registered"){
                 setFail("")     
                 setValidation({
                     "display_name_missing":"",
@@ -51,8 +53,21 @@ export default function UserReg() {
                 })
 
         
-                history.push("/")
-            
+                history.push("/",{
+                    "message":reg_outcome.data.message,
+                    "page_redirect":"games"
+                })
+
+            } else if(reg_outcome.data.message=="Display name or email already exists"){
+
+                setFail(reg_outcome.data.message)
+                setValidation({
+                    "display_name_missing":"",
+                    "email_missing":"",
+                    "device_specs_missing":"",
+                    "password_missing":"",
+                    "confirm_password_missing":""
+                })
                 
             } else {
                 setFail("Display Name, Email or Password is incorrect")

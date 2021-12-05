@@ -14,7 +14,28 @@ export default function CredentialsProvider(props){
 
 
     const context = {
-        
+        register: async (display_name,password,email,device_specs) =>{
+            try{
+
+                console.log(display_name,password,email,device_specs)
+
+                let response = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-reg',{
+                    display_name,
+                    password,
+                    email,
+                    device_specs
+                })
+
+                
+                return response
+
+            }catch(e){
+
+                return false
+
+
+            }
+        },
         login: async (display_name_email, password) =>{
 
             try{
