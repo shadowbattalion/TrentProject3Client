@@ -68,6 +68,24 @@ export default function CredentialsProvider(props){
             }
             
         },
+        refresh: async () =>{
+
+            setInterval(async function () {
+                
+                if (localStorage.getItem('refresh_token')) {
+                    
+                    let response_refresh = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-refresh', {
+                      'refresh_token': localStorage.getItem('refresh_token')
+                    });
+                    
+                    localStorage.setItem('access_token', response_refresh.data.access_token);
+                
+                  }
+
+            },10000)
+
+
+        },
         getProfile: async () =>{
 
             try{

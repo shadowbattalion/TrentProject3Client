@@ -36,7 +36,7 @@ export default function Nav() {
         }
 
         requestCredentials();
-    }, [])
+    }, [localStorage.getItem('access_token')])
 
 
 
@@ -44,7 +44,7 @@ export default function Nav() {
 
     let nav_jsx
 
-   
+    
     if(creds){
 
         nav_jsx=(<React.Fragment>

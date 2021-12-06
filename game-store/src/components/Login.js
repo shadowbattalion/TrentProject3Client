@@ -27,6 +27,7 @@ export default function Login() {
         if(field.display_name_email && field.password){
             
             let login_outcome = await credsContext.login(field.display_name_email, field.password)
+            await credsContext.refresh()
            
             if(login_outcome===null){
 
