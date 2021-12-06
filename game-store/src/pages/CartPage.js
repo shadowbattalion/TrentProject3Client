@@ -7,5 +7,5 @@ export default function CartPage() {
         <React.Fragment>
             <Cart/>
         </React.Fragment> 
-    ) 
+    )
 }
