@@ -156,7 +156,7 @@ export default function Cart() {
             
                 
                 
-                console.log(message.data.stripe_url)
+                
                 history.push("/checkout", {"stripe_url":message.data.stripe_url})
 
        
