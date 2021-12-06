@@ -5,7 +5,6 @@ import{
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom"
 
 
@@ -26,7 +25,8 @@ import CheckoutPage from './pages/CheckoutPage'
 import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
 import OrderFailurePage from './pages/OrderFailurePage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
-import Logout from './components/Logout'
+
+import Nav from './components/Nav'
 
 function App(){
 
@@ -36,62 +36,48 @@ function App(){
         <CartProvider>
           <GamesProvider>
         <Router>
-            <nav>
-              <ul>
-                <li>
-                    <Link to ="/">Login</Link>
-                </li>
-                <li>
-                    <Logout/>
-                </li>
-                <li>
-                    <Link to ="/user-reg">Sign Up</Link>
-                </li>
-                <li>
-                    <Link to ="/games">Games List</Link>
-                </li>
-                <li>
-                    <Link to ="/cart">Cart</Link>
-                </li>
-                <li>
-                    <Link to ="/order-history">Order History</Link>
-                </li>
-              </ul>
-            </nav>
+           
               <Switch>
-              
                 <Route exact path="/">
+                  <Nav/>
                   <LoginPage/>
                 </Route>
                 <Route exact path="/user-reg">
+                  <Nav/>
                   <UserRegPage/>
                 </Route>
                 <Route exact path="/error-page">
+                  <Nav/>
                   <ErrorPage/>
                 </Route>
                 <Route exact path="/order-history">
+                  <Nav/>
                   <OrderHistoryPage/>
                 </Route>
                 <Route exact path="/cart">
+                  <Nav/>
                   <CartPage/>
                 </Route>
                 <Route exact path="/checkout">
+                  <Nav/>
                   <CheckoutPage/>
                 </Route>
                 <Route exact path="/order-success">
+                  <Nav/>
                   <OrderSuccessfulPage/>
                 </Route>
                 <Route exact path="/order-fail">
+                  <Nav/>
                   <OrderFailurePage/>
                 </Route>
                 <Route exact path="/games">
+                  <Nav/>
                   <GamesPage/>
                 </Route>
                 <Route exact path="/game-details/:gameId">
+                  <Nav/>
                   <GameDetailsPage/>
-                </Route>
-                    
-                      
+                </Route>       
               </Switch>
               
           </Router>
