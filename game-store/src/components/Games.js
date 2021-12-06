@@ -10,6 +10,11 @@ export default function Games() {
     const [gameList, setGameList] = useState(null)
     const [user, setUser] = useState(null)
     let [message, setMessage]=useState("")
+    const [field, setField] = useState({
+        "title":"",
+        "company_name":""
+    })
+    let [trigger, setTrigger] = useState(0)
     const gamesContext = useContext(GamesContext)
     const cartContext = useContext(CartContext)
 
@@ -17,7 +22,7 @@ export default function Games() {
 
         
         const requestGames =  async() =>{
-            let gameList = await gamesContext.getGames()
+            let gameList = await gamesContext.getGames(field.title, field.company_name)
             
 
             if(gameList){
@@ -39,7 +44,7 @@ export default function Games() {
         requestGames()
         
 
-    },[localStorage.getItem('access_token')])
+    },[trigger])
 
 
     async function addGame(game_id, title){
@@ -69,6 +74,28 @@ export default function Games() {
     }
 
 
+    function searchSubmit(){
+
+
+
+        if (trigger==0){
+            setTrigger(1)
+        }else if(trigger==1){
+            setTrigger(0)
+        }
+
+
+    }
+
+    const updateState = (e) =>{
+
+        setField({
+            ...field,
+            [e.target.name]:e.target.value
+        })
+
+    }
+
 
     let game_list_jsx
 
@@ -77,7 +104,6 @@ export default function Games() {
         let games = gameList
         if(games.length!=0){
             game_list_jsx=(<React.Fragment>
-                <h1>Game List</h1>
                 <h2>{message}</h2>
                 <div>
                     <ul>
@@ -99,12 +125,26 @@ export default function Games() {
 
     }
     
-  
+    
+    let search = (
+        <React.Fragment>
+            <div>
+                <label>Title:</label>
+                <input type="text" name="title" value={field.title} onChange={updateState}/>
+            </div>
+            <div>
+                <label>Company Name:</label>
+                <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
+            </div>
+            <input type="button" onClick={searchSubmit} value="Submit"/>
+        </React.Fragment>)
   
   
 
     return (
         (<React.Fragment>
+            {search}
+            <h1>Game List</h1>
             {game_list_jsx}
         </React.Fragment>)
     )

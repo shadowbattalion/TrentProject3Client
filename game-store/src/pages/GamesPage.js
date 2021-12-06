@@ -5,6 +5,7 @@ export default function GamesPage() {
   
     return (
         <React.Fragment>
+            
             <Games/>
         </React.Fragment> 
     )

@@ -14,13 +14,14 @@ export default function GamesProvider(props){
 
     const context = {
         
-        getGames: async () =>{
+        getGames: async (title, company_name) =>{
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games',{
-                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
+                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games', { 
+                    params: { title, company_name },
+                    headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` } 
                 })
                 
-                setGames(response.data)//check what it saved
+                setGames(response.data)
 
                 
                 return response
