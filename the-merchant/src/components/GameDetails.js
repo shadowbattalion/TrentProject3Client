@@ -77,7 +77,17 @@ export default function GameDetails() {
                 </div>
 
                 <div>
-                    {game.images.map(image=>(<div class="content-images" style={{backgroundImage: `url(${image.url})`}}></div>))}
+                    {game.images.map(image=>(<div 
+                                style={{
+                                backgroundImage: `url(${image.url})`, 
+                                minHeight: "600px",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "cover", 
+                                backgroundAttachment: "fixed", 
+                                backgroundPosition: "center",
+                                }}>
+
+                                </div>))}
                 </div>
 
 
