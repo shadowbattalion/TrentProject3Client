@@ -86,27 +86,36 @@ export default function Login() {
     return (
         <React.Fragment>
             <div class="landing-page"> 
-                <div class="logo">
-                    <h1 class="title-font">The<br/>Merchant</h1>
+                <div class="logo me-4">
+                    <h1 class="title-font mt-5" style={{"border-bottom": "5px solid black"}}>The Merchant</h1>
                     <h2>Your One-Stop Game Shop!</h2>
                 </div>
                 <div>   
-                    <h1>Login</h1>
-                    <h2>{location.state?.message}</h2>
-                    <h2>{fail}</h2>
-                    <div>
+                   
+                    <div class="card login-card">
+                    <div class="card-body">
+                        <h1 class="card-title">Login</h1>
+                        <small>{location.state?.message}</small>
+                        <small>{fail}</small>
                         <div>
                             <label>Enter Display Name/Email Address:</label>
-                            <p>{validation?.display_name_email_missing}</p>
-                            <input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/>
+                            <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
+                            <div><small>{validation?.display_name_email_missing}</small></div>
                         </div>
                         <div>
                             <label>Password:</label>
-                            <p>{validation?.password_missing}</p>
-                            <input type="password" name="password" value={field.password} onChange={updateState}/>
+                            <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
+                            <div><small>{validation?.password_missing}</small></div>
                         </div>
-                        <input type="button" onClick={loginSubmit} value="Submit"/>
+                        <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={loginSubmit}>Submit</a>
                     </div>
+                    </div>
+
+
+                    {/* <div>
+                        
+                        <input type="button" onClick={loginSubmit} value="Submit"/>
+                    </div> */}
                 </div>
             </div>
         </React.Fragment>
