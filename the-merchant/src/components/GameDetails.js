@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import GamesContext from "../contexts/GamesContext";
 import CartContext from "../contexts/CartContext";
+import CredentialsContext from "../contexts/CredentialsContext";
 
 export default function GameDetails() {
 
@@ -9,9 +10,12 @@ export default function GameDetails() {
     const { gameId } = useParams();
 
     const [ game, setGame ] = useState(null);
+    const [profile, setProfile] = useState(null)
+    let [message, setMessage]=useState("")
     const gamesContext = useContext(GamesContext);
     const cartContext = useContext(CartContext);
-    let [message, setMessage]=useState("")
+    const credsContext = useContext(CredentialsContext)
+    
 
     useEffect(() => {
 
@@ -19,6 +23,20 @@ export default function GameDetails() {
 
         const requestGameDetail = async() =>{
             let selected_game = await gamesContext.getGameDetails(gameId);
+            let profile =  await credsContext.getProfile()
+
+            if(profile){
+
+                setProfile(profile.email)
+
+            
+
+
+            } else {
+
+                setProfile(null)
+
+            }
            
             // !="No such games"
             if(selected_game){
@@ -136,7 +154,7 @@ export default function GameDetails() {
                                 <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div>
                                 <hr/>
                                 <h1 class="card-title">Your Specifications:</h1>
-                                {/* <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div> */}
+                                {profile?(<div style={{fontSize:"20px"}}>{profile}</div>):""}
                             </div>
                         </div> 
                     </div>
@@ -150,7 +168,7 @@ export default function GameDetails() {
                                 <div style={{fontSize:"20px"}}>{game.recommended_requirement}</div>
                                 <hr/>
                                 <h1 class="card-title">Your Specifications:</h1>
-                                {/* <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div> */}
+                                {profile?(<div style={{fontSize:"20px"}}>{profile}</div>):""}
                             </div>
                         </div> 
                     </div>
