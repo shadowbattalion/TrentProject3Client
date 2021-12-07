@@ -11,6 +11,7 @@ export default function GameDetails() {
     const [ game, setGame ] = useState(null);
     const gamesContext = useContext(GamesContext);
     const cartContext = useContext(CartContext);
+    let [message, setMessage]=useState("")
 
     useEffect(() => {
 
@@ -43,7 +44,31 @@ export default function GameDetails() {
     }, [gameId])
 
 
+    async function addGame(game_id, title){
 
+
+        message = await cartContext.addGame(game_id)
+
+        if(message){
+            if(message.data.message==true){
+                
+                setMessage(title+" added to cart!")
+
+            }else{
+
+                setMessage(message.data.message)
+
+            }
+        
+        } else {
+
+            history.push("/error-page")
+
+        }
+        
+
+
+    }
 
 
     let game_jsx
@@ -58,10 +83,11 @@ export default function GameDetails() {
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">{game.title}</h1>
+                                <small>{message}</small>
                                 <div class="d-flex justify-content-between">
                                     <div style={{fontSize:"20px"}}>Cost: {game.cost}</div> 
                                     <div style={{fontSize:"20px"}}>Discount: {game.discount}</div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary">Cart</a></div>
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
                                 </div>
                                 <p>{game.description}</p>
                                 <img src={game.banner_image} class="img-fluid" alt="game banner image"/> 
@@ -97,6 +123,34 @@ export default function GameDetails() {
                             <div class="card-body">
                                 <h1 class="card-title">Reviews</h1>
                                 {game.reviews.length>0?game.reviews.map(review=>(<div style={{fontSize:"20px"}}>{review.review.split("|")[0]} says: "{review.review.split("|")[1]}"</div>)):""}    
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="landing-page mt-3"> 
+                    <div>                     
+                        <div class="card login-card">
+                            <div class="card-body">
+                                <h1 class="card-title">Minimum Requirements:</h1>
+                                <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div>
+                                <hr/>
+                                <h1 class="card-title">Your Specifications:</h1>
+                                {/* <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div> */}
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="landing-page mt-3"> 
+                    <div>                     
+                        <div class="card login-card">
+                            <div class="card-body">
+                                <h1 class="card-title">Recommended Requirements:</h1>
+                                <div style={{fontSize:"20px"}}>{game.recommended_requirement}</div>
+                                <hr/>
+                                <h1 class="card-title">Your Specifications:</h1>
+                                {/* <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div> */}
                             </div>
                         </div> 
                     </div>
