@@ -1,38 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,600&family=Rajdhani:wght@500&display=swap');
+
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-image: url('./images/pexels-miguel-á-padriñán-19670.jpg');
+  font-family: 'Rajdhani', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+/* Photo by Miguel Á. Padriñán from Pexels */
+
+
+
+
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+
+
+.title-font{
+
+  font-family: 'Genos', sans-serif;
+  font-size: 30px;
+
+}
+
+.title-divider{
+
+  display:none;
+
+}
+
+
+
+
+.navbar-property{
+
+  background-color: transparent;
+  /* background-image:linear-gradient(#222222, #aaaaaa); */
+  border-radius: 15px;
+  padding:25px;
+
+}
+
+
+
+.logo{
+
+
+  border:1px solid black;
+  width: 20%;
+  height: 20%;
+
+
+
+}
+
+
+@media (min-width:768px) {
+
+  
+  .title-font{
+
+    
+    font-size: 40px;
+  
   }
+
+  
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media (min-width:1200px) {
+
+  body{
+
+    font-size:large;
+  
   }
-  to {
-    transform: rotate(360deg);
+
+  .title-font{
+
+    
+    font-size: 60px;
+  
   }
+  
+  .title-divider{
+
+    display:initial;
+  
+  }
+  
+
+  .landing-page{
+
+    display:flex;
+
+
+  }
+  
+
 }
+

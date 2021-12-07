@@ -47,7 +47,7 @@ export default function Login() {
 
     return (
         <React.Fragment>
-                <input type="button" onClick={logout} value="Logout"/>
+                <a class="nav-link py-2 px-0" onClick={logout} style={{"color":"black"}}>|  Logout</a>
         </React.Fragment>
 
     )
