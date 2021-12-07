@@ -93,29 +93,26 @@ export default function Login() {
                 <div>   
                    
                     <div class="card login-card">
-                    <div class="card-body">
-                        <h1 class="card-title">Login</h1>
-                        <small>{location.state?.message}</small>
-                        <small>{fail}</small>
-                        <div>
-                            <label>Enter Display Name/Email Address:</label>
-                            <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
-                            <div><small>{validation?.display_name_email_missing}</small></div>
+                        <div class="card-body">
+                            <h1 class="card-title">Login</h1>
+                            <small>{location.state?.message}</small>
+                            <small>{fail}</small>
+                            <div>
+                                <label>Enter Display Name/Email Address:</label>
+                                <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
+                                <div><small>{validation?.display_name_email_missing}</small></div>
+                            </div>
+                            <div>
+                                <label>Password:</label>
+                                <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
+                                <div><small>{validation?.password_missing}</small></div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={loginSubmit}>Submit</a>
                         </div>
-                        <div>
-                            <label>Password:</label>
-                            <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
-                            <div><small>{validation?.password_missing}</small></div>
-                        </div>
-                        <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={loginSubmit}>Submit</a>
-                    </div>
                     </div>
 
 
-                    {/* <div>
-                        
-                        <input type="button" onClick={loginSubmit} value="Submit"/>
-                    </div> */}
+                   
                 </div>
             </div>
         </React.Fragment>

@@ -30,7 +30,7 @@ export default function UserReg() {
 
     async function regSubmit (){
 
-        if(field.display_name && field.email && field.email.includes("@") && field.password && (field.password.trim() == field.confirm_password.trim())){
+        if(field.display_name && field.email && /\w*@\w*(\.\w{2,3})+/.test(field.email) && field.password && (field.password.trim() == field.confirm_password.trim())){
             console.log(field.display_name, field.email, field.password)
             console.log("sign in successful")
          
@@ -54,7 +54,7 @@ export default function UserReg() {
 
         
                 history.push("/",{
-                    "message":reg_outcome.data.message,
+                    "message":"User registered. Please enter the following to login.",
                     "page_redirect":"games"
                 })
 
@@ -112,37 +112,52 @@ export default function UserReg() {
 
     return (
         <React.Fragment>
-            <h1>Login</h1>
-            <h2>{location.state?.message}</h2>
-            <h2>{fail}</h2>
-            <div>
-                <div>
-                    <label>Enter Display Name:</label>
-                    <p>{validation?.display_name_missing}</p>
-                    <input type="text" name="display_name" value={field.display_name} onChange={updateState}/>
+             <div class="landing-page"> 
+                <div>  
+                    <div class="card login-card">
+                        <div class="card-body">
+                            <h1 class="card-title">Sign Up</h1>
+                            <small>{location.state?.message}</small>
+                            <small>{fail}</small>
+                            <div>
+                                <label>Enter Display Name:</label>
+                                <div><input type="text" name="display_name" value={field.display_name} onChange={updateState}/></div>
+                                <div><small>{validation?.display_name_missing}</small></div>
+                            </div>
+                            <div>
+                                <label>Enter Email Address:</label>
+                                <div><input type="text" name="email" value={field.email} onChange={updateState}/></div>
+                                <div><small>{validation?.email_missing}</small></div>
+                            </div>
+                            <div>
+                                <label>Device Specifications:</label>
+                                <div><textarea name="device_specs" rows="4" cols="50" value={field.device_specs} onChange={updateState}/></div>
+                                <div><small>{validation?.device_specs_missing}</small></div>
+                            </div>
+                            <div>
+                                <label>Password:</label>
+                                <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
+                                <div><small>{validation?.password_missing}</small></div>
+                            </div>
+                            <div>
+                                <label>Re-Enter Password:</label>
+                                <div><input type="password" name="confirm_password" value={field.confirm_password} onChange={updateState}/></div>
+                                <div><small>{validation?.confirm_password_missing}</small></div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={regSubmit}>Submit</a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label>Enter Email Address:</label>
-                    <p>{validation?.email_missing}</p>
-                    <input type="text" name="email" value={field.email} onChange={updateState}/>
-                </div>
-                <div>
-                    <label>Device Specifications:</label>
-                    <p>{validation?.device_specs_missing}</p>
-                    <textarea name="device_specs" rows="4" cols="50" value={field.device_specs} onChange={updateState}/>
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <p>{validation?.password_missing}</p>
-                    <input type="password" name="password" value={field.password} onChange={updateState}/>
-                </div>
-                <div>
-                    <label>Re-Enter Password:</label>
-                    <p>{validation?.confirm_password_missing}</p>
-                    <input type="password" name="confirm_password" value={field.confirm_password} onChange={updateState}/>
-                </div>
-                <input type="button" onClick={regSubmit} value="Submit"/>
             </div>
+
+
+
+
+
+            
+            
+                
+                
         </React.Fragment>
 
     )
