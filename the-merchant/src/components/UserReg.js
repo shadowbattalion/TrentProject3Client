@@ -131,7 +131,7 @@ export default function UserReg() {
                             </div>
                             <div>
                                 <label>Device Specifications:</label>
-                                <div><textarea name="device_specs" rows="4" cols="50" value={field.device_specs} onChange={updateState}/></div>
+                                <div><textarea name="device_specs" rows="4" cols="35" value={field.device_specs} onChange={updateState}/></div>
                                 <div><small>{validation?.device_specs_missing}</small></div>
                             </div>
                             <div>

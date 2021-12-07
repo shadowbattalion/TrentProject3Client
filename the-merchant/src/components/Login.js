@@ -87,7 +87,7 @@ export default function Login() {
         <React.Fragment>
             <div class="landing-page"> 
                 <div class="logo me-4">
-                    <h1 class="title-font mt-5" style={{"border-bottom": "5px solid black"}}>The Merchant</h1>
+                    <h1 class="title-font mt-5" style={{"borderBottom": "5px solid black"}}>The Merchant</h1>
                     <h2>Your One-Stop Game Shop!</h2>
                 </div>
                 <div>   

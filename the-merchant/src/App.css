@@ -7,6 +7,8 @@
 
 body {
   background-image: url('./images/pexels-miguel-á-padriñán-19670.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Rajdhani', sans-serif;
   font-size:medium;
 }
@@ -30,6 +32,14 @@ small{
 
 }
 
+
+p{
+
+
+  font-size: 20px;
+  margin-top:20px;
+
+}
 
 .title-font{
 
@@ -74,7 +84,7 @@ small{
 
 .login-card{
 
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.4);
   
 
 
@@ -89,6 +99,15 @@ small{
   background-color: Orange;
 
 
+}
+
+
+.content-images{
+    min-Height: "400px"; 
+    background-attachment: "fixed";
+    background-position: "center";
+    background-repeat: "no-repeat";
+    background-size: "cover"
 }
 
 

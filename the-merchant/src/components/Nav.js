@@ -90,7 +90,7 @@ export default function Nav() {
             <nav class="navbar navbar-expand-lg navbar-property">
                 <div class="container-fluid">
 
-                    <div class="navbar-brand title-font" style={{"border-bottom": "5px solid black"}}>The Merchant</div><span class="title-divider navbar-brand title-font">|</span>
+                    <div class="navbar-brand title-font" style={{"borderBottom": "5px solid black"}}>The Merchant</div><span class="title-divider navbar-brand title-font">|</span>
 
                     <div class="navbar-collapse" id="navbarSupportedContent">
                                 
