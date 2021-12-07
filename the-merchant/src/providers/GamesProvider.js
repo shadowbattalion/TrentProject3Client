@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function GamesProvider(props){
 
-
+    const BASE_URL = "https://chocolate-cat-4og4qhs6.ws-us21.gitpod.io"
     
     const [games, setGames] = useState([])
 
@@ -16,7 +16,7 @@ export default function GamesProvider(props){
         
         getGames: async (title, company_name) =>{
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games', { 
+                let response = await axios.get(BASE_URL+'/api/list-games', { 
                     params: { title, company_name },
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` } 
                 })
@@ -38,7 +38,7 @@ export default function GamesProvider(props){
         getGameDetails: async (gameId)=>{
             try{
                 
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/list-games/'+gameId+'/details',{
+                let response = await axios.get(BASE_URL+'/api/list-games/'+gameId+'/details',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                 

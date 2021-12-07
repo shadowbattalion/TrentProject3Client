@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function CartProvider(props){
 
-
+    const BASE_URL = "https://chocolate-cat-4og4qhs6.ws-us21.gitpod.io"
     
     const [cart, setCart] = useState([])
 
@@ -16,7 +16,7 @@ export default function CartProvider(props){
         
         getCart: async () =>{
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/cart/',{
+                let response = await axios.get(BASE_URL+'/api/cart/',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                 
@@ -52,7 +52,7 @@ export default function CartProvider(props){
         addGame: async(game_id) => {
 
             try{
-                let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/add',"",{
+                let response = await axios.post(BASE_URL+'/api/cart/'+game_id+'/add',"",{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
                     
@@ -74,7 +74,7 @@ export default function CartProvider(props){
 
             
             try{
-                let response = await axios.put('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/add',"",{
+                let response = await axios.put(BASE_URL+'/api/cart/'+game_id+'/quantity/add',"",{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -91,7 +91,7 @@ export default function CartProvider(props){
         decreaseQuantity: async(game_id)=>{
 
             try{
-                let response = await axios.put('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/quantity/subtract',"",{
+                let response = await axios.put(BASE_URL+'/api/cart/'+game_id+'/quantity/subtract',"",{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -107,7 +107,7 @@ export default function CartProvider(props){
         removeGame: async(game_id)=>{
 
             try{
-                let response = await axios.post('https://mhu-game-store.herokuapp.com/api/cart/'+game_id+'/delete',"",{
+                let response = await axios.post(BASE_URL+'/api/cart/'+game_id+'/delete',"",{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -124,7 +124,7 @@ export default function CartProvider(props){
         checkout: async()=>{
 
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/checkout/',{
+                let response = await axios.get(BASE_URL+'/api/checkout/',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -141,7 +141,7 @@ export default function CartProvider(props){
         orderHistory:async()=>{
 
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/order/user-orders',{
+                let response = await axios.get(BASE_URL+'/api/order/user-orders',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -158,7 +158,7 @@ export default function CartProvider(props){
         orderHistoryLatest:async()=>{
 
             try{
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/order/user-orders-latest',{
+                let response = await axios.get(BASE_URL+'/api/order/user-orders-latest',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 

@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 export default function CredentialsProvider(props){
 
 
-
+    const BASE_URL = "https://chocolate-cat-4og4qhs6.ws-us21.gitpod.io"
     
     // const [log, setLog] = useState(0)
 
@@ -19,7 +19,7 @@ export default function CredentialsProvider(props){
 
                 console.log(display_name,password,email,device_specs)
 
-                let response = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-reg',{
+                let response = await axios.post(BASE_URL+'/api/users/user-reg',{
                     display_name,
                     password,
                     email,
@@ -39,7 +39,7 @@ export default function CredentialsProvider(props){
         login: async (display_name_email, password) =>{
 
             try{
-                let response = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-login',{
+                let response = await axios.post(BASE_URL+'/api/users/user-login',{
                     "display_name_email":display_name_email,
                     "password":password
                 })
@@ -74,7 +74,7 @@ export default function CredentialsProvider(props){
                 
                 if (localStorage.getItem('refresh_token')) {
                     
-                    let response_refresh = await axios.post('https://mhu-game-store.herokuapp.com/api/users/user-refresh', {
+                    let response_refresh = await axios.post(BASE_URL+'/api/users/user-refresh', {
                       'refresh_token': localStorage.getItem('refresh_token')
                     });
                     
@@ -91,7 +91,7 @@ export default function CredentialsProvider(props){
             try{
 
                 
-                let response = await axios.get('https://mhu-game-store.herokuapp.com/api/users/user-profile',{
+                let response = await axios.get(BASE_URL+'/api/users/user-profile',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
@@ -115,7 +115,7 @@ export default function CredentialsProvider(props){
             try{
                 if (localStorage.getItem('refresh_token')){
                     
-                    let response = await axios.post("https://mhu-game-store.herokuapp.com/api/users/user-logout", {
+                    let response = await axios.post(BASE_URL+'/api/users/user-logout', {
                         'refresh_token': localStorage.getItem('refresh_token')
                     });
                 
