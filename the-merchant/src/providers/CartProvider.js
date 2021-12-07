@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function CartProvider(props){
 
-    const BASE_URL = "https://chocolate-cat-4og4qhs6.ws-us21.gitpod.io"
+    const BASE_URL = "https://8080-chocolate-cat-4og4qhs6.ws-us21.gitpod.io"
     
     const [cart, setCart] = useState([])
 

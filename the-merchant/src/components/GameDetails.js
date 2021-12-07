@@ -27,7 +27,7 @@ export default function GameDetails() {
 
             if(profile){
 
-                setProfile(profile.email)
+                setProfile(profile.device_specs)
 
             
 
