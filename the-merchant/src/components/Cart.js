@@ -191,20 +191,41 @@ export default function Cart() {
         let cart = cartStatus.cart_games_list
         let total = cartStatus.total
         if(cart.length!=0){
+
+            let cart_item_jsx=[]
+
+            for (let cartItem of cart){
+
+                cart_item_jsx.push(
+                    <div class="card login-card cart-page mt-1">
+                            <div class="card-body cart-items-container">
+                                <div class="cart-items-flex-1">
+                                    <div class="cart-tems" key={cartItem.id}>    
+                                    <div class="mt-2 game-details-size">{cartItem.game.title} X {cartItem.quantity} = ${cartItem.sub_total}</div>
+                                </div>
+                                <div class="cart-items-flex-2 mt-3">
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>- Quantity</a></div> 
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+ Quantity</a></div>
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} >Remove</a></div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>)
+            }
+
             cart_jsx=(<React.Fragment>
-                <h1>Game List</h1>
-                <h2>{message}</h2>
-                <div>
-                    <ul>
-                        {
-                            cart?cart.map((cartItem)=>{return <li key={cartItem.id}>{cartItem.game.title} X {cartItem.quantity} <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}} value="-"/> <input type="button" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}} value="+"/> <input type="button" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} value="Remove"/>  </li>}):""
-                        
-                        }
-                    </ul>
+                <div class="card login-card cart-page my-3">
+                    <div class="card-body">
+                        <h1 class="card-title">Cart</h1>
+                        <small>{message}</small>
+                    </div>
                 </div>
-                <div>
-                  <h2>Total: {total}</h2>
-                  <input type="button" onClick={()=>{checkout()}} value="Checkout"/>
+                {cart_item_jsx}
+                <div class="card login-card cart-page my-3">
+                    <div class="card-body">
+                        <h2 class="card-title">Total: ${total}</h2>
+                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{checkout()}}>Checkout</a></div>
+                    </div>
                 </div>
             </React.Fragment>)
         } else {
