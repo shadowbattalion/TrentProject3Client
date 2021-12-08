@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react"
+import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
 
@@ -19,8 +19,19 @@ export default function Login() {
  
     const credsContext = useContext(CredentialsContext)
     
+    useEffect(()=>{
 
-    
+        console.log(location.state)
+        if(localStorage.getItem('access_token') && location.state==undefined){
+
+            history.push("/games")
+
+
+        }
+
+    },[])
+
+            
 
     async function loginSubmit (){
 

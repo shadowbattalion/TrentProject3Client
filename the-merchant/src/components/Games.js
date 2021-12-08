@@ -117,7 +117,7 @@ export default function Games() {
                                     <div class="price-details item-price">
                                         <div class="mt-2 game-details-size">Cost</div> 
                                         <div class="mt-2 game-details-size">Discount</div> 
-                                        <div class="mt-2 game-details-size">Cart</div>
+                                        <div class="mt-2 game-details-size">Action</div>
                                     </div>
                                 </div>
                             </div>
