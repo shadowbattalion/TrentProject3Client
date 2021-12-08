@@ -113,8 +113,7 @@ export default function GameDetails() {
                                     </div>
                                     <div class="game-details-1">
                                         <p class="game-details-size">{game.description}</p>
-                                    </div>
-                                    
+                                    </div>   
                                     <div class="game-details-3">
                                         <p class="game-details-size">Released Date: {game.released_date}</p>
                                         <p class="game-details-size">Category: {game.category.name}</p>
@@ -149,7 +148,7 @@ export default function GameDetails() {
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">Reviews</h1>
-                                {game.reviews.length>0?game.reviews.map(review=>(<div class="game-details-size">{review.review.split("|")[0]} says: "{review.review.split("|")[1]}"</div>)):""}    
+                                {game.reviews.length>0?game.reviews.map(review=>(<div class="game-details-size reviews-font">{review.review.split("|")[0]} | &ldquo;{review.review.split("|")[1]}&rdquo;</div>)):""}    
                             </div>
                         </div> 
                     </div>
@@ -158,12 +157,16 @@ export default function GameDetails() {
                 <div class="games-details-page mt-3"> 
                     <div>                     
                         <div class="card login-card">
-                            <div class="card-body">
-                                <h1 class="card-title">Minimum Requirements:</h1>
-                                <div class="game-details-size">{game.minimum_requirement}</div>
-                                <hr/>
-                                <h1 class="card-title">Your Specifications:</h1>
-                                {profile?(<div class="game-details-size">{profile}</div>):""}
+                            <div class="card-body requirements">
+                                <div class="requirements-1">
+                                    <h3 class="card-title">Minimum Requirements:</h3>
+                                    <div class="game-details-size requirement-contents">{game.minimum_requirement}</div>
+                                </div>
+                                <hr class="requirements-line"/>
+                                <div class="requirements-2">
+                                    <h3 class="card-title">Your Specifications:</h3>
+                                    {profile?(<div class="game-details-size requirement-contents">{profile}</div>):""}
+                                </div>
                             </div>
                         </div> 
                     </div>
@@ -172,12 +175,16 @@ export default function GameDetails() {
                 <div class="games-details-page mt-3"> 
                     <div>                     
                         <div class="card login-card">
-                            <div class="card-body">
-                                <h1 class="card-title">Recommended Requirements:</h1>
-                                <div class="game-details-size">{game.recommended_requirement}</div>
-                                <hr/>
-                                <h1 class="card-title">Your Specifications:</h1>
-                                {profile?(<div class="game-details-size">{profile}</div>):""}
+                            <div class="card-body requirements">
+                                <div class="requirements-1">
+                                    <h3 class="card-title">Recommended Requirements:</h3>
+                                    <div class="game-details-size requirement-contents">{game.recommended_requirement}</div>
+                                </div>
+                                <hr class="requirements-line"/>
+                                <div class="requirements-2">
+                                    <h3 class="card-title">Your Specifications:</h3>
+                                    {profile?(<div class="game-details-size requirement-contents">{profile}</div>):""}
+                                </div>
                             </div>
                         </div> 
                     </div>

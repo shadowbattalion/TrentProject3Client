@@ -143,6 +143,25 @@ p{
 }
 
 
+.requirement-contents{
+
+  overflow:auto;
+
+
+}
+
+
+.reviews-font{
+
+  text-align: center;
+  font-family: 'Genos', sans-serif;
+  font-size: 30px;
+  
+
+}
+
+
+
 @media (min-width:768px) {
 
   body{
@@ -243,6 +262,53 @@ p{
   
   }
 
+  .requirements-line{
+
+
+    display:none;
+
+
+  }
+
+  .requirements{
+
+    display:flex;
+    justify-content: space-evenly;
+
+  }
+  
+  .requirement-contents{
+
+    height:300px;
+    
+  
+  }
+
+  .requirements-1{
+
+    flex:1;
+    margin-right:20px;
+
+  }
+
+  
+
+  .requirements-2{
+
+    flex:1;
+    margin-left:20px;
+
+  }
+
+
+  .reviews-font{
+
+    
+    font-size: 40px;
+    
+  
+  }
+
 
 }
 
@@ -297,7 +363,7 @@ p{
   }
   .game-details-2{
 
-    flex:4;
+    flex:2;
     margin:30px;
 
 
@@ -305,7 +371,7 @@ p{
   .game-details-3{
 
     
-    flex:2;
+    flex:1;
     margin:30px;
     height: 600px;
   }
@@ -313,7 +379,22 @@ p{
 
   .game-details-size{
 
-    font-size:30px;
+    font-size:25px;
+  
+  }
+
+  .requirement-contents{
+    
+    height:400px;
+    
+  
+  }
+
+  .reviews-font{
+
+    
+    font-size: 50px;
+    
   
   }
 
