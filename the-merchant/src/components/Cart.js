@@ -199,8 +199,8 @@ export default function Cart() {
                 cart_item_jsx.push(
                     <div class="card login-card cart-page mt-1">
                             <div class="card-body cart-items-container">
-                                <div class="cart-items-flex-1">
-                                    <div class="cart-tems" key={cartItem.id}>    
+                                <div class="cart-tems" key={cartItem.id}>  
+                                <div class="cart-items-flex-1">      
                                     <div class="mt-2 game-details-size">{cartItem.game.title} X {cartItem.quantity} = ${cartItem.sub_total}</div>
                                 </div>
                                 <div class="cart-items-flex-2 mt-3">

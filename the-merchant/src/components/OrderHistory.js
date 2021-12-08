@@ -52,16 +52,16 @@ export default function GameDetails() {
 
                 order_jsx.push(
                     <div class="card login-card cart-page mt-1">
-                            <div class="card-body cart-items-container">
-                                <div class="cart-items-flex-1">
-                                    <div class="cart-tems" key={order.id}>    
-                                    <div class="mt-2 game-details-size">{cartItem.game.title} X {cartItem.quantity} = ${cartItem.sub_total}</div>
+                            <div class="card-body order-container">
+                            <div  key={order.id}>
+                                <div class="game-details-size"><strong>Date/Time: </strong>{order.date}</div>
+                                <div class="game-details-size"><strong>Status: </strong>{order.status}</div>
+                                <div class="game-details-size"><strong>Payment method: </strong>{order.payment_method}</div>
+                                <div class="game-details-size">
+                                    <div><strong>Items: </strong></div>
+                                    <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
                                 </div>
-                                <div class="cart-items-flex-2 mt-3">
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>- Quantity</a></div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+ Quantity</a></div>
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} >Remove</a></div>
-                                </div>
+                                <div class="game-details-size"><strong>Total: </strong>${order.total}</div>
                             </div>
                          </div>
                     </div>)
@@ -74,14 +74,6 @@ export default function GameDetails() {
                     </div>
                 </div>
                 {order_jsx}
-                <div>
-                    <ul>
-                        {
-                            orderHistory?orderHistory.map((order)=>{return <li key={order.id}>{order.total}</li>}):""
-                        
-                        }
-                    </ul>
-                </div>
             </React.Fragment>)
 
 
