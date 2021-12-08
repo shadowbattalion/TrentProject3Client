@@ -99,7 +99,7 @@ export default function Login() {
             <div class="landing-page"> 
                 <div class="logo me-4">
                     <h1 class="title-font mt-5" style={{"borderBottom": "5px solid black"}}>The Merchant</h1>
-                    <h2>Your One-Stop Game Shop!</h2>
+                    <h2>Your One-Stop Gaming Shop!</h2>
                 </div>
                 <div>   
                    
@@ -109,12 +109,12 @@ export default function Login() {
                             <small>{location.state?.message}</small>
                             <small>{fail}</small>
                             <div>
-                                <label>Enter Display Name/Email Address:</label>
+                                <label>Enter Display Name/Email Address: </label>
                                 <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
                                 <div><small>{validation?.display_name_email_missing}</small></div>
                             </div>
                             <div>
-                                <label>Password:</label>
+                                <label>Password: </label>
                                 <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
                                 <div><small>{validation?.password_missing}</small></div>
                             </div>

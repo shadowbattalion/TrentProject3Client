@@ -120,27 +120,27 @@ export default function UserReg() {
                             <small>{location.state?.message}</small>
                             <small>{fail}</small>
                             <div>
-                                <label>Enter Display Name:</label>
+                                <label>Enter Display Name: </label>
                                 <div><input type="text" name="display_name" value={field.display_name} onChange={updateState}/></div>
                                 <div><small>{validation?.display_name_missing}</small></div>
                             </div>
                             <div>
-                                <label>Enter Email Address:</label>
+                                <label>Enter Email Address: </label>
                                 <div><input type="text" name="email" value={field.email} onChange={updateState}/></div>
                                 <div><small>{validation?.email_missing}</small></div>
                             </div>
                             <div>
-                                <label>Device Specifications:</label>
+                                <label>Device Specifications: </label>
                                 <div><textarea name="device_specs" rows="4" cols="35" value={field.device_specs} onChange={updateState}/></div>
                                 <div><small>{validation?.device_specs_missing}</small></div>
                             </div>
                             <div>
-                                <label>Password:</label>
+                                <label>Password: </label>
                                 <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
                                 <div><small>{validation?.password_missing}</small></div>
                             </div>
                             <div>
-                                <label>Re-Enter Password:</label>
+                                <label>Re-Enter Password: </label>
                                 <div><input type="password" name="confirm_password" value={field.confirm_password} onChange={updateState}/></div>
                                 <div><small>{validation?.confirm_password_missing}</small></div>
                             </div>

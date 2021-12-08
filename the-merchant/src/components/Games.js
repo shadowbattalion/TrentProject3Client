@@ -173,13 +173,15 @@ export default function Games() {
                 <div class="card login-card">
                     <div class="card-body">
                         <h1 class="card-title">Search For Games</h1>
-                        <div>
-                            <label>Title:</label>
-                            <input type="text" name="title" value={field.title} onChange={updateState}/>
-                        </div>
-                        <div>
-                            <label>Company Name:</label>
-                            <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
+                        <div class="search-bar">
+                            <div>
+                                <label>Title: </label>
+                                <input type="text" name="title" value={field.title} onChange={updateState}/>
+                            </div>
+                            <div>
+                                <label>Company Name: </label>
+                                <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
+                            </div>
                         </div>
                         <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={searchSubmit}>Search</a>
                     </div>
