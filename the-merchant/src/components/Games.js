@@ -109,13 +109,13 @@ export default function Games() {
             let game_jsx=[]
 
             game_jsx.push(
-                    <div class="card login-card mt-1">
+                    <div class="card table-headers">
                             <div class="card-body">
                                 <div class="items">    
-                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}>Game</h3>                                    
-                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}>Company Name</h3>
+                                    <h3 class="item-title mt-2">Title</h3>                                    
+                                    <h3 class="item-company-name mt-2">Company Name</h3>
                                     <div class="price-details item-price">
-                                        <div class="mt-2 game-details-size">Cost</div> 
+                                        <div class="mt-2 game-details-size">Price</div> 
                                         <div class="mt-2 game-details-size">Discount</div> 
                                         <div class="mt-2 game-details-size">Action</div>
                                     </div>
@@ -131,12 +131,13 @@ export default function Games() {
                         <div class="card login-card mt-1">
                             <div class="card-body">
                                 <div class="items" key={game.id}>    
+                                    <img src={game.banner_image_thumbnail} class="img-fluid item-thumb" alt="game banner image"/> 
                                     <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
                                     <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}>{game.company_name}</h3>
                                     <div class="price-details item-price">
                                         <div class="mt-2 game-details-size">${game.cost}</div> 
                                         <div class="mt-2 game-details-size">{game.discount}%</div> 
-                                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
+                                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Add to Cart</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +174,8 @@ export default function Games() {
                 <div class="card login-card">
                     <div class="card-body">
                         <h1 class="card-title">Search For Games</h1>
-                        <div class="search-bar">
+                        <small style={{color:"black"}}>Inputs are case sensitive.</small><br/>
+                        <div class="search-bar mt-3">
                             <div>
                                 <label>Title: </label>
                                 <input type="text" name="title" value={field.title} onChange={updateState}/>
@@ -191,6 +193,7 @@ export default function Games() {
                 <div class="card login-card">
                     <div class="card-body">
                         <h1 class="card-title">Game List</h1>
+                        <small style={{color:"black"}}>Click on the game Title name to check out the cool features!</small><br/>
                         <small>{message}</small>
                     </div>
                 </div>         

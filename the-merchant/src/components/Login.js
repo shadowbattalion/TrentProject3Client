@@ -99,7 +99,7 @@ export default function Login() {
             <div class="landing-page"> 
                 <div class="logo me-4">
                     <h1 class="title-font mt-5" style={{"borderBottom": "5px solid black"}}>The Merchant</h1>
-                    <h2>Your One-Stop Gaming Shop!</h2>
+                    <h2>Your One-Stop Online Gaming Shop!</h2>
                 </div>
                 <div>   
                    

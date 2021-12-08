@@ -105,7 +105,7 @@ export default function GameDetails() {
                                 <div class="price-details">
                                     <div class="mt-2 game-details-size">Cost: ${game.cost}</div> 
                                     <div class="mt-2 game-details-size">Discount: {game.discount}%</div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Add to Cart</a></div>
                                 </div>
                                 <div class="game-details">
                                     <div class="game-details-2">

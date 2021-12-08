@@ -169,6 +169,14 @@ p{
 }
 
 
+.table-headers{
+
+  
+  display: none;
+
+
+}
+
 
 
 
@@ -323,7 +331,7 @@ p{
    
 
       /* display:flex; */
-      margin: 75px;
+      margin: 25px;
       /* justify-content: center; */
   
  
@@ -340,13 +348,19 @@ p{
   .item-title{
 
    
-    flex:2;
+    flex:1;
   
   }
   
+  .item-thumb{
+
+    margin-right: 10px;
+  }
+
+
   .item-company-name{
 
-    flex:2;
+    flex:1;
 
   }
 
@@ -356,7 +370,13 @@ p{
   
   }
   
+  .table-headers{
 
+    background: rgba(255,255,255,1);
+    display: block;
+  
+  
+  }
   
 
 }
