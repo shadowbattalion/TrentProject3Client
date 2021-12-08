@@ -162,6 +162,11 @@ p{
 
 
 
+
+
+
+
+
 @media (min-width:768px) {
 
   body{
@@ -309,6 +314,45 @@ p{
   
   }
 
+  .game-list-page{
+   
+
+      /* display:flex; */
+      margin: 75px;
+      /* justify-content: center; */
+  
+ 
+  }
+
+  .items{
+
+    display: flex;
+    justify-content: space-evenly;
+
+  }
+
+
+  .item-title{
+
+   
+    flex:2;
+  
+  }
+  
+  .item-company-name{
+
+    flex:2;
+
+  }
+
+  .item-price{
+
+    flex:2;
+  
+  }
+  
+
+  
 
 }
 

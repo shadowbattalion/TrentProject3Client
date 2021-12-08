@@ -102,22 +102,63 @@ export default function Games() {
 
     if(gameList){ //always check if got null or not because useEffect will run later and change the state
         let games = gameList
+
+        
+
         if(games.length!=0){
+            let game_jsx=[]
+
+            game_jsx.push(
+                    <div class="card login-card mt-1">
+                            <div class="card-body">
+                                <div class="items">    
+                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}>Game</h3>                                    
+                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}>Company Name</h3>
+                                    <div class="price-details item-price">
+                                        <div class="mt-2 game-details-size">Cost</div> 
+                                        <div class="mt-2 game-details-size">Discount</div> 
+                                        <div class="mt-2 game-details-size">Cart</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>            
+            )
+
+
+
+            for (let game of games){
+                game_jsx.push(
+                        <div class="card login-card mt-1">
+                            <div class="card-body">
+                                <div class="items" key={game.id}>    
+                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
+                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}>{game.company_name}</h3>
+                                    <div class="price-details item-price">
+                                        <div class="mt-2 game-details-size">${game.cost}</div> 
+                                        <div class="mt-2 game-details-size">{game.discount}%</div> 
+                                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>)
+
+            }
+
             game_list_jsx=(<React.Fragment>
-                <h2>{message}</h2>
-                <div>
-                    <ul>
-                        {
-                            games?games.map((game)=>{return <li key={game.id}>{game.title}<Link to={"/game-details/" + game.id}>More...</Link>  <input type="button" onClick={()=>{addGame(game.id, game.title)}} value="Add To Cart"/> </li>}):""
-                        
-                        }
-                    </ul>
-                </div>
+                    <div class="game-list-page mt-3">
+                        {game_jsx}
+                    </div>
             </React.Fragment>)
         } else {
 
             game_list_jsx=(<React.Fragment>
-                <h1>Loading Game List</h1>
+                <div class="game-list-page mt-3">   
+                    <div class="card login-card">
+                        <div class="card-body">
+                            <h1 class="card-title">Loading Game List</h1>
+                        </div>
+                    </div>         
+                </div>
             </React.Fragment>)
 
         }
@@ -128,15 +169,30 @@ export default function Games() {
     
     let search = (
         <React.Fragment>
-            <div>
-                <label>Title:</label>
-                <input type="text" name="title" value={field.title} onChange={updateState}/>
+            <div class="game-list-page">   
+                <div class="card login-card">
+                    <div class="card-body">
+                        <h1 class="card-title">Search For Games</h1>
+                        <div>
+                            <label>Title:</label>
+                            <input type="text" name="title" value={field.title} onChange={updateState}/>
+                        </div>
+                        <div>
+                            <label>Company Name:</label>
+                            <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={searchSubmit}>Search</a>
+                    </div>
+                </div>         
             </div>
-            <div>
-                <label>Company Name:</label>
-                <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
+            <div class="game-list-page mt-3">   
+                <div class="card login-card">
+                    <div class="card-body">
+                        <h1 class="card-title">Game List</h1>
+                        <small>{message}</small>
+                    </div>
+                </div>         
             </div>
-            <input type="button" onClick={searchSubmit} value="Submit"/>
         </React.Fragment>)
   
   
@@ -144,7 +200,6 @@ export default function Games() {
     return (
         (<React.Fragment>
             {search}
-            <h1>Game List</h1>
             {game_list_jsx}
         </React.Fragment>)
     )
