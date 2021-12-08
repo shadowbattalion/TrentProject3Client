@@ -1,4 +1,4 @@
-import background from './images/pexels-miguel-á-padriñán-19670.jpg'
+
 import './App.css';
 import React from 'react';
 import{
@@ -32,12 +32,12 @@ function App(){
 
   return(
     <React.Fragment>
-      <div style={{ 
-          backgroundImage: `url(${background})`,
+      {/* <div style={{ 
+          backgroundImage: 'url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg")',
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
           paddingBottom:"50px"
-          }}>
+          }}> */}
       <CredentialsProvider>
         <CartProvider>
           <GamesProvider>
@@ -84,7 +84,7 @@ function App(){
           </GamesProvider>
         </CartProvider>
       </CredentialsProvider> 
-      </div>      
+      {/* </div>       */}
       </React.Fragment>
 
   )

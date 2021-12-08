@@ -6,7 +6,9 @@
 }
 
 body {
-
+  background-image: url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Rajdhani', sans-serif;
   font-size:medium;
 }
