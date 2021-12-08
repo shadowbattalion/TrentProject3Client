@@ -104,9 +104,9 @@ export default function Nav() {
                 </div>
                 
             </nav>
-            <div class="d-flex">
-                <div>{ creds?(<div class="mx-3 py-2">User: {creds.display_name}</div>):""}</div>
+            <div class="d-flex ms-3 mb-3">
                 <div>{ creds?(<Logout/>):""}</div>
+                <div>{ creds?(<div class="mx-3 pt-4">User: {creds.display_name}</div>):""}</div>
             </div>
         </React.Fragment>)
     )

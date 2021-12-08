@@ -102,6 +102,46 @@ p{
 }
 
 
+.price-details{
+
+  display:flex;
+  justify-content:space-between;
+
+
+
+}
+
+
+.game-details{
+
+ 
+  margin-top:20px;
+
+
+}
+
+.game-details-size{
+
+  font-size:20px;
+
+}
+
+
+
+.game-details-1{
+
+  overflow: auto;
+
+
+}
+
+.game-details-3{
+
+  
+  overflow: auto;
+
+}
+
 
 @media (min-width:768px) {
 
@@ -127,6 +167,13 @@ p{
   }
 
 
+  .games-details-page{
+
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+  }
+
   .logo{
 
 
@@ -147,6 +194,55 @@ p{
 
   }
   
+  
+  .price-details{
+
+    
+    justify-content:space-evenly;
+  
+  
+  
+  }
+
+
+  .game-details{
+
+    display:flex;
+    margin-top:30px;
+
+
+  }
+
+
+  .game-details-1{
+
+    flex:1;
+    margin:10px;
+    height: 300px;
+
+  }
+  .game-details-2{
+
+    flex:1;
+    margin:10px;
+
+
+  }
+  .game-details-3{
+
+    
+    flex:1;
+    margin:10px;
+    height: 300px;
+
+  }
+
+  .game-details-size{
+
+    font-size:25px;
+  
+  }
+
 
 }
 
@@ -192,7 +288,34 @@ p{
   
   }
   
+  .game-details-1{
+
+    flex:2;
+    margin:30px;
+    height: 600px;
+
+  }
+  .game-details-2{
+
+    flex:4;
+    margin:30px;
+
+
+  }
+  .game-details-3{
+
+    
+    flex:2;
+    margin:30px;
+    height: 600px;
+  }
+
+
+  .game-details-size{
+
+    font-size:30px;
   
+  }
 
 }
 

@@ -96,25 +96,34 @@ export default function GameDetails() {
         if(game!="No such games"){
 
             game_jsx=(<React.Fragment>
-                <div class="landing-page"> 
+                <div class="games-details-page"> 
                     <div>                     
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">{game.title}</h1>
                                 <small>{message}</small>
-                                <div class="d-flex justify-content-between">
-                                    <div style={{fontSize:"20px"}}>Cost: {game.cost}</div> 
-                                    <div style={{fontSize:"20px"}}>Discount: {game.discount}</div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
+                                <div class="price-details">
+                                    <div class="mt-2 game-details-size">Cost: ${game.cost}</div> 
+                                    <div class="mt-2 game-details-size">Discount: {game.discount}%</div> 
+                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Cart</a></div>
                                 </div>
-                                <p>{game.description}</p>
-                                <img src={game.banner_image} class="img-fluid" alt="game banner image"/> 
-                                <p>Released Date: {game.released_date}</p>
-                                <p>Category: {game.category.name}</p>
-                                <p>Tags:
-                                {game.content_tags.map(tag=>(<div>{tag.name}</div>))}</p>
-                                <p>Platforms:
-                                {game.platforms.map(platform=>(<div>{platform.name}</div>))}</p>      
+                                <div class="game-details">
+                                    <div class="game-details-2">
+                                        <img src={game.banner_image} class="img-fluid" alt="game banner image"/> 
+                                    </div>
+                                    <div class="game-details-1">
+                                        <p class="game-details-size">{game.description}</p>
+                                    </div>
+                                    
+                                    <div class="game-details-3">
+                                        <p class="game-details-size">Released Date: {game.released_date}</p>
+                                        <p class="game-details-size">Category: {game.category.name}</p>
+                                        <p class="game-details-size">Tags:
+                                        {game.content_tags.map(tag=>(<div>{tag.name}</div>))}</p>
+                                        <p class="game-details-size">Platforms:
+                                        {game.platforms.map(platform=>(<div>{platform.name}</div>))}</p>
+                                    </div>
+                                </div>      
                             </div>
                         </div> 
                     </div>
@@ -135,40 +144,40 @@ export default function GameDetails() {
                 </div>
 
 
-                <div class="landing-page mt-3"> 
+                <div class="games-details-page mt-3"> 
                     <div>                     
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">Reviews</h1>
-                                {game.reviews.length>0?game.reviews.map(review=>(<div style={{fontSize:"20px"}}>{review.review.split("|")[0]} says: "{review.review.split("|")[1]}"</div>)):""}    
+                                {game.reviews.length>0?game.reviews.map(review=>(<div class="game-details-size">{review.review.split("|")[0]} says: "{review.review.split("|")[1]}"</div>)):""}    
                             </div>
                         </div> 
                     </div>
                 </div>
 
-                <div class="landing-page mt-3"> 
+                <div class="games-details-page mt-3"> 
                     <div>                     
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">Minimum Requirements:</h1>
-                                <div style={{fontSize:"20px"}}>{game.minimum_requirement}</div>
+                                <div class="game-details-size">{game.minimum_requirement}</div>
                                 <hr/>
                                 <h1 class="card-title">Your Specifications:</h1>
-                                {profile?(<div style={{fontSize:"20px"}}>{profile}</div>):""}
+                                {profile?(<div class="game-details-size">{profile}</div>):""}
                             </div>
                         </div> 
                     </div>
                 </div>
 
-                <div class="landing-page mt-3"> 
+                <div class="games-details-page mt-3"> 
                     <div>                     
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">Recommended Requirements:</h1>
-                                <div style={{fontSize:"20px"}}>{game.recommended_requirement}</div>
+                                <div class="game-details-size">{game.recommended_requirement}</div>
                                 <hr/>
                                 <h1 class="card-title">Your Specifications:</h1>
-                                {profile?(<div style={{fontSize:"20px"}}>{profile}</div>):""}
+                                {profile?(<div class="game-details-size">{profile}</div>):""}
                             </div>
                         </div> 
                     </div>
