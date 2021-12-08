@@ -1,4 +1,4 @@
-
+// import background from "./images/pexels-miguel-á-padriñán-19670.jpg"
 import './App.css';
 import React from 'react';
 import{
@@ -28,16 +28,18 @@ import OrderHistoryPage from './pages/OrderHistoryPage';
 
 import Nav from './components/Nav'
 
+//  'url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg")'
+
 function App(){
 
   return(
     <React.Fragment>
-      <div style={{ 
-          backgroundImage: 'url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg")',
+      {/* <div style={{ 
+          backgroundImage: `url(${background})`,
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
           paddingBottom:"150px"
-          }}>
+          }}> */}
       <CredentialsProvider>
         <CartProvider>
           <GamesProvider>
@@ -84,7 +86,7 @@ function App(){
           </GamesProvider>
         </CartProvider>
       </CredentialsProvider> 
-      </div>      
+      {/* </div>       */}
       </React.Fragment>
 
   )
