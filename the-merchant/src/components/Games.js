@@ -113,7 +113,7 @@ export default function Games() {
                             <div class="card-body">
                                 <div class="items">    
                                     <h3 class="item-title mt-2">Title</h3>                                    
-                                    <h3 class="item-company-name mt-2">Company Name</h3>
+                                    <h3 class="item-company-name mt-2">Company</h3>
                                     <div class="price-details item-price">
                                         <div class="mt-2 game-details-size">Price</div> 
                                         <div class="mt-2 game-details-size">Discount</div> 
@@ -132,8 +132,8 @@ export default function Games() {
                             <div class="card-body">
                                 <div class="items" key={game.id}>    
                                     <img src={game.banner_image_thumbnail} class="img-fluid item-thumb" alt="game banner image"/> 
-                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
-                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}>{game.company_name}</h3>
+                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}><strong class="game-list-bold">Title: </strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
+                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}><strong class="game-list-bold">Company: </strong>{game.company_name}</h3>
                                     <div class="price-details item-price">
                                         <div class="mt-2 game-details-size">${game.cost}</div> 
                                         <div class="mt-2 game-details-size">{game.discount}%</div> 

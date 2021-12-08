@@ -142,6 +142,13 @@ p{
 
 }
 
+.game-list-bold{
+
+
+  display:inline-block;
+
+
+}
 
 .requirement-contents{
 
@@ -297,6 +304,16 @@ p{
     font-size:25px;
   
   }
+
+
+.game-list-bold{
+
+
+  display:none;
+
+
+}
+
 
   .requirements-line{
 
