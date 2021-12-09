@@ -22,8 +22,8 @@ import GamesPage from './pages/GamesPage';
 import GameDetailsPage from './pages/GameDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage'
-
-
+import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
+import OrderFailurePage from './pages/OrderFailurePage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 
 import Nav from './components/Nav'
@@ -70,8 +70,14 @@ function App(){
                   <Nav/>
                   <CheckoutPage/>
                 </Route>
-                
-                
+                <Route exact path="/order-success">
+                  <Nav/>
+                  <OrderSuccessfulPage/>
+                </Route>
+                <Route exact path="/order-fail">
+                  <Nav/>
+                  <OrderFailurePage/>
+                </Route>
                 <Route exact path="/games">
                   <Nav/>
                   <GamesPage/>

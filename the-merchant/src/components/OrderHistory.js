@@ -81,7 +81,11 @@ export default function GameDetails() {
         } else {
             
             orderHistory_jsx=(<React.Fragment>
-                <h1>There are no order currently</h1>
+                <div class="card login-card cart-page mt-1">
+                    <div class="card-body order-container">
+                        <h1 class="card-title">There are no orders currently</h1>
+                    </div>
+                </div>
             </React.Fragment>)
 
         }
