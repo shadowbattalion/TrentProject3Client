@@ -219,6 +219,10 @@ Vendor
 	<li>Search and filter orders</li>
 </ul>
 
+### ERD Diagram
+
+![](readme_images/the_merchant_erd.png)
+
 
 ### SQLDBM Diagram
 
@@ -344,8 +348,8 @@ Vendor:
 |3|User logs in|1.Click on the "Log in" button. The log in page will appear.<br/>2. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
 |4|User wants to test buying a game|1.  From the Game List page, click on "Add to Cart" button on one of the games. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
 |5|User wants to manage game details|1.  From the Games List page, click on the "details" button|The website will bring the user to the  Game Detail page|
-|6|User wants to add a game|1.Click on the "Add" button.<br/>2. Enter the  Click on "Add This Game" button|The website will bring user to the game list page with a notification that a new game has been added|
-|7|User wants to update details of game|1. On the top most panel of the game detail page, click on "Update" button. This will bring the user to the update page.<br>2.Enter the Click on "Update This Game" button|The website will bring user to the game details page with a notification that the game has been updated|
+|6|User wants to add a game|1.Click on the "Add" button.<br/>2. Enter the game details. Click on "Add This Game" button|The website will bring user to the game list page with a notification that a new game has been added|
+|7|User wants to update details of game|1. On the top most panel of the game detail page, click on "Update" button. This will bring the user to the update page.<br>2.Enter the game details. Click on "Update This Game" button|The website will bring user to the game details page with a notification that the game has been updated|
 |8|User wants to delete of game|1. On the top most panel of the game detail page, click on "Delete" button. This will bring the user to the delete confirmation page.<br>2. Click on "Yes" button|The website will bring user to the game list page with a notification that the game has been deleted|
 |9|User wants to see all orders|1. From the Game List page, click on "Orders" button on navbar. |The orders list page will appear|
 
