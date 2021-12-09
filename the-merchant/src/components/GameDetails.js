@@ -118,9 +118,9 @@ export default function GameDetails() {
                                         <p class="game-details-size">Released Date: {game.released_date}</p>
                                         <p class="game-details-size">Category: {game.category.name}</p>
                                         <p class="game-details-size">Tags:
-                                        {game.content_tags.map(tag=>(<div>{tag.name}</div>))}</p>
+                                        {game.content_tags.map(tag=>(<div>{tag.content_name}</div>))}</p>
                                         <p class="game-details-size">Platforms:
-                                        {game.platforms.map(platform=>(<div>{platform.name}</div>))}</p>
+                                        {game.platforms.map(platform=>(<div>{platform.platform_name}</div>))}</p>
                                     </div>
                                 </div>      
                             </div>
