@@ -148,3 +148,39 @@ Information is organised in as concisely as possible, only highlighting the impo
 <ins>Mobile Mockup</ins>
 
 ![](readme_images/mobile_mockup.png)
+
+### Surface
+
+<ul>
+	<li>Appearance</li>
+		<ul>
+			<li>Typography: </li>
+				<ul>
+				<li>Genos: For main titles because it is very eye-catching.</li>
+				<li>Rajdhani: For contents. It looks easy on the eyes and modern. It has the "gaming" look.</li>
+				</ul>
+			<li>Color:</li>
+				<ul>
+				<li>rgba(255,255,255,0.4): Primary color. It is white and a bit transparent. This will help ease the eyes and to help users focus on the important information. </li>
+				<li>Orange: Secondary color. To highlight important buttons so that the buttons will stand out more to the users.  </li>
+				<li>Blue: To be used when hovering on clickable texts.</li>
+				</ul>
+			<li>Font Size:</li>
+				<ul>
+				<li>Big texts are to catch the users attention. Mostly used in titles. Smaller texts are used for the 			contents</li>
+				<li>Font size varies, depend on the screen size to make the website responsive</li>
+				</ul>
+			<li>Layout:</li>
+				<ul>
+				<li>A lot of space are used between texts to ensure that it doesn't look cluttered. Users need to be given a calm mind in order to decide on the games that best fit their machine. We don't want users to buy games which they cannot run on their machines</li>
+				</ul>
+		</ul>
+	<li>Mobile Requirement:</li>
+		<ul>
+				<li>This is achieved by starting from the mobile layout. The most important thing to keep track is the size of components, like words, icons etc. Because this will change when the website runs on a bigger screen, therefore the size of the components and the screens must be proportionate.</li>
+	 </ul>
+</ul>
+
+
+## Features
+### Feature List
