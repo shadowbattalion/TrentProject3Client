@@ -328,7 +328,7 @@ Vendor:
 | Test Case # | Test Case Description |Test Steps|Expected Result|
 |--|--|--|--|
 |1|User accesses the main URL|1. Go to URL (under Summary section)|A login page will appear|
-|2|User Registers|1. Enter "Test" in the "Display_name" and "test@com" in "Email". Enter the password and click on "Submit" button<br>2. Login page will appear. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
+|2|User Registers|1.Click on "Sing Up" on the navbar. The sign up page will appear.<br/>2.Enter "Test" in the "Display_name" and "test@com" in "Email". Enter the password and click on "Submit" button<br>3. Login page will appear. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
 |3|User logs in|1. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
 |4|User wants buy a game|1.  From the Game List page, click on "Add to Cart" button on one of the games. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
 |5|User wants to look into a game into more details|1.  From the Games List page, click on game title|The  Website will bring the user to the  Game Detail page|
