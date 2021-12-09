@@ -350,11 +350,73 @@ Vendor:
 ### Database
 Remote Postgres server somewhere in Heroku
 
+(This must be done after deploying to Heroku shown in Backend section)
+
+heroku addons:create heroku-postgresql
+
+Go to your app in heroku and click on Settings
+
+Click on Reveal Config. The database URL will be used to initialise the environment variables for the database.
+
+### Environment Variables
+
+Database: to intialise access to the remote database
+<ul>
+	<li>DB_DRIVER
+	<li>DB_USER
+	<li>DB_PASSWORD
+	<li>DB_DATABASE
+	<li>DB_HOST
+</ul>
+
+Cloudinary: to initialise access to cloudinary account so that images can be uploaded and stored
+<ul>
+	<li>CLDNRY_NAME
+	<li>CLDNRY_API_KEY
+	<li>CLDNRY_API_SECRET
+	<li>CLDNRY_UPLOAD_PRESET
+</ul>
+
+
+Stripe: variables to carry out transactions and redirects
+<ul>
+	<li>STRIPE_PUBLISHABLE_KEY
+	<li>STRIPE_SECRET_KEY
+	<li>STRIPE_SUCCESS_URL
+	<li>STRIPE_ERROR_URL
+	<li>STRIPE_ENDPOINT_KEY
+</ul>
+
+Sessions: A secret key to create sessions between client and servers
+<ul>
+	<li>SESSION_SECRET
+</ul>
+
+
+JWT tokens: Keys used for API communication. It needs to be refreshed with a new one every few moments in order to make the access token valid
+<ul>
+	<li>TOKEN_SECRET (Access Token)
+	<li>REFRESH_TOKEN_SECRET (Refresh Token)
+</ul>
+
+
+
 ### Backend
 Heroku
 
+heroku login - i
 
+heroku create <app-name>
 
+Procfile > web: node index.js
+
+Add "start": "node index.js" in package.json
+
+git add .
+
+git commit -m "Deploy to Heroku"
+
+git push heroku master
 
 
 ### Frontend
