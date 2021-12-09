@@ -1,4 +1,3 @@
-
 # The Merchant
 
 ## Summary
@@ -36,3 +35,49 @@ Based on this news, https://www.straitstimes.com/business/companies-markets/sing
 	<ul>
 		<li></li>
 	</ul>
+
+## UI/UX 
+### Stratergy
+<ins>User Stories</ins>
+
+
+As a customer I want to see a list of games so that I can select them easily
+
+As a customer I want to see a game details so that I can see details of each games
+
+As a customer I want to add the selected games into carts so that I can buy them later in the checkout
+
+As a customer I want to remove selected games from cart so that I can reject paying them later
+ 
+As a customer I want to update the selected games in carts so that I can change my game selections 
+
+As a customer I want to checkout my cart so that I can proceed to payment page
+
+As a customer I want to see the receipt so that I can get an evidence of the game that I have bought
+
+ 
+As a vendor I want to add new games so that I can let customers choose
+
+As a vendor I want to see a list of games so that I can access each games
+
+As a vendor I want to see a game details so that I can see details of each games
+
+As a vendor I want to update games so that I can change its details
+
+As a vendor I want to delete games so that I can remove games
+
+As a vendor I want to see orders so that I can keep records of transactions
+
+
+<ins>Acceptance criteria</ins>
+<ul>
+	<li>Vendor can see edit delete and create games</li>
+	<li>Vendor can see edit delete and create orders</li>
+	<li>Vendor search through games</li>
+	<li>Vendor search through orders</li>
+	<li>Customers can see cart, add games to cart update quantity in cart and remove game from cart</li>
+	<li>Customer can checkout to buy their games</li>
+	<li>Customer can access their orders history</li>
+	<li>Customer search through games</li>
+	<li>Customer compare requirements</li>
+</ul>
