@@ -33,7 +33,7 @@ Based on this news, https://www.straitstimes.com/business/companies-markets/sing
 
 <ins>The Merchant Link:</ins>
 	<ul>
-		<li></li>
+		<li>https://competent-davinci-649e42.netlify.app/</li>
 	</ul>
 
 ## UI/UX 
