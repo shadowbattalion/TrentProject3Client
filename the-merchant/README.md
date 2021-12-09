@@ -347,14 +347,27 @@ Vendor:
 
 
 ## Deployment
+### Database
+Remote Postgres server somewhere in Heroku
+
 ### Backend
 Heroku
 
 
 
 
+
 ### Frontend
 Netlify
+In the the-merchant folder, run npm install. Node_modules directory will be created
+Then run yarn build.
+Delete node_modules directory
+Got to gitpod.io and download the workspace from there. If it doesn't work, save all work in the current gitpod workspace and shut it down. Close the workspace in gitpod.io too.
+Extract the build file from the downloaded workspace.
+Go to netlify > sites
+Drag and drop the build file
+Wait for it to run.
+
 
 
 
@@ -380,4 +393,5 @@ Netlify
 |Session-file-store|https://www.npmjs.com/package/session-file-store|
 |Csurf|http://expressjs.com/en/resources/middleware/csurf.html|
 |Jsonwebtoken|https://www.npmjs.com/package/jsonwebtoken|
+
 
