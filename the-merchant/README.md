@@ -183,7 +183,9 @@ Information is organised in as concisely as possible, only highlighting the impo
 
 Background Image:
 Also, thanks for the beautiful image man!
+
 (Photo by Miguel Á. Padriñán from Pexels)
+
 ![](readme_images/pexels-miguel-á-padriñán-19670.jpg)
 
 
