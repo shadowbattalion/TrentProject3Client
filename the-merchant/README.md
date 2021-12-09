@@ -250,10 +250,11 @@ Vendor:
 
 <ul>
 	<li>Landing Page: Where vendors can login or sign up </li>
-	<li>Game List: The main place where vendors can manage games and test add to cart and checkout</li>
+	<li>Game List: The place where vendors can manage games and test add to cart and checkout.</li>
+	<li>Add Games: The main place where vendors can add games which will appear on customer front end.</li>
+	<li>Game Details:  Vendors can look through the game details and can update and delete certain games</li>
 	<li>Cart: Where vendors can update the quantity and also remove items form cart to test cart.</li>
 	<li>Checkout: will redirect vendors to Stripe page to test checkout </li>
-	<li>Game Details:  Vendors can look through the game details and can update and delete certain games</li>
 	<li>Order List: List all customer order history</li>	
 </ul>
 
