@@ -143,11 +143,21 @@ Information is organised in as concisely as possible, only highlighting the impo
 ### Skeleton
 <ins>Desktop Mockup</ins>
 
-![](readme_images/desktop_mockup.png)
+<ins>Game List Mockup</ins>
 
-<ins>Mobile Mockup</ins>
+![](readme_images/game_list_mockup.png)
 
-![](readme_images/mobile_mockup.png)
+<ins>Game Detail Mockup</ins>
+
+![](readme_images/game_detail_mockup.png)
+
+<ins>Cart Mockup</ins>
+
+![](readme_images/cart_mockup.png)
+
+<ins>History Mockup</ins>
+
+![](readme_images/cart_mockup.png)
 
 ### Surface
 
