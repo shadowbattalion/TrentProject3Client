@@ -81,3 +81,43 @@ As a vendor I want to see orders so that I can keep records of transactions
 	<li>Customer search through games</li>
 	<li>Customer compare requirements</li>
 </ul>
+
+### Scope
+<ins>Functional requirements</ins>
+
+<ul>
+	<li>Vendor</li>
+	<ul>
+		<li>Vendor can list games</li>
+		<li>Vendor can see game details</li>
+		<li>Vendor can add games to list</li>
+		<li>Vendor can delete games from list</li>
+		<li>Vendor can update games in list</li>
+		<li>Vendor can list orders</li>
+		<li>Vendor can search orders</li>
+		<li>Vendor can search games</li>
+	</ul>
+	<li>Customers</li>
+	<ul>
+		<li>Customers can list games</li>
+		<li>Customers can see game details</li>
+		<li>Customers can add games to cart</li>
+		<li>Customers can delete games from cart</li>
+		<li>Customers can update game quantity in cart</li>
+		<li>Customers can  do checkout</li>
+		<li>Customers can get payment summary</li>
+		<li>Customers can  list orders history</li>
+	</ul>
+</ul>
+
+
+<ins>Non-functional requirements</ins>
+<ul>
+	<li>Mobile responsiveness: As the website will have many texts, a proper size and font is needed for mobile users to have ease of reading.</li>
+	<li>Privacy</li>
+	<li>Security</li>
+	<li>Localization criteria: Only in English as this website is open to everyone</li>
+	<li>Accessibility criteria: Only for those who are not visually impaired</li>	
+	<li>Not Applicable: Performance</li>
+</ul>
+
