@@ -191,3 +191,47 @@ Also, thanks for the beautiful image man!
 
 ## Features
 ### Feature List
+<ul>
+	<li> Login and signup</li>
+	<li>List games, look at game details, both can add to cart </li>
+	<li>Search and filter games</li>
+	<li>Game details can show user specs vs game requirements</li>
+	<li>Cart page to show what users have currently and can update quantity and remove item altogether</li>
+	<li>Can do check out</li>
+	<li>Shows "order fail" page if the checkout fail or if user goes back from Stripe page</li>
+	<li>Show "order succes" page if the checkout is successful and will show the latest order </li>
+	<li>List user order history </li>
+</ul>
+
+
+<ul>
+	<li> Login and signup</li>
+	<li>Add a new game, delete and update.</li>
+	<li>List games, look at game details, both can add to cart </li>
+	<li>Search and filter games</li>
+	<li>Cart page to show what users have currently and can update quantity and remove item altogether</li>
+	<li>Can do check out</li>
+	<li>Shows "order fail" page if the checkout fail or if user goes back from Stripe page</li>
+	<li>Show "order succes" page if the checkout is successful</li>
+	<li>List all orders </li>
+	<li>Search and filter orders</li>
+</ul>
+
+### ERD Diagram
+
+![](readme_images/the_merchant_erd.png)
+
+
+### SQLDBM Diagram
+
+![](readme_images/the_merchant_sqldbm.png)
+
+
+### Feature Flow
+
+Customer:
+![](readme_images/customer_feature_flow.png)
+
+
+Vendor:
+![](readme_images/vendor_feature_flow.png)
