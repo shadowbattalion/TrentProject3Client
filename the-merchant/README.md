@@ -360,12 +360,19 @@ Heroku
 ### Frontend
 Netlify
 In the the-merchant folder, run npm install. Node_modules directory will be created
+
 Then run yarn build.
-Delete node_modules directory
+
+Delete node_modules directory.
+
 Got to gitpod.io and download the workspace from there. If it doesn't work, save all work in the current gitpod workspace and shut it down. Close the workspace in gitpod.io too.
+
 Extract the build file from the downloaded workspace.
-Go to netlify > sites
-Drag and drop the build file
+
+Go to netlify > sites.
+
+Drag and drop the build file.
+
 Wait for it to run.
 
 
