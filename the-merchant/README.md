@@ -155,9 +155,9 @@ Information is organised in as concisely as possible, only highlighting the impo
 
 ![](readme_images/cart_mockup.png)
 
-<ins>History Mockup</ins>
+<ins>Order Mockup</ins>
 
-![](readme_images/cart_mockup.png)
+![](readme_images/order_mockup.png)
 
 ### Surface
 
