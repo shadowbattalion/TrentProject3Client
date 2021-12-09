@@ -127,8 +127,24 @@ Structure used:
 
 Linear Network Hybrid
 
+Customer:
 ![](readme_images/customer_structure.png)
+
+
+Vendor:
+![](readme_images/vendor_structure.png)
+
+
 
 Information organisation:
 
 Information is organised in as concisely as possible, only highlighting the important points of a product. The only information that is long and elaborated will be zoned in an isolated location so that it will not interfere with the other information regarding the product. This applies to product description and the minimum/recommended requirements. The other information, like costs, discount and title will be as spaced out as possible to reduce clutter.
+
+### Skeleton
+<ins>Desktop Mockup</ins>
+
+![](readme_images/desktop_mockup.png)
+
+<ins>Mobile Mockup</ins>
+
+![](readme_images/mobile_mockup.png)
