@@ -219,10 +219,6 @@ Vendor
 	<li>Search and filter orders</li>
 </ul>
 
-### ERD Diagram
-
-![](readme_images/the_merchant_erd.png)
-
 
 ### SQLDBM Diagram
 
@@ -328,22 +324,28 @@ Vendor:
 
 
 ## Tests
-
+### Customer
 | Test Case # | Test Case Description |Test Steps|Expected Result|
 |--|--|--|--|
-|1|User accesses the main URL|1. Go to URL (under Summary section)|A list of cases will appear in the Cases List page|
-|2|User looks into Case Details|1. From the Cases List page, click on "Continue" button on one of the cases|Case details will appear showing at least on encounter and comments if available.|
-|3|User wants to edit a Case|1.  From the Cases List page, click on "Continue" button on one of the cases<br>2. Click on "Edit" button. Edit page will appear and change the case title to "A haunting"<br>3. Click on the "Submit!" button.|The website will bring user back to the Case Details page with a change to the Case title|
-|4|User wants to delete a Case|1.  From the Cases List page, click on "Continue" button on one of the cases<br>2. Click on "Delete" button<br>3. A prompt will appear above. Click on "Confirm!" |The  Website will bring the user to the  Cases List page|
-|5|User wants to add a Case|1. Click on "Add Case" button on the side nav bar. Fill up the form -> Display Name: Bob, Occupation:Engineer, Age:30, Paranormal Encounter: <can be empty>, email address: test@gmail.com, title:A haunting, description:Scary house, Location: Creepy house, date:23/3/2021, Activity: Accidental, Entity Tags: Pocong, Pontianak. Fill up form for Encounter as well -> Image:https://images.unsplash.com/photo-1593642632559...., Description: This is a picture, Equipment Used: Phone Camera, Contact Type: Visual, Number of entities encountered:1, Time of Encounter: Morning<br>2. Click on "Add!"<br>3. Click on "Submit!"|The website will bring user back to the Cases List page with a new Case at the bottom of the list|
-|6|User wants to post comment|1. From the Cases List page, click on "Continue" button on one of the cases. Scroll down to the "Comments" section, enter in the textbox: This is very scary!<br>2. Click on "Add!"|A popup box in green will appear saying that "Comment Added"|
-|7|User wants to edit comment|1. From the Cases List page, click on "Continue" button on one of the cases. Scroll down to the "Comments" section.<br>2. Click on "Edit" on the comment added earlier, enter in the textbox: This is not so scary!<br>3. Click on "Done!"|A popup box in green will appear saying that "Comment Edited" and the earlier added comment has been changed|
-|8|User wants to delete comment|1. From the Cases List page, click on "Continue" button on one of the cases. Scroll down to the "Comments" section.<br>2. Click on "Delete" on an available comment|A popup box in green will appear saying that "Comment Deleted"|
-|9|User wants to search cases|1.Click on "Search Cases" button on the side nav bar. For the Entity tag, select Pontianak, then select the dates<br>2. Click on "Search". A list of cases will be returned to user.<br>3. Click on the "Continue" button on one of the searched cases|The website will return a list of cases and user can choose which cases he want to look into by clicking on the "Continue" buttons on one of the cases.|
-||Prerequisite: Needs to be in Edit Case page or Add Case page|||
-|10|User wants to add an Encounter|1. Scroll down to Add an Encounter section. Fill the form -> Image:https://images.unsplash.com/photo-1593642632559...., Description: This is a picture, Equipment Used: Phone Camera, Contact Type: Visual, Number of entities encountered:1, Time of Encounter: Morning<br>2. Click on "Add!"<br>3. Click on "Submit!"|The website will bring user back to the Case Details page with a new Encounter|
-|11|User wants to edit an Encounter|1. Scroll down to Encounter Details section and click on "Edit" on one of the encounters.<br>2.Change the Description to "This is a scary place". Click on "Done!"<br>3. Click on "Submit!"|The website will bring the user back to the Case Details page with a change in the Descripton of and Encounter|
-|12|User wants to delete an Encounter|1. Scroll down to Encounter Details section and click on "delete" on one of the encounters.<br>2.Click on "Submit!"|The website will bring the user back to the Case Details page with the deleted Encounter removed|
+|1|User accesses the main URL|1. Go to URL (under Summary section)|A login page will appear|
+|2|User Registers|1. Enter "Test" in the "Display_name" and "test@com" in "Email". Enter the password and click on "Submit" button<br>2. Login page will appear. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
+|3|User logs in|1. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
+|4|User wants buy a game|1.  From the Game List page, click on "Add to Cart" button on one of the games. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
+|5|User wants to look into a game into more details|1.  From the Games List page, click on game title|The  Website will bring the user to the  Game Detail page|
+|6|User wants to buy a game after looking at game in detail|1. On the top most panel of the game detail page, click on "Add to Cart" button. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
+|7|User wants to check order history|1. From the Game List page, click on "Order History" button on navbar. |The orders history page will appear|
+
+
+### Vendor
+| Test Case # | Test Case Description |Test Steps|Expected Result|
+|--|--|--|--|
+|1|User accesses the main URL|1. Go to URL (under Summary section)|A login page will appear|
+|2|User Registers|1. Enter "Test" in the "Display_name" and "test@com" in "Email". Enter the password and click on "Submit" button<br>2. Login page will appear. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
+|3|User logs in|1. Enter "Test" or "test@com" in the "Display_name/Email" box as it will check for either one. Enter the password and click on "Submit" button|User will be given access and a page with a list of games will appear|
+|4|User wants buy a game|1.  From the Game List page, click on "Add to Cart" button on one of the games. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
+|5|User wants to look into a game into more details|1.  From the Games List page, click on game title|The  Website will bring the user to the  Game Detail page|
+|6|User wants to buy a game after looking at game in detail|1. On the top most panel of the game detail page, click on "Add to Cart" button. A notification will appear to show that user has added an item to cart<br>2. Click on "Cart" in the navbar. The cart page will appear<br>3. Click on the "Checkout" button.|The website will bring user to the stripe page for payments|
+|7|User wants to check order history|1. From the Game List page, click on "Order History" button on navbar. |The orders history page will appear|
 
 
 ## Deployment
