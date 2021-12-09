@@ -294,11 +294,11 @@ Vendor:
 			<li>Purpose: A framework which uses state to manipulate frontend webpages</li>
 			<li>https://reactjs.org/</li>
 		</ul>
-	<li>Mongodb </li>
+	<li>Mysql </li>
 		<ul>
-			<li> A document based database using NoSQL</li>
+			<li> A relational database</li>
 			<li>Purpose: The database behind the backend server to store data from users</li>
-			<li>https://www.mongodb.com/</li>
+			<li>https://www.mysql.com/</li>
 		</ul>
 	<li>Nodejs </li>
 		<ul>
@@ -312,4 +312,19 @@ Vendor:
 			<li>Purpose: to send and receive HTTP communications via the built-in GET, POST , PUT, etc</li>
 			<li>https://expressjs.com/</li>
 		</ul>
+	<li>Cloudinary</li>
+	<li>Stripe</li>
+	<li>Express</li>  
+	<li> HBS </li>
+	<li>Wax-on</li>  
+	<li>Dotenv</li>
+	<li>Express-session</li> 
+	<li>Connect-flash</li>
+	<li>Session-file-store</li>
+	<li>Csurf</li>
+	<li>Jsonwebtoken</li>
+	<li>React-router-dom@5.2.0</li>
 </ul>
+
+
+## Tests
