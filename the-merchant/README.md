@@ -191,6 +191,8 @@ Also, thanks for the beautiful image man!
 
 ## Features
 ### Feature List
+
+Customer
 <ul>
 	<li> Login and signup</li>
 	<li>List games, look at game details, both can add to cart </li>
@@ -200,10 +202,10 @@ Also, thanks for the beautiful image man!
 	<li>Can do check out</li>
 	<li>Shows "order fail" page if the checkout fail or if user goes back from Stripe page</li>
 	<li>Show "order succes" page if the checkout is successful and will show the latest order </li>
-	<li>List user order history </li>
+	<li>List customer order history </li>
 </ul>
 
-
+Vendor
 <ul>
 	<li> Login and signup</li>
 	<li>Add a new game, delete and update.</li>
