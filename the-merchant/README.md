@@ -363,7 +363,7 @@ Vendor:
 |8|User wants to delete of game|1. On the top most panel of the game detail page, click on "Delete" button. This will bring the user to the delete confirmation page.<br>2. Click on "Yes" button|The website will bring user to the game list page with a notification that the game has been deleted|
 |9|User wants to see all orders|1. From the Game List page, click on "Orders" button on navbar. |The orders list page will appear|
 
-## Sign Up and Log in
+## Sign Up and Log In
 ### Frontend
 
 Sign up
