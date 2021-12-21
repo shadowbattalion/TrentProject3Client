@@ -370,28 +370,62 @@ Sign up
 https://competent-davinci-649e42.netlify.app/user-reg
 ![](readme_images/frontend_signup.png)
 
+<ol>
+	<li>Go to the stated url or click on the Sign Up button on the navbar</li>
+	<li>Enter display name (e.g. user_gamer)</li>
+	<li>Enter email address (e.g. user_gamer@mail.com)</li>
+	<li>Enter device specification (e.g. run dxdiag on local computer and copy and paste any information regarding the computer. For testing purpose, can put video card info)</li>
+	<li>Enter password (e.g. 123)</li>
+	<li>Re-enter password for confirmation (e.g. 123)</li>
+	<li>Click on the Submit button</li>
+</ol>
 
 Log in
 https://competent-davinci-649e42.netlify.app/
 ![](readme_images/frontend_login.png)
 
-
+<ol>
+	<li>Go to the stated url or click on the Login button on the navbar</li>
+	<li>Enter either the display name or email address (e.g. user_gamer / user_gamer@mail.com)</li>
+	<li>Enter password (e.g. 123)</li>
+	<li>Click on the Submit button</li>
+</ol>
 
 ### Backend
 
 https://mhu-game-store.herokuapp.com/
 ![](readme_images/backend_landing.png)
 
+<ol>
+	<li>Go to the stated url</li>
+	<li>Click on the Sign Up or the Login button</li>
+</ol>
 
 
 Sign up
 https://mhu-game-store.herokuapp.com/users/user-reg
 ![](readme_images/backend_signup.png)
 
+<ol>
+	<li>Go to the stated url or click on the Sign Up button on the navbar</li>
+	<li>Enter email address (e.g. admin_gamer@mail.com)</li>
+	<li>Enter display name (e.g. admin_gamer)</li>
+	<li>Enter password (e.g. 123)</li>
+	<li>Re-enter password for confirmation (e.g. 123)</li>
+	<li>Enter device specification (e.g. run dxdiag on local computer and copy and paste any information regarding the computer. For testing purpose, can put video card info)</li>
+	<li>Click on the Register button</li>
+</ol>
 
 Log in
 https://mhu-game-store.herokuapp.com/users/user-login
 ![](readme_images/backend_login.png)
+
+<ol>
+	<li>Go to the stated url or click on the Login button on the navbar</li>
+	<li>Enter either the display name or email address (e.g. admin_gamer@mail.com / admin_gamer)</li>
+	<li>Enter password (e.g. 123)</li>
+	<li>Click on the Login button</li>
+</ol>
 
 ## Deployment
 ### Database
