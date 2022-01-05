@@ -50,13 +50,13 @@ export default function Nav() {
 
         nav_jsx=(<React.Fragment>
         
-            <li class="nav-item">
+            <li class="card login-card nav-item">
                 <a class="nav-link active"href="#"><Link to ="/games">Games List</Link></a>
             </li>
-            <li class="nav-item">
+            <li class="card login-card nav-item">
                 <a class="nav-link active"href="#"><Link to ="/cart">Cart</Link></a>
             </li>
-            <li class="nav-item">
+            <li class="card login-card nav-item">
                 <a class="nav-link active"href="#"><Link to ="/order-history">Order History</Link></a>
             </li>
 
@@ -70,10 +70,10 @@ export default function Nav() {
         nav_jsx=(<React.Fragment>
            
     
-            <li class="nav-item">
+            <li class="card login-card nav-item">
                 <a class="nav-link active"href="#"><Link to ="/">Login</Link></a>
             </li>
-            <li class="nav-item">
+            <li class="card login-card nav-item">
                 <a class="nav-link active"href="#"><Link to ="/user-reg">Sign Up</Link></a>
             </li>
                
