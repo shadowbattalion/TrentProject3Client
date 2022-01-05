@@ -9,7 +9,10 @@ export default function Games() {
     const history = useHistory()
     const [gameList, setGameList] = useState(null)
     const [user, setUser] = useState(null)
-    let [message, setMessage]=useState("")
+    let [message, setMessage]=useState({
+        "message_content":"",
+        "color":""
+    })
     const [field, setField] = useState({
         "title":"",
         "company_name":""
@@ -54,13 +57,18 @@ export default function Games() {
 
         if(message){
             if(message.data.message==true){
-                
-                setMessage(title+" added to cart!")
-
+                setMessage({
+                    "message_content":title+" added to cart!",
+                    "color":"green"
+                })
             }else{
+            
+                setMessage({
+                    "message_content":message.data.message,
+                    "color":"red"
+                })
 
-                setMessage(message.data.message)
-
+             
             }
         
         } else {
@@ -194,7 +202,7 @@ export default function Games() {
                     <div class="card-body">
                         <h1 class="card-title">Game List</h1>
                         <small style={{color:"black"}}>Click on the game Title name to check out the cool features!</small><br/>
-                        <small>{message}</small>
+                        <small style={{color:message.color}}>{message.message_content}</small>
                     </div>
                 </div>         
             </div>

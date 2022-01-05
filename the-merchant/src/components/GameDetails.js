@@ -11,7 +11,10 @@ export default function GameDetails() {
 
     const [ game, setGame ] = useState(null);
     const [profile, setProfile] = useState(null)
-    let [message, setMessage]=useState("")
+    let [message, setMessage]=useState({
+        "message_content":"",
+        "color":""
+    })
     const gamesContext = useContext(GamesContext);
     const cartContext = useContext(CartContext);
     const credsContext = useContext(CredentialsContext)
@@ -70,11 +73,19 @@ export default function GameDetails() {
         if(message){
             if(message.data.message==true){
                 
-                setMessage(title+" added to cart!")
+            
+                setMessage({
+                    "message_content":title+" added to cart!",
+                    "color":"green"
+                })
 
             }else{
 
-                setMessage(message.data.message)
+                setMessage({
+                    "message_content":message.data.message,
+                    "color":"red"
+                })
+
 
             }
         
@@ -101,7 +112,7 @@ export default function GameDetails() {
                         <div class="card login-card">
                             <div class="card-body">
                                 <h1 class="card-title">{game.title}</h1>
-                                <small>{message}</small>
+                                <small style={{color:message.color}}>{message.message_content}</small>
                                 <div class="price-details">
                                     <div class="mt-2 game-details-size">Cost: ${game.cost}</div> 
                                     <div class="mt-2 game-details-size">Discount: {game.discount}%</div> 

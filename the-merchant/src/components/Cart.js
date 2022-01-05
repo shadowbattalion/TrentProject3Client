@@ -11,7 +11,10 @@ export default function Cart() {
     const cartContext = useContext(CartContext);
 
     const history = useHistory()
-    let [message, setMessage] = useState("")
+    let [message, setMessage]=useState({
+        "message_content":"",
+        "color":""
+    })
     let [trigger, setTrigger] = useState(0)
     const [cartStatus, setCartStatus] = useState(null)
 
@@ -52,15 +55,23 @@ export default function Cart() {
         if (operation=="+"){
 
             message = await cartContext.increaseQuantity(game_id)
+            
 
             if(message){
                 if(message.data.message==true){
                     
-                    setMessage("Quantity of item "+title+" increased")
+                    
+                    setMessage({
+                        "message_content":"Quantity of item "+title+" increased",
+                        "color":"green"
+                    })
         
                 }else{
         
-                    setMessage(message.data.message)
+                    setMessage({
+                        "message_content":message.data.message,
+                        "color":"red"
+                    })
         
                 }
             } else {
@@ -83,11 +94,18 @@ export default function Cart() {
             if(message){
                 if(message.data.message==true){
                     
-                    setMessage("Quantity of item "+title+" reduced")
+
+                    setMessage({
+                        "message_content":"Quantity of item "+title+" reduced",
+                        "color":"green"
+                    })
         
                 }else{
         
-                    setMessage(message.data.message)
+                    setMessage({
+                        "message_content":message.data.message,
+                        "color":"red"
+                    })
         
                 }
                 
@@ -118,11 +136,19 @@ export default function Cart() {
             if(message){
                 if(message.data.message==true){
                     
-                    setMessage(title+" has been removed")
+            
+                    setMessage({
+                        "message_content":title+" has been removed",
+                        "color":"green"
+                    })
         
                 }else{
         
-                    setMessage(message.data.message)
+                    
+                    setMessage({
+                        "message_content":message.data.message,
+                        "color":"red"
+                    })
         
                 } 
             } else {
@@ -217,7 +243,7 @@ export default function Cart() {
                 <div class="card login-card cart-page my-3">
                     <div class="card-body">
                         <h1 class="card-title">Cart</h1>
-                        <small>{message}</small>
+                        <small style={{color:message.color}}>{message.message_content}</small>
                     </div>
                 </div>
                 {cart_item_jsx}
