@@ -104,7 +104,7 @@ export default function Navigation() {
     return (
         (<React.Fragment>
 
-            <Navbar bg="dark" expand="lg">
+            <Navbar bg="dark" expand="lg" style={{opacity:"0.5"}}>
                 <Container>
                     <Navbar.Brand href="#home">The Merchant</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
