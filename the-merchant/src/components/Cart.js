@@ -271,7 +271,8 @@ export default function Cart() {
     
     return (
         <React.Fragment>
-          {cart_jsx}
+            <h1>Cart</h1>
+          {/* {cart_jsx} */}
         </React.Fragment> 
     )
 }

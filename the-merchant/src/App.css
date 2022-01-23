@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,600&family=Rajdhani:wght@500&display=swap');
 
 
-.App {
-  text-align: center;
-}
 
 body {
-  background-image: url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: url("/workspace/TrentProject3Client/the-merchant/src/images/vector-OCT-2020-39_generated.jpg");
+  
   font-family: 'Rajdhani', sans-serif;
   font-size:medium;
+
+
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-size: cover;
+  background-position: center center;
 }
 
-
+/* <a href="https://www.vecteezy.com/free-vector/gaming-background">Gaming Background Vectors by Vecteezy</a> */
 /* Photo by Miguel Á. Padriñán from Pexels */
 
 
-
+/* 
 
 
 a{
@@ -367,9 +369,9 @@ p{
   .game-list-page{
    
 
-      /* display:flex; */
+      
       margin: 25px;
-      /* justify-content: center; */
+      
   
  
   }
@@ -419,10 +421,10 @@ p{
   .cart-page{
    
 
-    /* display:flex; */
+   
     margin-right: 75px;
     margin-left: 75px;
-    /* justify-content: center; */
+   
 
 
   }
@@ -539,13 +541,13 @@ p{
   .cart-page{
    
 
-    /* display:flex; */
+
     margin-right: 200px;
     margin-left: 200px;
-    /* justify-content: center; */
+    
 
 
   }
 
-}
+} */
 
