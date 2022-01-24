@@ -39,29 +39,28 @@ function App(){
           <GamesProvider>
             
         <Router>
-              <Navigation/>
+          <Navigation/>
               <Switch>
                 <Route exact path="/">
-                  {/* <Navigation/> */}
                   <LoginPage/>
                 </Route>
                  <Route exact path="/user-reg">
                   {/* <Navigation/> */}
                   <UserRegPage/>
                 </Route>
-                {/* <Route exact path="/error-page">
-                  <Nav/>
+                <Route exact path="/error-page">
+                  {/* <Navigation/> */}
                   <ErrorPage/>
                 </Route>
                 <Route exact path="/order-history">
-                  <Nav/>
+                  {/* <Navigation/> */}
                   <OrderHistoryPage/>
                 </Route>
                 <Route exact path="/cart">
-                  <Nav/>
+                  {/* <Navigation/> */}
                   <CartPage/>
                 </Route>
-                <Route exact path="/checkout">
+                {/*<Route exact path="/checkout">
                   <Nav/>
                   <CheckoutPage/>
                 </Route>
@@ -74,7 +73,7 @@ function App(){
                   <OrderFailurePage/>
                 </Route>*/}
                 <Route exact path="/games">
-                  {/* <Navigation/> */}
+                  
                   <GamesPage/>
                 </Route>
                 {/* <Route exact path="/game-details/:gameId">

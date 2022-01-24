@@ -145,7 +145,7 @@ export default function UserReg() {
                 <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={regSubmit}>Submit</a>
             </div>
 
-             {/* <div class="landing-page"> 
+             <div class="landing-page"> 
                 <div>  
                     <div class="card login-card">
                         <div class="card-body">
@@ -181,7 +181,7 @@ export default function UserReg() {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
   
                 

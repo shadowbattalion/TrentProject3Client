@@ -48,6 +48,8 @@ export default function Navigation() {
 
 
 
+    
+
 
 
     let nav_jsx
@@ -64,18 +66,9 @@ export default function Navigation() {
 
             <Nav.Link href="/games">Games List</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
+            <Nav.Link href="/order-history">Order History</Nav.Link>
 
-            {/* <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/games">Games List</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/cart">Cart</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/order-history">Order History</Link></a>
-            </li> */}
-
-
+        
         </React.Fragment>)
 
 
@@ -86,14 +79,6 @@ export default function Navigation() {
            
            <Nav.Link href="/">Login</Nav.Link>
            <Nav.Link href="/user-reg">Sign Up</Nav.Link>
-
-            {/* <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/">Login</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/user-reg">Sign Up</Link></a>
-            </li>
-                */}
             
         </React.Fragment>)
 
@@ -104,7 +89,7 @@ export default function Navigation() {
     return (
         (<React.Fragment>
 
-            <Navbar bg="dark" expand="lg" style={{opacity:"0.5"}}>
+            <Navbar bg="dark" expand="lg">
                 <Container>
                     <Navbar.Brand href="#home">The Merchant</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -120,27 +105,6 @@ export default function Navigation() {
                 </Container>
             </Navbar>
 
-            {/* <nav class="navbar navbar-expand-lg navbar-property">
-                <div class="container-fluid">
-
-                    <div class="navbar-brand title-font" style={{"borderBottom": "5px solid black"}}>The Merchant</div><span class="title-divider navbar-brand title-font">|</span>
-
-                    <div class="navbar-collapse" id="navbarSupportedContent">
-                                
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 title-font">
-                                            
-                            {nav_jsx}
-                                            
-                        </ul>
-                    </div>
-                          
-                </div>
-                
-            </nav>
-            <div class="d-flex ms-3 mb-3">
-                <div>{ creds?(<Logout/>):""}</div>
-                <div>{ creds?(<div class="mx-3 pt-4">User: {creds.display_name}</div>):""}</div>
-            </div> */}
         </React.Fragment>)
     )
 }

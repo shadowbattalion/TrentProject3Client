@@ -94,7 +94,8 @@ export default function GameDetails() {
 
     return (
         (<React.Fragment>
-            {orderHistory_jsx}
+            <h1>Order History</h1>
+            {/* {orderHistory_jsx} */}
         </React.Fragment>)
     )
 }
