@@ -26,7 +26,7 @@ import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
 import OrderFailurePage from './pages/OrderFailurePage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 
-import Navigation from './components/Navigation'
+import Nav from './components/Nav'
 
 //  'url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg")'
 
@@ -34,33 +34,39 @@ function App(){
 
   return(
     <React.Fragment>
+      {/* <div style={{ 
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          paddingBottom:"150px"
+          }}> */}
       <CredentialsProvider>
         <CartProvider>
           <GamesProvider>
-            
         <Router>
-          <Navigation/>
+           
               <Switch>
                 <Route exact path="/">
+                  <Nav/>
                   <LoginPage/>
                 </Route>
-                 <Route exact path="/user-reg">
-                  {/* <Navigation/> */}
+                <Route exact path="/user-reg">
+                  <Nav/>
                   <UserRegPage/>
                 </Route>
                 <Route exact path="/error-page">
-                  {/* <Navigation/> */}
+                  <Nav/>
                   <ErrorPage/>
                 </Route>
                 <Route exact path="/order-history">
-                  {/* <Navigation/> */}
+                  <Nav/>
                   <OrderHistoryPage/>
                 </Route>
                 <Route exact path="/cart">
-                  {/* <Navigation/> */}
+                  <Nav/>
                   <CartPage/>
                 </Route>
-                {/*<Route exact path="/checkout">
+                <Route exact path="/checkout">
                   <Nav/>
                   <CheckoutPage/>
                 </Route>
@@ -71,21 +77,22 @@ function App(){
                 <Route exact path="/order-fail">
                   <Nav/>
                   <OrderFailurePage/>
-                </Route>*/}
+                </Route>
                 <Route exact path="/games">
-                  
+                  <Nav/>
                   <GamesPage/>
                 </Route>
-                {/* <Route exact path="/game-details/:gameId">
+                <Route exact path="/game-details/:gameId">
                   <Nav/>
                   <GameDetailsPage/>
-                </Route>         */}
+                </Route>       
               </Switch>
               
           </Router>
           </GamesProvider>
         </CartProvider>
       </CredentialsProvider> 
+      {/* </div>       */}
       </React.Fragment>
 
   )

@@ -96,28 +96,10 @@ export default function Login() {
 
 
     return (
-        <React.Fragment>
-            <Container>
-                <h1>Login</h1>
-                <div>
-                    <small>{location.state?.message}</small>
-                    <small>{fail}</small>
-                    <div>
-                        <label>Enter Display Name/Email Address: </label>
-                        <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
-                        <div><small>{validation?.display_name_email_missing}</small></div>
-                    </div>
-                    <div>
-                        <label>Password: </label>
-                        <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
-                        <div><small>{validation?.password_missing}</small></div>
-                    </div>
-                    <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={loginSubmit}>Submit</a>
-                </div>
-            </Container>
+        <React.Fragment>      
 
 
-            {/* <div class="landing-page"> 
+            <div class="landing-page"> 
                 <div class="logo me-4">
                     <h1 class="title-font mt-5" style={{"borderBottom": "5px solid black"}}>The Merchant</h1>
                     <h2>Your One-Stop Online Gaming Shop!</h2>
@@ -146,7 +128,7 @@ export default function Login() {
 
                    
                 </div>
-            </div> */}
+            </div>
         </React.Fragment>
 
     )

@@ -1,12 +1,12 @@
 import React, { useContext, useState} from "react"
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
 
 
 export default function Login() {
 
     const history = useHistory()
-    // const [logState, setLogState] = useState(null);
+
     const [field, setField] = useState({
         "display_name_email":"",
         "password":""
@@ -24,7 +24,7 @@ export default function Login() {
             
             let logout_outcome = await credsContext.logout()
 
-            // setLogState(1)
+         
         
            
             if(logout_outcome===null){

@@ -212,9 +212,8 @@ export default function Games() {
 
     return (
         (<React.Fragment>
-            <h1>games page</h1>
-            {/* {search}
-            {game_list_jsx} */}
+            {search}
+            {game_list_jsx}
         </React.Fragment>)
     )
 }

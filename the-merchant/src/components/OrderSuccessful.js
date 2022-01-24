@@ -75,8 +75,7 @@ export default function OrderSuccessful() {
   
     return (
         <React.Fragment>
-            <h1>Order Successful</h1>
-            {/* {orderHistoryLatest_jsx} */}
+            {orderHistoryLatest_jsx}
         </React.Fragment> 
     )
 }
