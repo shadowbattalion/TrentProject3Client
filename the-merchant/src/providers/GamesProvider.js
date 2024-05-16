@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function GamesProvider(props){
 
-    const BASE_URL = "https://mhu-game-store.herokuapp.com"
+    const BASE_URL = "https://4000-shadowbatta-trentprojec-kr1pbmzx1xt.ws-us110.gitpod.io"
     
     const [games, setGames] = useState([])
 

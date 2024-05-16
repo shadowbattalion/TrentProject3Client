@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 export default function CartProvider(props){
 
-    const BASE_URL = "https://mhu-game-store.herokuapp.com"
+    const BASE_URL = "https://4000-shadowbatta-trentprojec-kr1pbmzx1xt.ws-us110.gitpod.io"
     
     const [cart, setCart] = useState([])
 
@@ -124,11 +124,12 @@ export default function CartProvider(props){
         checkout: async()=>{
 
             try{
+                console.log("TESTING123")
                 let response = await axios.get(BASE_URL+'/api/checkout/',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
-
+                console.log(response)
                 return response
             } catch(e){
                     

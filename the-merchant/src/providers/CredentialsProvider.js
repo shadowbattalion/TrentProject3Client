@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 export default function CredentialsProvider(props){
 
 
-    const BASE_URL = "https://mhu-game-store.herokuapp.com"
+    const BASE_URL = "https://4000-shadowbatta-trentprojec-kr1pbmzx1xt.ws-us110.gitpod.io"
     
     // const [log, setLog] = useState(0)
 
@@ -39,10 +39,12 @@ export default function CredentialsProvider(props){
         login: async (display_name_email, password) =>{
 
             try{
+                console.log(display_name_email)
                 let response = await axios.post(BASE_URL+'/api/users/user-login',{
                     "display_name_email":display_name_email,
                     "password":password
                 })
+                console.log(response)
 
                 if (response.data?.access_token){
                     console.log(response.data)
