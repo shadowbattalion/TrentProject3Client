@@ -120,6 +120,7 @@ export default function UserReg() {
                             <h1 class="card-title">Sign Up</h1>
                             <small>{location.state?.message}</small>
                             <small>{fail}</small>
+                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
                             <div>
                                 <label>Enter Display Name: </label>
                                 <div><input type="text" name="display_name" value={field.display_name} onChange={updateState}/></div>
@@ -132,6 +133,7 @@ export default function UserReg() {
                             </div>
                             <div>
                                 <label>Device Specifications: </label>
+                                <p><span id="disclaimer">Optional for demonstration</span></p>
                                 <div><textarea name="device_specs" rows="4" cols="35" value={field.device_specs} onChange={updateState}/></div>
                                 <div><small>{validation?.device_specs_missing}</small></div>
                             </div>

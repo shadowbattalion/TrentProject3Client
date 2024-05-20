@@ -98,7 +98,7 @@ export default function Login() {
     return (
         <React.Fragment>      
 
-
+            
             <div class="landing-page"> 
                 <div class="logo me-4">
                     <h1 class="title-font mt-5" style={{"borderBottom": "5px solid black"}}>The Merchant</h1>
@@ -108,9 +108,10 @@ export default function Login() {
                    
                     <div class="card login-card">
                         <div class="card-body">
-                            <h1 class="card-title">Login</h1>
+                            <h1 class="card-title">Login</h1>  
                             <small>{location.state?.message}</small>
                             <small>{fail}</small>
+                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
                             <div>
                                 <label>Enter Display Name/Email Address: </label>
                                 <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
