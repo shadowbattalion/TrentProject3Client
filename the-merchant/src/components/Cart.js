@@ -171,7 +171,7 @@ export default function Cart() {
 
 
     async function checkout(){
-
+        alert("Enter '4242 4242 4242 4242' for the card info. Expiry date and cvc can be anything. email can test can be anything also. Then click pay.")
         message = await cartContext.checkout()
 
         console.log(message)
