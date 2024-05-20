@@ -171,7 +171,7 @@ export default function Cart() {
 
 
     async function checkout(){
-        alert("Enter '4242 4242 4242 4242' for the card info. Expiry Date and CVC number can be anything. Email and Name can be anything also. Then click pay.")
+        alert("This is just a stripe test module. Enter '4242 4242 4242 4242' for the card info. Expiry Date and CVC number can be anything. Email and Name can be anything also. Then click pay.")
         message = await cartContext.checkout()
 
         console.log(message)
