@@ -21,7 +21,7 @@ export default function Login() {
     const credsContext = useContext(CredentialsContext)
     
     useEffect(()=>{
-
+        alert("This is a demonstration site. If you don't see a login page, give it about 20 seconds for the backend to start up. After that, hit the refresh button. I am currently using the free version of Render which need some time to startup at the first run.")
         console.log(location.state)
         if(localStorage.getItem('access_token') && location.state==undefined){
 
@@ -130,6 +130,7 @@ export default function Login() {
                    
                 </div>
             </div>
+            
         </React.Fragment>
 
     )
