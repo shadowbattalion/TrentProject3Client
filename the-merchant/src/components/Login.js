@@ -23,6 +23,7 @@ export default function Login() {
     useEffect(()=>{
 
         console.log(location.state)
+        console.log(localStorage.getItem('access_token'))
         if(localStorage.getItem('access_token') && location.state==undefined){
 
             history.push("/games")
