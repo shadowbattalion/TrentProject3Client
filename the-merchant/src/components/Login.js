@@ -21,9 +21,8 @@ export default function Login() {
     const credsContext = useContext(CredentialsContext)
     
     useEffect(()=>{
-        alert("This is a demonstration site. If you don't see a login page, give it about 20 seconds for the backend to start up. After that, hit the refresh button. I am currently using the free version of Render which need some time to startup at the first run.")
-        console.log(location.state)
-        if(localStorage.getItem('access_token') && location.state==undefined){
+        
+        if(localStorage.getItem('access_token')){
 
             history.push("/games")
 
@@ -54,7 +53,7 @@ export default function Login() {
 
                 console.log(location)
                 if (location.state!==undefined){
-
+                    console.log("TESTING")
                     history.push("/"+location.state.page_redirect)
             
                 }else{
