@@ -20,16 +20,48 @@ export default function Login() {
  
     const credsContext = useContext(CredentialsContext)
     
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        if(localStorage.getItem('access_token')){
+    //     // if(localStorage.getItem('access_token')){
 
-            history.push("/games")
+    //     //     history.push("/games")
 
 
+    //     // }
+        
+    
+
+
+    // },[])
+
+    useEffect(() => {
+
+        console.log("TEST0")
+
+        const requestCredentials = async() =>{ // check if access_token is stale.
+            let creds = await credsContext.getProfile();
+           
+            console.log(creds)
+            console.log(creds == null)
+            if(creds){
+
+                history.push("/games")
+
+            
+
+
+            } 
+
+            
         }
 
-    },[])
+        if(localStorage.getItem('access_token')){ // check if access_token is not empty. Maybe not empty but the access_token is stale.
+            console.log("TEST")    
+            requestCredentials();
+        }
+
+        
+        }, [])
 
             
 
