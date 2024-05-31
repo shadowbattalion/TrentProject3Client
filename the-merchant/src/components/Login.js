@@ -111,6 +111,7 @@ export default function Login() {
                             <small>{location.state?.message}</small>
                             <small>{fail}</small>
                             <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
+                            <p><span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span></p> 
                             <div>
                                 <label>Enter Display Name/Email Address: </label>
                                 <div><input type="text" name="display_name_email" value={field.display_name_email} onChange={updateState}/></div>
