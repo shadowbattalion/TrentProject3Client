@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import CredentialsContext from "../contexts/CredentialsContext";
 import Logout from "./Logout"
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function Nav() {
+
+export default function Navigation() {
 
    
    
@@ -50,15 +55,11 @@ export default function Nav() {
 
         nav_jsx=(<React.Fragment>
         
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/games">Games List</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/cart">Cart</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/order-history">Order History</Link></a>
-            </li>
+           
+            <Nav.Link><Link to ="/games">Games List</Link></Nav.Link>
+            <Nav.Link><Link to ="/cart">Cart</Link></Nav.Link>
+            <Nav.Link><Link to ="/order-history">Order History</Link></Nav.Link>
+
 
 
         </React.Fragment>)
@@ -70,12 +71,8 @@ export default function Nav() {
         nav_jsx=(<React.Fragment>
            
     
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/">Login</Link></a>
-            </li>
-            <li class="card login-card nav-item">
-                <a class="nav-link active"href="#"><Link to ="/user-reg">Sign Up</Link></a>
-            </li>
+            <Nav.Link><Link to ="/">Login</Link></Nav.Link>
+            <Nav.Link><Link to ="/user-reg">Sign Up</Link></Nav.Link>
                
             
         </React.Fragment>)
@@ -87,7 +84,7 @@ export default function Nav() {
     return (
         (<React.Fragment>
 
-            <nav class="navbar navbar-expand-lg navbar-property">
+            {/* <nav class="navbar navbar-expand-lg navbar-property">
                 <div class="container-fluid">
 
                     <div class="navbar-brand title-font" style={{"borderBottom": "5px solid black"}}>The Merchant</div><span class="title-divider navbar-brand title-font">|</span>
@@ -107,7 +104,29 @@ export default function Nav() {
             <div class="d-flex ms-3 mb-3">
                 <div>{ creds?(<Logout/>):""}</div>
                 <div>{ creds?(<div class="mx-3 pt-4">User: {creds.display_name}</div>):""}</div>
-            </div>
+            </div> */}
+
+
+            <Navbar expand="lg" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">
+                <Container>
+                    <Navbar.Brand href="#home">The Merchant</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            {nav_jsx}
+                        </Nav>
+                    </Navbar.Collapse>
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                            <div>{ creds?(<div class="mx-3 pt-4" >User: {creds.display_name}</div>):""}</div>
+                        </Navbar.Text>
+                        <Navbar.Text>
+                            <div>{ creds?(<Logout/>):""}</div> 
+                        </Navbar.Text>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
         </React.Fragment>)
     )
 }
