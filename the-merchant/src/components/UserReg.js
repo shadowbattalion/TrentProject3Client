@@ -1,12 +1,17 @@
 import React, { useContext, useState} from "react"
 import { useHistory, useLocation } from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Modal from './Modal';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 export default function UserReg() {
 
     const history = useHistory()
-    const location = useLocation()
     const [field, setField] = useState({
         "display_name":"",
         "email":"",
@@ -14,97 +19,80 @@ export default function UserReg() {
         "password":"",
         "confirm_password":""
     })
-    const[validation, setValidation] = useState({
-        "display_name_missing":"",
-        "email_missing":"",
-        "device_specs_missing":"",
-        "password_missing":"",
-        "confirm_password_missing":""
-    })
-    const [fail, setFail] = useState("")
- 
+    
     const credsContext = useContext(CredentialsContext)
+
+    const [validated, setValidated] = useState(false);
+    const [show, setShow] = useState(false); //modal
+    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
+    const [showLoading, setShowLoading] = useState(true) //hidden
     
 
-    
 
-    async function regSubmit (){
-
-        if(field.display_name && field.email && /\w*@\w*(\.\w{2,3})+/.test(field.email) && field.password && (field.password.trim() == field.confirm_password.trim())){
-            console.log(field.display_name, field.email, field.password)
-            console.log("sign in successful")
-         
+   
+    const handleSubmit = async (event) => {
+       
+        const form = event.currentTarget;
+        event.preventDefault();
+        event.stopPropagation();
+        
+        if (form.checkValidity()) {
+            
+            setShowLoading(false)
+            setShow(true)
+            setModalMessage({"title":"Please Wait", "message":<span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span> })
+            
             let reg_outcome = await credsContext.register(field.display_name, field.password, field.email, field.device_specs)
             
-            console.log(reg_outcome.data.message)
+            setShowLoading(true)
+            setShow(false)
+            setModalMessage({"title":"", "message":"" })
 
+            
             if(reg_outcome===null){
 
                 history.push("/error-page")
-
+            
             } else if (reg_outcome.data.message=="User registered"){
-                setFail("")     
-                setValidation({
-                    "display_name_missing":"",
-                    "email_missing":"",
-                    "device_specs_missing":"",
-                    "password_missing":"",
-                    "confirm_password_missing":""
-                })
-
-        
+                    
                 history.push("/",{
                     "message":"User registered. Please enter the following to login.",
                     "page_redirect":"games"
-                })
-
+                    })
+            
             } else if(reg_outcome.data.message=="Display name or email already exists"){
-
-                setFail(reg_outcome.data.message)
-                setValidation({
-                    "display_name_missing":"",
-                    "email_missing":"",
-                    "device_specs_missing":"",
-                    "password_missing":"",
-                    "confirm_password_missing":""
-                })
-                
+                console.log("TESTING")
+                setShow(true)
+                setModalMessage({"title":"Failed Login", "message":"Display name or email already exists"})           
+                            
             } else {
-                setFail("Display Name, Email or Password is incorrect")
-                setValidation({
-                    "display_name_missing":"",
-                    "email_missing":"",
-                    "device_specs_missing":"",
-                    "password_missing":"",
-                    "confirm_password_missing":""
-                })
-
+                setShow(true)
+                setModalMessage({"title":"Failed Login", "message":"Weird Error"}) 
             }
-        }else{
+          
 
-            console.log("sign in fail")
-            let match_password = (field.password.trim() == field.confirm_password.trim())
-            
-            setValidation({
-                "display_name_missing":field.display_name?"":"Display Name is missing",
-                "email_missing":!field.email?"Email is missing":(!/\w*@\w*(\.\w{2,3})+/.test(field.email)?"Invalid Email format":""),
-                "device_specs_missing":!field.device_specs?"Device Specification is missing":(field.device_specs.length>600?"Word length limit reached":""),
-                "password_missing":field.password?"":"Password is missing",
-                "confirm_password_missing":match_password?"":"Password does not match",
-            })
-            
-           
+        } else {
+        
+            setValidated(true);
         }
-              
-    }
-   
+    
 
-    const updateState = (e) =>{
+        
+      };
+
+
+    const updateState = (event) =>{
+
+        const { name, value } = event.target;
 
         setField({
             ...field,
-            [e.target.name]:e.target.value
+            [name]:value
         })
+
+        
+
+        
 
     }
 
@@ -114,42 +102,80 @@ export default function UserReg() {
         <React.Fragment>
            
              <div class="landing-page"> 
-                <div>  
-                    <div class="card login-card">
-                        <div class="card-body">
-                            <h1 class="card-title">Sign Up</h1>
-                            <small>{location.state?.message}</small>
-                            <small>{fail}</small>
-                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
-                            <div>
-                                <label>Enter Display Name: </label>
-                                <div><input type="text" name="display_name" value={field.display_name} onChange={updateState}/></div>
-                                <div><small>{validation?.display_name_missing}</small></div>
+                <div> 
+
+                    <Modal show={show} handleClose={() => {setShow(false)}} title={modalMessage.title} message={modalMessage.message}/>
+
+
+                    <Card border="warning" bg="dark" text="white" className="my-5">
+                        <Card.Body>
+                            <div class="logo">
+                                <h1 class="title-font">The Merchant</h1>
+                                <h2>Your One-Stop Online Gaming Shop!</h2>
+                                <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
+
                             </div>
-                            <div>
-                                <label>Enter Email Address: </label>
-                                <div><input type="text" name="email" value={field.email} onChange={updateState}/></div>
-                                <div><small>{validation?.email_missing}</small></div>
-                            </div>
-                            <div>
-                                <label>Device Specifications: </label>
-                                <p><span id="disclaimer">Optional for demonstration</span></p>
-                                <div><textarea name="device_specs" rows="4" cols="35" value={field.device_specs} onChange={updateState}/></div>
-                                <div><small>{validation?.device_specs_missing}</small></div>
-                            </div>
-                            <div>
-                                <label>Password: </label>
-                                <div><input type="password" name="password" value={field.password} onChange={updateState}/></div>
-                                <div><small>{validation?.password_missing}</small></div>
-                            </div>
-                            <div>
-                                <label>Re-Enter Password: </label>
-                                <div><input type="password" name="confirm_password" value={field.confirm_password} onChange={updateState}/></div>
-                                <div><small>{validation?.confirm_password_missing}</small></div>
-                            </div>
-                            <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={regSubmit}>Submit</a>
-                        </div>
-                    </div>
+                            <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
+                                <Form.Group controlId="validationCustom01">
+                                    <FloatingLabel controlId="floatingInput" label="Enter Display Name"  className="mb-3" data-bs-theme="dark">
+                                        <Form.Control type="text" placeholder="" onChange={updateState} name="display_name" required/>
+                                        <Form.Control.Feedback type="invalid">
+                                            Display Name is missing
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                    
+                                </Form.Group>
+                                <Form.Group controlId="validationCustom02">
+                                    <FloatingLabel controlId="floatingPassword" label="Enter Email Address" className="mb-3" data-bs-theme="dark">
+                                        <Form.Control type="email" placeholder="" onChange={updateState} name="email" required pattern="\w*@\w*(\.\w{2,3})+"
+                                            isInvalid={
+                                                validated &&
+                                                !/\w*@\w*(\.\w{2,3})+/.test(field.email)
+                                            }/>
+                                        <Form.Control.Feedback type="invalid">
+                                            {!field.email?"Email is missing":(!/\w*@\w*(\.\w{2,3})+/.test(field.email)?"Invalid Email format":"")}
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Form.Group controlId="validationCustom03">
+                                    <FloatingLabel controlId="floatingPassword" label="Device Specifications" className="mb-3" data-bs-theme="dark">
+                                        <Form.Control type="textarea" placeholder="" onChange={updateState} name="device_specs"/>
+                                        <Form.Control.Feedback type="invalid">
+                                            Device Specification is missing
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Form.Group controlId="validationCustom04">
+                                    <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
+                                        <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
+                                        <Form.Control.Feedback type="invalid">
+                                            Password is missing.
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                </Form.Group>
+                                <Form.Group controlId="validationCustom05">
+                                    <FloatingLabel controlId="floatingPassword" label="Confirm Password" className="mb-3" data-bs-theme="dark">
+                                        <Form.Control type="password" placeholder="Password" onChange={updateState} name="confirm_password" required pattern={field.password}
+                                            isInvalid={
+                                                validated &&
+                                                field.confirm_password !== field.password
+                                            }/>
+                                        <Form.Control.Feedback type="invalid">
+                                            {!field.confirm_password?"Password confirmation is missing":"Password does not match."}   
+                                        </Form.Control.Feedback>
+                                    </FloatingLabel>
+                                </Form.Group>
+
+                                <div className="d-grid gap-3">
+                                    <Button type="submit" size="lg" variant="light">
+                                        <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
+                                        Submit
+                                    </Button>
+                                </div>
+                            </Form>
+                        </Card.Body>
+                    </Card>
+
                 </div>
             </div>
 

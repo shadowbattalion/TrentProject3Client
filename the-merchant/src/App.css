@@ -6,9 +6,9 @@
 }
 
 body {
-  background-image: url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg");
+  /* background-image: url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   font-family: 'Rajdhani', sans-serif;
   font-size:medium;
 }
@@ -224,9 +224,9 @@ p{
 
   .landing-page{
 
-    display:flex;
-    margin: 75px;
-    justify-content: center;
+    /* display:flex; */
+    margin: 0px;
+    /* justify-content: center; */
 
   }
 

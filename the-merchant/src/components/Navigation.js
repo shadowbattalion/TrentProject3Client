@@ -84,27 +84,6 @@ export default function Navigation() {
     return (
         (<React.Fragment>
 
-            {/* <nav class="navbar navbar-expand-lg navbar-property">
-                <div class="container-fluid">
-
-                    <div class="navbar-brand title-font" style={{"borderBottom": "5px solid black"}}>The Merchant</div><span class="title-divider navbar-brand title-font">|</span>
-
-                    <div class="navbar-collapse" id="navbarSupportedContent">
-                                
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 title-font">
-                                            
-                            {nav_jsx}
-                                            
-                        </ul>
-                    </div>
-                          
-                </div>
-                
-            </nav>
-            <div class="d-flex ms-3 mb-3">
-                <div>{ creds?(<Logout/>):""}</div>
-                <div>{ creds?(<div class="mx-3 pt-4">User: {creds.display_name}</div>):""}</div>
-            </div> */}
 
 
             <Navbar expand="lg" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">

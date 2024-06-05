@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Modal from 'react-bootstrap/Modal';
+import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function Login() {
@@ -19,10 +19,11 @@ export default function Login() {
         "password":""
     })
 
-    const [validated, setValidated] = useState(false);
+    const [validated, setValidated] = useState(false);// react bootstrap form
 
-    const [show, setShow] = useState(false);
-    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});
+    const [show, setShow] = useState(false); //modal
+    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
+
     const [showLoading, setShowLoading] = useState(true) //hidden
 
 
@@ -63,10 +64,7 @@ export default function Login() {
     },[])
 
     
-    const handleClose = () => {
-        setShow(false)
-        setModalMessage({"title":"", "message":""})
-    };
+    
             
 
     const handleSubmit = async (event) => {
@@ -78,9 +76,15 @@ export default function Login() {
         if (form.checkValidity()) {
             
             setShowLoading(false)
+            setShow(true)
+            setModalMessage({"title":"Please Wait", "message":<span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span> })
+            
             let login_outcome = await credsContext.login(field.display_name_email, field.password)
             await credsContext.refresh()
+            
             setShowLoading(true)
+            setModalMessage({"title":"", "message":"" })
+
 
             
             if (login_outcome===true){
@@ -155,27 +159,15 @@ export default function Login() {
             
             <div class="landing-page"> 
                 <div>
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                        <Modal.Title>{modalMessage.title}</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <small>{modalMessage.message}</small>
-                        </Modal.Body>
-                        <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
+                    
+                    <Modal show={show} handleClose={() => {setShow(false)}} title={modalMessage.title} message={modalMessage.message}/>
 
-                    <Card border="warning" bg="dark" text="white" className="mb-2">
+                    <Card border="warning" bg="dark" text="white" className="my-5">
                         <Card.Body>
                             <div class="logo">
                                 <h1 class="title-font">The Merchant</h1>
                                 <h2>Your One-Stop Online Gaming Shop!</h2>
                                 <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
-                                <p><span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span></p> 
 
                             </div>
                             <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
