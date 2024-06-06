@@ -8,6 +8,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
+import mainLogo from'./1.png';
 
 
 export default function UserReg() {
@@ -109,14 +110,10 @@ export default function UserReg() {
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
 
-                    <Card border="warning" bg="dark" text="white" className="my-5">
+                    <Card bg="dark" text="white" className="my-5">
                         <Card.Body>
-                            <div class="logo">
-                                <h1 class="title-font">The Merchant</h1>
-                                <h2>Your One-Stop Online Gaming Shop!</h2>
-                                <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
-
-                            </div>
+                            <Card.Img variant="top" src={mainLogo} />
+                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
                             <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
                                 <Form.Group controlId="validationCustom01">
                                     <FloatingLabel controlId="floatingInput" label="Enter Display Name"  className="mb-3" data-bs-theme="dark">
@@ -169,7 +166,7 @@ export default function UserReg() {
                                 </Form.Group>
 
                                 <div className="d-grid gap-3">
-                                    <Button type="submit" size="lg" variant="light">
+                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
                                         <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
                                         Submit
                                     </Button>

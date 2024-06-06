@@ -6,7 +6,7 @@ import Logout from "./Logout"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import navLogo from'./4.png';
 
 
 export default function Navigation() {
@@ -88,7 +88,7 @@ export default function Navigation() {
 
             <Navbar expand="lg" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">The Merchant</Navbar.Brand>
+                    <Navbar.Brand href="#home"><img style={{borderRadius:"8px", width:"175px"}}src={navLogo} alt="the merchant logo"/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

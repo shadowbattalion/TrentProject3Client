@@ -6,11 +6,9 @@
 }
 
 body {
-  /* background-image: url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
+  background-color: black;
   font-family: 'Rajdhani', sans-serif;
-  font-size:medium;
+  font-size:small;
 }
 
 
@@ -36,20 +34,7 @@ a{
 }
 
 
-small{
 
-  color:red;
-
-  
-}
-
-#disclaimer{
-
-  /* color:yellow;
-  background: black; */
-  padding:5px;
-
-}
 
 p{
 
@@ -59,31 +44,10 @@ p{
 
 }
 
-.title-font{
-
-  font-family: 'Genos', sans-serif;
-  font-size: 30px;
-  
-
-}
-
-.title-divider{
-
-  display:none;
-
-}
 
 
 
-
-
-
-
-
-
-
-
-
+/* Will be deleted */
 .login-card{
 
   background: rgba(255,255,255,0.4);
@@ -94,7 +58,7 @@ p{
 }
 
 
-
+/* will be deleted */
 .btn-custom-primary{
 
 
@@ -102,6 +66,12 @@ p{
 
 
 }
+
+
+
+
+
+
 
 
 .price-details{
@@ -209,17 +179,10 @@ p{
 
 @media (min-width:768px) {
 
-  body{
-
-    font-size:medium;
   
-  }
   
-  .title-font{
-
-    
-    font-size: 40px;
-  
+  .landing-page-card{
+    max-width: 275px;
   }
 
   .landing-page{
@@ -238,19 +201,7 @@ p{
     margin-bottom: 5%;
   }
 
-  .logo{
-
-
-   
-    width: 40%;
-    margin-left: initial;
-    margin-right: initial;
-    text-align: initial
-    
   
-  
-  
-  }
 
   label{
 
@@ -461,18 +412,9 @@ p{
   
   }
 
-  .title-font{
-
-    
-    font-size: 60px;
+ 
   
-  }
   
-  .title-divider{
-
-    display:initial;
-  
-  }
   
   label{
 

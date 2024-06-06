@@ -1,5 +1,5 @@
 // import background from "./images/pexels-miguel-á-padriñán-19670.jpg"
-import './App.css';
+// import './App.css';
 import React from 'react';
 import{
   BrowserRouter as Router,
