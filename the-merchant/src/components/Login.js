@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
+import OffCanvas from './OffCanvas';
 
 export default function Login() {
 
@@ -21,8 +22,11 @@ export default function Login() {
 
     const [validated, setValidated] = useState(false);// react bootstrap form
 
-    const [show, setShow] = useState(false); //modal
+    const [showModal, setShowModal] = useState(false); //modal
     const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
+
+    const [showSlide, setShowSlide] = useState(false); // OffCanvas
+
 
     const [showLoading, setShowLoading] = useState(true) //hidden
 
@@ -58,7 +62,7 @@ export default function Login() {
 
     useEffect(()=>{
         if (location.state!==undefined){ // after loading page, check if it was kicked from other pages that user is trying to access directly
-            setShow(true)
+            setShowModal(true)
             setModalMessage({"title":location.state.page_redirect, "message":location.state.message}) //page_redirect is just the name of the page that user is attempting to access
         }
     },[])
@@ -76,14 +80,12 @@ export default function Login() {
         if (form.checkValidity()) {
             
             setShowLoading(false)
-            setShow(true)
-            setModalMessage({"title":"Please Wait", "message":<span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span> })
-            
+            setShowSlide(true)
             let login_outcome = await credsContext.login(field.display_name_email, field.password)
             await credsContext.refresh()
-            
             setShowLoading(true)
-            setModalMessage({"title":"", "message":"" })
+            
+           
 
 
             
@@ -103,7 +105,7 @@ export default function Login() {
             } else if(login_outcome===false) {
 
                 
-                setShow(true)
+                setShowModal(true)
                 setModalMessage({"title":"Failed Login", "message":"Display Name, Email or Password is incorrect"}) 
 
                 
@@ -145,6 +147,8 @@ export default function Login() {
 
 
 
+
+
     return (
         <React.Fragment>      
 
@@ -160,7 +164,10 @@ export default function Login() {
             <div class="landing-page"> 
                 <div>
                     
-                    <Modal show={show} handleClose={() => {setShow(false)}} title={modalMessage.title} message={modalMessage.message}/>
+
+                    <Modal show={showModal} handleClose={() => {setShowModal(false); setShowSlide(false)}} title={modalMessage.title} message={modalMessage.message}/>
+
+                    <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
                     <Card border="warning" bg="dark" text="white" className="my-5">
                         <Card.Body>

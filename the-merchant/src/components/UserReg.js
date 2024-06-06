@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
+import OffCanvas from './OffCanvas';
 
 
 export default function UserReg() {
@@ -23,8 +24,11 @@ export default function UserReg() {
     const credsContext = useContext(CredentialsContext)
 
     const [validated, setValidated] = useState(false);
-    const [show, setShow] = useState(false); //modal
+    const [showModal, setShowModal] = useState(false); //modal
     const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
+    const [showSlide, setShowSlide] = useState(false); // OffCanvas
+
+
     const [showLoading, setShowLoading] = useState(true) //hidden
     
 
@@ -39,14 +43,10 @@ export default function UserReg() {
         if (form.checkValidity()) {
             
             setShowLoading(false)
-            setShow(true)
-            setModalMessage({"title":"Please Wait", "message":<span id="disclaimer">You may need to wait around 1 minute for the backend to start up as I am currently using the free account of Render.</span> })
-            
+            setShowSlide(true)
             let reg_outcome = await credsContext.register(field.display_name, field.password, field.email, field.device_specs)
-            
             setShowLoading(true)
-            setShow(false)
-            setModalMessage({"title":"", "message":"" })
+            
 
             
             if(reg_outcome===null){
@@ -62,11 +62,11 @@ export default function UserReg() {
             
             } else if(reg_outcome.data.message=="Display name or email already exists"){
                 console.log("TESTING")
-                setShow(true)
+                setShowModal(true)
                 setModalMessage({"title":"Failed Login", "message":"Display name or email already exists"})           
                             
             } else {
-                setShow(true)
+                setShowModal(true)
                 setModalMessage({"title":"Failed Login", "message":"Weird Error"}) 
             }
           
@@ -104,7 +104,9 @@ export default function UserReg() {
              <div class="landing-page"> 
                 <div> 
 
-                    <Modal show={show} handleClose={() => {setShow(false)}} title={modalMessage.title} message={modalMessage.message}/>
+                    <Modal show={showModal} handleClose={() => {setShowModal(false); setShowSlide(false)}} title={modalMessage.title} message={modalMessage.message}/>
+
+                    <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
 
                     <Card border="warning" bg="dark" text="white" className="my-5">
