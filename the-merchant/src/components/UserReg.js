@@ -8,8 +8,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
-import mainLogo from'./1.png';
-
+import mainLogo from'./5.png';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function UserReg() {
 
@@ -109,71 +111,76 @@ export default function UserReg() {
 
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
+                    <Container fluid>
+                        <Row>
+                            <Col className="pt-5">
+                                <Card bg="dark" text="white" className="my-5 landing-page-card">
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={mainLogo} />
+                                        <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
+                                        <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
+                                            <Form.Group controlId="validationCustom01">
+                                                <FloatingLabel controlId="floatingInput" label="Enter Display Name"  className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="text" placeholder="" onChange={updateState} name="display_name" required/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        Display Name is missing
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                                
+                                            </Form.Group>
+                                            <Form.Group controlId="validationCustom02">
+                                                <FloatingLabel controlId="floatingPassword" label="Enter Email Address" className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="email" placeholder="" onChange={updateState} name="email" required pattern="\w*@\w*(\.\w{2,3})+"
+                                                        isInvalid={
+                                                            validated &&
+                                                            !/\w*@\w*(\.\w{2,3})+/.test(field.email)
+                                                        }/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        {!field.email?"Email is missing":(!/\w*@\w*(\.\w{2,3})+/.test(field.email)?"Invalid Email format":"")}
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                            </Form.Group>
+                                            <Form.Group controlId="validationCustom03">
+                                                <FloatingLabel controlId="floatingPassword" label="Device Specifications" className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="textarea" placeholder="" onChange={updateState} name="device_specs"/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        Device Specification is missing
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                            </Form.Group>
+                                            <Form.Group controlId="validationCustom04">
+                                                <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        Password is missing.
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                            </Form.Group>
+                                            <Form.Group controlId="validationCustom05">
+                                                <FloatingLabel controlId="floatingPassword" label="Confirm Password" className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="password" placeholder="Password" onChange={updateState} name="confirm_password" required pattern={field.password}
+                                                        isInvalid={
+                                                            validated &&
+                                                            field.confirm_password !== field.password
+                                                        }/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        {!field.confirm_password?"Password confirmation is missing":"Password does not match."}   
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                            </Form.Group>
 
-                    <Card bg="dark" text="white" className="my-5 landing-page-card">
-                        <Card.Body>
-                            <Card.Img variant="top" src={mainLogo} />
-                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
-                            <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
-                                <Form.Group controlId="validationCustom01">
-                                    <FloatingLabel controlId="floatingInput" label="Enter Display Name"  className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="text" placeholder="" onChange={updateState} name="display_name" required/>
-                                        <Form.Control.Feedback type="invalid">
-                                            Display Name is missing
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                    
-                                </Form.Group>
-                                <Form.Group controlId="validationCustom02">
-                                    <FloatingLabel controlId="floatingPassword" label="Enter Email Address" className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="email" placeholder="" onChange={updateState} name="email" required pattern="\w*@\w*(\.\w{2,3})+"
-                                            isInvalid={
-                                                validated &&
-                                                !/\w*@\w*(\.\w{2,3})+/.test(field.email)
-                                            }/>
-                                        <Form.Control.Feedback type="invalid">
-                                            {!field.email?"Email is missing":(!/\w*@\w*(\.\w{2,3})+/.test(field.email)?"Invalid Email format":"")}
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                </Form.Group>
-                                <Form.Group controlId="validationCustom03">
-                                    <FloatingLabel controlId="floatingPassword" label="Device Specifications" className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="textarea" placeholder="" onChange={updateState} name="device_specs"/>
-                                        <Form.Control.Feedback type="invalid">
-                                            Device Specification is missing
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                </Form.Group>
-                                <Form.Group controlId="validationCustom04">
-                                    <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
-                                        <Form.Control.Feedback type="invalid">
-                                            Password is missing.
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                </Form.Group>
-                                <Form.Group controlId="validationCustom05">
-                                    <FloatingLabel controlId="floatingPassword" label="Confirm Password" className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="password" placeholder="Password" onChange={updateState} name="confirm_password" required pattern={field.password}
-                                            isInvalid={
-                                                validated &&
-                                                field.confirm_password !== field.password
-                                            }/>
-                                        <Form.Control.Feedback type="invalid">
-                                            {!field.confirm_password?"Password confirmation is missing":"Password does not match."}   
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                </Form.Group>
-
-                                <div className="d-grid gap-3">
-                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
-                                        <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
-                                        Submit
-                                    </Button>
-                                </div>
-                            </Form>
-                        </Card.Body>
-                    </Card>
+                                            <div className="d-grid gap-3">
+                                                <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
+                                                    <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
+                                                    Submit
+                                                </Button>
+                                            </div>
+                                        </Form>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row> 
+                    </Container> 
 
                 </div>
             </div>

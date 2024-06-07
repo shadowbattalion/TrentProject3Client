@@ -8,7 +8,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
-import mainLogo from'./1.png';
+import mainLogo from'./5.png';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -169,7 +169,7 @@ export default function Login() {
                     
                     <Container fluid>
                         <Row>
-                            <Col>
+                            <Col className="pt-5">
                                 <Card bg="dark" text="white" className="my-5 landing-page-card">
                                     <Card.Body>
                                         <Card.Img variant="top" src={mainLogo} />

@@ -86,8 +86,8 @@ export default function Navigation() {
 
 
 
-            <Navbar expand="lg" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">
-                <Container>
+            <Navbar fixed="top" expand="xxl" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">
+                <Container fluid>
                     <Navbar.Brand href="#home"><img style={{borderRadius:"8px", width:"175px"}}src={navLogo} alt="the merchant logo"/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
