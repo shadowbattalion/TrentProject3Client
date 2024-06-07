@@ -110,7 +110,7 @@ export default function UserReg() {
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
 
-                    <Card bg="dark" text="white" className="my-5">
+                    <Card bg="dark" text="white" className="my-5 landing-page-card">
                         <Card.Body>
                             <Card.Img variant="top" src={mainLogo} />
                             <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>

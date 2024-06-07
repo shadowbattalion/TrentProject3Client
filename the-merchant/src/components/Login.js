@@ -9,6 +9,10 @@ import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
 import mainLogo from'./1.png';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 export default function Login() {
 
@@ -162,39 +166,45 @@ export default function Login() {
                     <Modal show={showModal} handleClose={() => {setShowModal(false); setShowSlide(false)}} title={modalMessage.title} message={modalMessage.message}/>
 
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
+                    
+                    <Container fluid>
+                        <Row>
+                            <Col>
+                                <Card bg="dark" text="white" className="my-5 landing-page-card">
+                                    <Card.Body>
+                                        <Card.Img variant="top" src={mainLogo} />
+                                        <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
+                                        <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
+                                            <Form.Group controlId="validationCustom01">
+                                                <FloatingLabel controlId="floatingInput" label="Username/Email"  className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="text" placeholder="name@example.com" onChange={updateState} name="display_name_email" required/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        Display Name or Email is missing
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                                
+                                            </Form.Group>
+                                            <Form.Group controlId="validationCustom02">
+                                                <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
+                                                    <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
+                                                    <Form.Control.Feedback type="invalid">
+                                                        Password is missing.
+                                                    </Form.Control.Feedback>
+                                                </FloatingLabel>
+                                            </Form.Group>
 
-                    <Card bg="dark" text="white" className="my-5">
-                        <Card.Body>
-                            <Card.Img variant="top" src={mainLogo} />
-                            <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
-                            <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
-                                <Form.Group controlId="validationCustom01">
-                                    <FloatingLabel controlId="floatingInput" label="Username/Email"  className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="text" placeholder="name@example.com" onChange={updateState} name="display_name_email" required/>
-                                        <Form.Control.Feedback type="invalid">
-                                            Display Name or Email is missing
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                    
-                                </Form.Group>
-                                <Form.Group controlId="validationCustom02">
-                                    <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
-                                        <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
-                                        <Form.Control.Feedback type="invalid">
-                                            Password is missing.
-                                        </Form.Control.Feedback>
-                                    </FloatingLabel>
-                                </Form.Group>
-
-                                <div className="d-grid gap-3">
-                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
-                                        <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
-                                        Login
-                                    </Button>
-                                </div>
-                            </Form>
-                        </Card.Body>
-                    </Card>   
+                                            <div className="d-grid gap-3">
+                                                <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
+                                                    <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
+                                                    Login
+                                                </Button>
+                                            </div>
+                                        </Form>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row> 
+                    </Container>   
 
 
                         
