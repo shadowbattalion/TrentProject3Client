@@ -21,8 +21,29 @@ p{
 
 }
 
+.navlogo{
+  width:175px;
+  border-radius:8px;
+}
 
 
+.text-label{
+  font-size: 17px;
+}
+
+.text-input{
+  font-size: 17px;
+
+}
+
+
+.landing-page-form{
+  margin-top:35%;
+}
+
+.landing-page-logo{
+  display: none;
+}
 
 
 @media (min-width:768px) {
@@ -36,6 +57,8 @@ p{
     margin: auto;
   }
 
+  
+
 }
 
 @media (min-width:1200px) {
@@ -44,4 +67,56 @@ p{
     font-size: x-large;
   }
 
+  .landing-page-logo{
+    margin-top:25%;
+    display:block;
+  }
+  
+  .landing-page-form{
+    margin-top:10%;
+  }
+
+  .landing-page-card{
+    width:500px;
+
+  }
+
+  .laptop-pad-main-logo{
+    width:400px;
+  }
+  
+  .navlogo{
+    width:200px;
+  }
+
 }
+
+
+@media (min-width:1600px) {
+
+ 
+
+  .landing-page-logo{
+    margin-top:22%;
+  }
+  
+  .landing-page-form{
+    margin-top:15%;
+  }
+
+  .landing-page-card{
+    width:700px;
+    
+  }
+
+  .laptop-pad-main-logo{
+    width:600px;
+  }
+
+  .navlogo{
+    width:250px;
+  }
+
+}
+
+

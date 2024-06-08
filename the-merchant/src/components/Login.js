@@ -8,10 +8,11 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
-import mainLogo from'./5.png';
+import logo from './6.png';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Stack from 'react-bootstrap/Stack'
 
 
 export default function Login() {
@@ -159,7 +160,7 @@ export default function Login() {
             
 
             
-            <div class="landing-page"> 
+            <div> 
                 <div>
                     
 
@@ -169,36 +170,43 @@ export default function Login() {
                     
                     <Container fluid>
                         <Row>
-                            <Col className="pt-5">
-                                <Card bg="dark" text="white" className="my-5 landing-page-card">
+                            <Col className="landing-page-logo">
+                                <img style={{borderRadius:"8px"}}src={logo} alt="the merchant logo" className="laptop-pad-main-logo"/>
+                            </Col>
+                            <Col className="landing-page-form">
+                                <Card bg="dark" text="white" className="my-5 landing-page-card" >
                                     <Card.Body>
-                                        <Card.Img variant="top" src={mainLogo} />
+                                        <Card.Title><h1>Log In</h1></Card.Title>
                                         <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
                                         <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
-                                            <Form.Group controlId="validationCustom01">
-                                                <FloatingLabel controlId="floatingInput" label="Username/Email"  className="mb-3" data-bs-theme="dark">
-                                                    <Form.Control type="text" placeholder="name@example.com" onChange={updateState} name="display_name_email" required/>
-                                                    <Form.Control.Feedback type="invalid">
-                                                        Display Name or Email is missing
-                                                    </Form.Control.Feedback>
-                                                </FloatingLabel>
-                                                
-                                            </Form.Group>
-                                            <Form.Group controlId="validationCustom02">
-                                                <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" data-bs-theme="dark">
-                                                    <Form.Control type="password" placeholder="Password" onChange={updateState} name="password" required/>
-                                                    <Form.Control.Feedback type="invalid">
-                                                        Password is missing.
-                                                    </Form.Control.Feedback>
-                                                </FloatingLabel>
-                                            </Form.Group>
-
-                                            <div className="d-grid gap-3">
+                                            <Stack gap={2}>
+                                                <Row>
+                                                    <Col>
+                                                        <Form.Group controlId="validationCustom01">
+                                                            <FloatingLabel controlId="floatingInput" label="Username/Email"  className="mb-3 text-label" data-bs-theme="dark">
+                                                                <Form.Control type="text" placeholder="name@example.com"  className="text-input" onChange={updateState} name="display_name_email" required/>
+                                                                <Form.Control.Feedback type="invalid">
+                                                                    Display Name or Email is missing
+                                                                </Form.Control.Feedback>
+                                                            </FloatingLabel>
+                                                        </Form.Group>
+                                                    </Col>
+                                                    <Col> 
+                                                        <Form.Group controlId="validationCustom02">
+                                                            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3 text-label" data-bs-theme="dark">
+                                                                <Form.Control type="password" placeholder="Password" className="text-input" onChange={updateState} name="password" required/>
+                                                                <Form.Control.Feedback type="invalid">
+                                                                    Password is missing.
+                                                                </Form.Control.Feedback>
+                                                            </FloatingLabel>
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
                                                 <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark">
                                                     <Spinner hidden={showLoading} as="span" animation="grow" size="sm" role="status" aria-hidden="true" className="mx-1"/>
                                                     Login
                                                 </Button>
-                                            </div>
+                                            </Stack>
                                         </Form>
                                     </Card.Body>
                                 </Card>
