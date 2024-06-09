@@ -20,10 +20,7 @@ export default function Games() {
     const history = useHistory()
     const [gameList, setGameList] = useState(null)
     const [user, setUser] = useState(null)
-    let [message, setMessage]=useState({
-        "message_content":"",
-        "color":""
-    })
+   
 
     const [showModal, setShowModal] = useState(false); //modal
     const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
@@ -42,12 +39,16 @@ export default function Games() {
         console.log(trigger)
         const requestGames =  async() =>{
             let gameList = await gamesContext.getGames(field.title, field.company_name)
-            
-            console.log(gameList)
+           
 
             if(gameList){
                 setUser(user)
-                setGameList(gameList.data.games)
+                if(gameList.data.games.length>0){
+                    setGameList(gameList.data.games)
+                }else{
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":"No such games"})
+                }
 
             } else {
                 
@@ -70,22 +71,19 @@ export default function Games() {
     async function addGame(game_id, title){
 
 
-        message = await cartContext.addGame(game_id)
+        const message = await cartContext.addGame(game_id)
 
         if(message){
             if(message.data.message==true){
-                setMessage({
-                    "message_content":title+" added to cart!",
-                    "color":"green"
-                })
+
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":title+" added to cart!"})
+
             }else{
             
-                setMessage({
-                    "message_content":message.data.message,
-                    "color":"red"
-                })
-
-             
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":message.data.message})
+            
             }
         
         } else {
@@ -111,11 +109,13 @@ export default function Games() {
 
     }
 
-    const updateState = (e) =>{
-
+    const updateState = (event) =>{
+        
+        const { name, value } = event.target;
+        console.log(name, value)
         setField({
             ...field,
-            [e.target.name]:e.target.value
+            [name]:value
         })
 
     }
@@ -157,7 +157,6 @@ export default function Games() {
             game_list_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
                     <Card.Body><h1>Loading Game List</h1></Card.Body>
-                    <small style={{color:message.color}}>{message.message_content}</small>
                 </Card>
             </React.Fragment>)
 
@@ -176,10 +175,10 @@ export default function Games() {
                                 Inputs are case sensitive.
                             </Form.Text>
                             <FloatingLabel controlId="floatingInput" className="text-label" label="Search Title" data-bs-theme="dark">
-                                <Form.Control type="text" placeholder="" className="text-input" onChange={updateState}/>
+                                <Form.Control name="title" type="text" placeholder="" className="text-input" onChange={updateState}/>
                             </FloatingLabel>
                             <FloatingLabel controlId="floatingInput" className="text-label" label="Search Company" data-bs-theme="dark">
-                                <Form.Control type="text" placeholder="" className="text-input" onChange={updateState}/>
+                                <Form.Control name="company_name" type="text" placeholder="" className="text-input" onChange={updateState}/>
                             </FloatingLabel>
                             <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="md" variant="dark" onClick={searchSubmit}>Search</Button>
                         </Stack>
@@ -191,7 +190,6 @@ export default function Games() {
         <React.Fragment>
             <Card bg="dark" text="white">
                 <Card.Body><h1>Game List</h1></Card.Body>
-                <small style={{color:message.color}}>{message.message_content}</small>
             </Card>
         </React.Fragment>)
 
