@@ -56,9 +56,9 @@ export default function Navigation() {
         nav_jsx=(<React.Fragment>
         
            
-            <Nav.Link><Link to ="/games">Games List</Link></Nav.Link>
-            <Nav.Link><Link to ="/cart">Cart</Link></Nav.Link>
-            <Nav.Link><Link to ="/order-history">Order History</Link></Nav.Link>
+            <Nav.Link><Link to ="/games"><span className="a-nav">Games List</span></Link></Nav.Link>
+            <Nav.Link><Link to ="/cart"><span className="a-nav">Cart</span></Link></Nav.Link>
+            <Nav.Link><Link to ="/order-history"><span className="a-nav">Order History</span></Link></Nav.Link>
 
 
 
@@ -71,8 +71,8 @@ export default function Navigation() {
         nav_jsx=(<React.Fragment>
            
     
-            <Nav.Link><Link to ="/">Login</Link></Nav.Link>
-            <Nav.Link><Link to ="/user-reg">Sign Up</Link></Nav.Link>
+            <Nav.Link ><Link to ="/"><span className="a-nav">Login</span></Link></Nav.Link>
+            <Nav.Link><Link to ="/user-reg"><span className="a-nav">Sign Up</span></Link></Nav.Link>
                
             
         </React.Fragment>)

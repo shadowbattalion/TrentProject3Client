@@ -9,7 +9,7 @@ export default function UserReg(props) {
 
     return (
         <>
-           <Modal show={props.show} onHide={props.handleClose}>
+           <Modal centered show={props.show} onHide={props.handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header>
@@ -17,7 +17,7 @@ export default function UserReg(props) {
                         <small>{props.message}</small>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={props.handleClose}>
+                        <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} onClick={props.handleClose}>
                             Close
                         </Button>
                     </Modal.Footer>

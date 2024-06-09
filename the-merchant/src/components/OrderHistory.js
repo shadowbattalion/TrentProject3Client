@@ -73,7 +73,7 @@ export default function GameDetails() {
             orderHistory_jsx=(<React.Fragment>
                 <Stack gap={3}>
                     <Card bg="dark" text="white">
-                        <Card.Body><h1>Order History</h1></Card.Body>
+                        <Card.Body><h1 className="text-label-color">Order History</h1></Card.Body>
                     </Card>
                     {order_jsx}
                 </Stack>
@@ -85,7 +85,7 @@ export default function GameDetails() {
             
             orderHistory_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>There are no orders currently.</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">There are no orders currently.</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 

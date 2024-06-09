@@ -176,7 +176,7 @@ export default function Login() {
                             <Col className="landing-page-form">
                                 <Card bg="dark" text="white" className="landing-page-card" >
                                     <Card.Body>
-                                        <Card.Title><h1>Log In</h1></Card.Title>
+                                        <Card.Title><h1 className="text-label-color">Log In</h1></Card.Title>
                                         <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
                                         <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
                                             <Stack gap={2}>

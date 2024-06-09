@@ -73,28 +73,37 @@ export default function Games() {
 
     async function addGame(game_id, title){
 
-
-        const message = await cartContext.addGame(game_id)
-
-        if(message){
-            if(message.data.message==true){
-
-                setShowModal(true)
-                setModalMessage({"title":"Attention", "message":title+" added to cart!"})
-
-            }else{
+        // Checking if game has already been selected. In this case Games are soft copy. To simulate hardcopy, remove this and add quantity button in cart.
+        const gamesInCart =  await cartContext.getCart()
+        const gamesInCartIds =  gamesInCart.data.cart_games_list.map((game)=>{return game.game_id})
+        if(gamesInCartIds.includes(game_id)){
             
-                setShowModal(true)
-                setModalMessage({"title":"Attention", "message":message.data.message})
-            
-            }
+            setShowModal(true)
+            setModalMessage({"title":"Attention", "message":title+" already added to cart. Please select another game."})
         
         } else {
 
-            history.push("/error-page")
+            const message = await cartContext.addGame(game_id)
 
+            if(message){
+                if(message.data.message==true){
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":title+" added to cart!"})
+
+                }else{
+                
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
+                
+                }
+            
+            } else {
+
+                history.push("/error-page")
+
+            }
         }
-        
 
 
     }
@@ -177,7 +186,7 @@ export default function Games() {
 
             game_list_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>Loading Game List</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Loading Game List</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 
@@ -210,7 +219,7 @@ export default function Games() {
     let title = (
         <React.Fragment>
             <Card bg="dark" text="white">
-                <Card.Body><h1>Game List</h1></Card.Body>
+                <Card.Body><h1 className="text-label-color">Game List</h1></Card.Body>
             </Card>
         </React.Fragment>)
 

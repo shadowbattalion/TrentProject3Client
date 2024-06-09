@@ -10,6 +10,12 @@ body {
 
 a{
   text-decoration: none;
+  color:white;
+}
+
+
+.a-nav{
+  text-decoration: none;
   color:#887AFF;
 }
 

@@ -268,7 +268,7 @@ export default function Cart() {
             cart_jsx=(<React.Fragment>
             <Stack gap={3}>  
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>Cart</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Cart</h1></Card.Body>
                 </Card>
                 {cart_item_jsx}
                 <Card bg="dark" text="white">
@@ -291,7 +291,7 @@ export default function Cart() {
 
             cart_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>Cart is empty</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Cart is empty</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 

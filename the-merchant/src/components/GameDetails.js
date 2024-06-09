@@ -21,10 +21,6 @@ export default function GameDetails() {
 
     const [ game, setGame ] = useState(null);
     const [profile, setProfile] = useState(null)
-    let [message, setMessage]=useState({
-        "message_content":"",
-        "color":""
-    })
 
     const [showModal, setShowModal] = useState(false); //modal
     const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
@@ -82,33 +78,40 @@ export default function GameDetails() {
     async function addGame(game_id, title){
 
 
-        message = await cartContext.addGame(game_id)
-
-        if(message){
-            if(message.data.message==true){
-                
+        // Checking if game has already been selected. In this case Games are soft copy. To simulate hardcopy, remove this and add quantity button in cart.
+        const gamesInCart =  await cartContext.getCart()
+        const gamesInCartIds =  gamesInCart.data.cart_games_list.map((game)=>{return game.game_id})
+        if(gamesInCartIds.includes(game_id)){
             
-                setMessage({
-                    "message_content":title+" added to cart!",
-                    "color":"green"
-                })
+            setShowModal(true)
+            setModalMessage({"title":"Attention", "message":title+" already added to cart. Please select another game."})
+        
+        } else {   
 
-            }else{
+            const message = await cartContext.addGame(game_id)
 
-                setMessage({
-                    "message_content":message.data.message,
-                    "color":"red"
-                })
+            if(message){
+                if(message.data.message==true){
+                    
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":title+" added to cart!"})
+                
 
+                }else{
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
+
+
+                }
+            
+            } else {
+
+                history.push("/error-page")
 
             }
         
-        } else {
-
-            history.push("/error-page")
-
-        }
-        
+        } 
 
 
     }
@@ -168,7 +171,6 @@ export default function GameDetails() {
                             <Row>
                                 <Col>
                                     <h1 className="text-label-color">{game.title}</h1>
-                                    {/* <small style={{color:message.color}}>{message.message_content}</small> */}
                                     <div><span className="text-label-color">Cost:</span> ${game.cost}</div> 
                                     <div><span className="text-label-color">Discount:</span> {game.discount}%</div> 
                                 </Col>
@@ -249,7 +251,7 @@ export default function GameDetails() {
 
             game_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>There is no such games</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">There is no such games</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 

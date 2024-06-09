@@ -23,7 +23,7 @@ export default function Checkout() {
 
       <Container fluid className="container-positioning container-width" >
         <Card bg="dark" text="white">
-          <Card.Body><h1>Stripe page incoming....</h1></Card.Body>
+          <Card.Body><h1 className="text-label-color">Stripe page incoming....</h1></Card.Body>
         </Card>
       </Container>
       
