@@ -46,6 +46,16 @@ p{
 }
 
 
+.landing-page-container-positioning{
+  margin-top:27%;
+}
+
+
+.cart-container-positioning{
+  margin-top:17%;
+}
+
+
 @media (min-width:768px) {
 
   body {
@@ -57,7 +67,15 @@ p{
     margin: auto;
   }
 
+  .landing-page-container-positioning{
+    margin-top:5%;
+  }
+
+  .cart-container-positioning{
+    margin-top:10%;
+  }
   
+
 
 }
 
@@ -89,6 +107,18 @@ p{
     width:200px;
   }
 
+  .landing-page-container-positioning{
+    margin-top:5%;
+  }
+
+  .cart-container-positioning{
+    margin-top:10%;
+  }
+
+  .cart-container-width{
+    width:80%;
+  }
+
 }
 
 
@@ -115,6 +145,18 @@ p{
 
   .navlogo{
     width:250px;
+  }
+
+  .landing-page-container-positioning{
+    margin-top:0%;
+  }
+
+  .cart-container-positioning{
+    margin-top:5%;
+  }
+
+  .cart-container-width{
+    width:60%;
   }
 
 }

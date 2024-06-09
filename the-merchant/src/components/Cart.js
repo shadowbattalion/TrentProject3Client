@@ -1,6 +1,14 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import CartContext from "../contexts/CartContext";
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Stack from "react-bootstrap/esm/Stack";
+import Button from "react-bootstrap/esm/Button";
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
+import Image from "react-bootstrap/esm/Image";
+
 
 
  
@@ -26,6 +34,7 @@ export default function Cart() {
         const requestCart =  async() =>{
             
             let cart = await cartContext.getCart()
+            console.log(cart.data)
             
             if(cart){
 
@@ -223,45 +232,68 @@ export default function Cart() {
             for (let cartItem of cart){
 
                 cart_item_jsx.push(
-                    <div class="card login-card cart-page mt-1">
-                            <div class="card-body cart-items-container">
-                                <div class="cart-tems" key={cartItem.id}>  
-                                <div class="cart-items-flex-1">      
-                                    <div class="mt-2 game-details-size">{cartItem.game.title} X {cartItem.quantity} = ${cartItem.sub_total}</div>
-                                </div>
-                                <div class="cart-items-flex-2 mt-3">
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>- Quantity</a></div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+ Quantity</a></div>
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} >Remove</a></div>
-                                </div>
-                            </div>
-                         </div>
-                    </div>)
+                    <Card bg="dark" text="white" key={cartItem.id}>
+                        <Card.Body>
+                            <Stack gap={3}>
+                                <Row>
+                                    <Col>
+                                        <Image src={cartItem.game.banner_image_thumbnail } thumbnail style={{width:"120px"}} />
+                                    </Col>
+                                    <Col className="d-flex flex-row justify-content-end"> 
+                                        {/* <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>
+                                            - Quantity
+                                        </Button>
+                                        <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>
+                                            + Quantity
+                                        </Button> */}
+                                        <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}}>
+                                            Remove
+                                        </Button>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Card.Text><h3>{cartItem.game.title} = ${cartItem.sub_total}</h3></Card.Text>
+                                    </Col>
+                                </Row>
+                            </Stack>
+                         </Card.Body>
+                    </Card>)
             }
 
             cart_jsx=(<React.Fragment>
-                <div class="card login-card cart-page my-3">
-                    <div class="card-body">
+            
+                    {/* <div class="card-body">
                         <h1 class="card-title">Cart</h1>
                         <small style={{color:message.color}}>{message.message_content}</small>
-                    </div>
-                </div>
+                    </div> */}
+            <Stack gap={3}>  
+                <Card bg="dark" text="white">
+                    <Card.Body><h1>Cart</h1></Card.Body>
+                </Card>
                 {cart_item_jsx}
-                <div class="card login-card cart-page my-3">
-                    <div class="card-body">
-                        <h2 class="card-title">Total: ${total}</h2>
-                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{checkout()}}>Checkout</a></div>
-                    </div>
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body>
+                            <Row>
+                                <Col>
+                                    <h2>Total: ${total}</h2>
+                                </Col>
+                                <Col className="d-flex flex-row justify-content-end">
+                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{checkout()}}>
+                                        Checkout
+                                    </Button>
+                                </Col>
+                            </Row>
+                    </Card.Body>
+                </Card>
+            </Stack>
             </React.Fragment>)
         } else {
 
             cart_jsx=(<React.Fragment>
-                <div class="card login-card cart-page mt-1">
-                    <div class="card-body order-container">
-                        <h1 class="card-title">Cart is empty</h1>
-                    </div>
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body><h1>Cart is empty</h1></Card.Body>
+                </Card>
             </React.Fragment>)
 
         }
@@ -271,7 +303,9 @@ export default function Cart() {
     
     return (
         <React.Fragment>
-          {cart_jsx}
+            <Container fluid className="cart-container-positioning cart-container-width" >
+                {cart_jsx}
+            </Container>
         </React.Fragment> 
     )
 }

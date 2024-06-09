@@ -116,10 +116,10 @@ export default function UserReg() {
 
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
 
-                    <Container fluid className="pt-5">
+                    <Container fluid className="landing-page-container-positioning">
                         <Row>
                             <Col style={{marginTop:"7%"}}>
-                                <Card bg="dark" text="white" className="my-5 landing-page-card" style={{marginTop:"10%"}}>
+                                <Card bg="dark" text="white" className="landing-page-card" >
                                     <Card.Body>
                                         <Card.Title><h1>Sign Up</h1></Card.Title>
                                         <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>

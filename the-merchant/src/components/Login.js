@@ -168,13 +168,13 @@ export default function Login() {
 
                     <OffCanvas show={showSlide} handleClose={() => setShowSlide(false)} />
                     
-                    <Container fluid>
+                    <Container fluid className="landing-page-container-positioning">
                         <Row>
                             <Col className="landing-page-logo">
                                 <img style={{borderRadius:"8px"}}src={logo} alt="the merchant logo" className="laptop-pad-main-logo"/>
                             </Col>
                             <Col className="landing-page-form">
-                                <Card bg="dark" text="white" className="my-5 landing-page-card" >
+                                <Card bg="dark" text="white" className="landing-page-card" >
                                     <Card.Body>
                                         <Card.Title><h1>Log In</h1></Card.Title>
                                         <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
