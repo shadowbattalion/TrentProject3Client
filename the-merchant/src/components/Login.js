@@ -8,7 +8,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Modal from './Modal';
 import Spinner from 'react-bootstrap/Spinner';
 import OffCanvas from './OffCanvas';
-import logo from './6.png';
+// import logo from './6.png';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -171,7 +171,7 @@ export default function Login() {
                     <Container fluid className="landing-page-container-positioning">
                         <Row>
                             <Col className="landing-page-logo">
-                                <img style={{borderRadius:"8px"}}src={logo} alt="the merchant logo" className="laptop-pad-main-logo"/>
+                                <img style={{borderRadius:"8px"}} src="https://res.cloudinary.com/dl2qwodyu/image/upload/v1717954744/5_pdzo3u.png" alt="the merchant logo" className="laptop-pad-main-logo"/>
                             </Col>
                             <Col className="landing-page-form">
                                 <Card bg="dark" text="white" className="landing-page-card" >

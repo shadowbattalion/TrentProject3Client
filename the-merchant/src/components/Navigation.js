@@ -6,7 +6,7 @@ import Logout from "./Logout"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import navLogo from'./4.png';
+// import navLogo from'./4.png';
 
 
 export default function Navigation() {
@@ -88,16 +88,18 @@ export default function Navigation() {
 
             <Navbar fixed="top" expand="xxl" className="bg-body-tertiary"  bg="dark" data-bs-theme="dark">
                 <Container fluid>
-                    <Navbar.Brand href="#home"><img src={navLogo} alt="the merchant logo" className="navlogo"/></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img src="https://res.cloudinary.com/dl2qwodyu/image/upload/v1717954760/4_mslo7y.png" alt="the merchant logo" className="navlogo"/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             {nav_jsx}
+                            <Navbar.Text className="mx-xxl-3"><a href="https://github.com/shadowbattalion/TrentProject3Client.git" target="_blank"><span className="a-nav">Github Frontend</span></a></Navbar.Text>
+                            <Navbar.Text><a href="https://github.com/shadowbattalion/TrentProject3API.git" target="_blank"><span className="a-nav">Github Backend</span></a></Navbar.Text>
                         </Nav>
                     </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            <div>{ creds?(<div class="mx-lg-3 my-3" >User: {creds.display_name}</div>):""}</div>
+                            <div>{ creds?(<div class="mx-lg-3 my-2" >User: {creds.display_name}</div>):""}</div>
                         </Navbar.Text>
                         <Navbar.Text>
                             <div>{ creds?(<Logout/>):""}</div> 
