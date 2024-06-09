@@ -11,6 +11,9 @@ import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 
 
@@ -137,14 +140,34 @@ export default function Games() {
 
                     <Card bg="dark" text="white" key={game.id}>
                         <Card.Body>
-                            <Image src={game.banner_image_thumbnail} thumbnail style={{width:"120px"}} />
-                            <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label">Title: </strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
-                            <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label">Company: </strong>{game.company_name}</h3>
-                            <div>
-                                <div><strong className="order-history-text-label">Price: </strong>${game.cost}</div> 
-                                <div><strong className="order-history-text-label">Discount: </strong>{game.discount}%</div>
-                            </div>
-                            <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{addGame(game.id, game.title)}}>Cart</Button> 
+                        <Container fluid>
+                            <Row>
+                                {/* <Stack gap={2}> */}
+                                    <Col md={2} className="mb-3">
+                                    <Link to={"/game-details/" + game.id}><Image src={game.banner_image_thumbnail} thumbnail style={{width:"150px"}} /></Link>
+                                    </Col>
+                                    <Col md={4} className="mb-3">
+                                        <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label"></strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
+                                    </Col>
+                                    <Col md={3} className="mb-3">
+                                        <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label"></strong>{game.company_name}</h3>
+                                    </Col>
+                                    <Col md={2} className="mb-3">
+                                        <div>
+                                            <div><strong className="order-history-text-label">Price: </strong>${game.cost}</div> 
+                                            {game.discount>0?<div><strong className="order-history-text-label">Discount: </strong>{game.discount}%</div>:<div></div>}
+                                        </div>
+                                    </Col>
+                                    <Col md={1} className="d-flex flex-column justify-content-center">
+                                        <Row>
+                                            <Col className="d-flex flex-row justify-content-end">
+                                                <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{addGame(game.id, game.title)}}>Cart</Button> 
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                {/* </Stack> */}
+                            </Row>
+                        </Container>
                         </Card.Body>
                     </Card>)
             }

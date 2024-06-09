@@ -229,26 +229,36 @@ export default function Cart() {
                     <Card bg="dark" text="white" key={cartItem.id}>
                         <Card.Body>
                             <Stack gap={3}>
-                                <Row>
-                                    <Col>
-                                        <Image src={cartItem.game.banner_image_thumbnail } thumbnail style={{width:"120px"}} />
-                                    </Col>
-                                    <Col className="d-flex flex-row justify-content-end"> 
-                                        {/* <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>
-                                            - Quantity
-                                        </Button>
-                                        <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>
-                                            + Quantity
-                                        </Button> */}
-                                        <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}}>
-                                            Remove
-                                        </Button>
-                                    </Col>
-                                </Row>
+                                <Container fluid>
+                                    <Row>
+                                        <Col>
+                                            <Image src={cartItem.game.banner_image_thumbnail } thumbnail style={{width:"150px"}} />
+                                        </Col>
+                                        <Col className="d-flex flex-column justify-content-center"> 
+                                            <Row>
+                                                <Col className="d-flex flex-row justify-content-end">
+                                                    {/* <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>
+                                                        - Quantity
+                                                    </Button>
+                                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>
+                                                        + Quantity
+                                                    </Button> */}
+                                                    <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}}>
+                                                        Remove
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Container>
                                 <Row>
                                     <Col>
                                         <Card.Text><h3><strong className="order-history-text-label">{cartItem.game.title}:</strong> ${cartItem.sub_total}</h3></Card.Text>
                                     </Col>
+                                    <Col>
+                                        <Card.Text>{cartItem.game.discount>0?<h3><strong className="order-history-text-label">Discount: </strong>{cartItem.game.discount}%</h3>:<div></div>}</Card.Text>
+                                    </Col>
+
                                 </Row>
                             </Stack>
                          </Card.Body>
