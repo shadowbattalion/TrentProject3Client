@@ -8,6 +8,7 @@ import Button from "react-bootstrap/esm/Button";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import Image from "react-bootstrap/esm/Image";
+import Modal from './Modal';
 
 
 
@@ -19,13 +20,11 @@ export default function Cart() {
     const cartContext = useContext(CartContext);
 
     const history = useHistory()
-    let [message, setMessage]=useState({
-        "message_content":"",
-        "color":""
-    })
     let [trigger, setTrigger] = useState(0)
     const [cartStatus, setCartStatus] = useState(null)
 
+    const [showModal, setShowModal] = useState(false); //modal
+    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
   
 
     useEffect(()=>{
@@ -63,24 +62,23 @@ export default function Cart() {
 
         if (operation=="+"){
 
-            message = await cartContext.increaseQuantity(game_id)
+            const message = await cartContext.increaseQuantity(game_id)
             
 
             if(message){
                 if(message.data.message==true){
                     
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" increased"})
                     
-                    setMessage({
-                        "message_content":"Quantity of item "+title+" increased",
-                        "color":"green"
-                    })
         
                 }else{
         
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
+                    
         
                 }
             } else {
@@ -97,24 +95,23 @@ export default function Cart() {
 
         } else if (operation=="-"){
 
-            message = await cartContext.decreaseQuantity(game_id)
+            const message = await cartContext.decreaseQuantity(game_id)
 
-            console.log(message)
+            
             if(message){
                 if(message.data.message==true){
                     
 
-                    setMessage({
-                        "message_content":"Quantity of item "+title+" reduced",
-                        "color":"green"
-                    })
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" reduced"})
+
+                    
         
                 }else{
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
         
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
         
                 }
                 
@@ -140,24 +137,21 @@ export default function Cart() {
     async function removeGame(game_id, title){
 
 
-            message = await cartContext.removeGame(game_id)
+            const message = await cartContext.removeGame(game_id)
 
             if(message){
                 if(message.data.message==true){
                     
-            
-                    setMessage({
-                        "message_content":title+" has been removed",
-                        "color":"green"
-                    })
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":title+" has been removed"})
         
                 }else{
         
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
                     
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
+                    
         
                 } 
             } else {
@@ -181,9 +175,8 @@ export default function Cart() {
 
     async function checkout(){
         alert("This is just a stripe test module. Enter '4242 4242 4242 4242' for the card info. Expiry Date and CVC number can be anything. Email and Name can be anything also. Then click pay.")
-        message = await cartContext.checkout()
+        const message = await cartContext.checkout()
 
-        console.log(message)
         if(message){
 
             if(message.data.message==true){
@@ -200,7 +193,8 @@ export default function Cart() {
 
             }else if(message.data.message==false){
                         
-                setMessage("Please select at least one item in the cart")
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":"Please select at least one item in the game list"})
 
             }
 
@@ -303,6 +297,7 @@ export default function Cart() {
     
     return (
         <React.Fragment>
+            <Modal show={showModal} handleClose={() => {setShowModal(false)}} title={modalMessage.title} message={modalMessage.message}/>
             <Container fluid className="cart-container-positioning cart-container-width" >
                 {cart_jsx}
             </Container>
