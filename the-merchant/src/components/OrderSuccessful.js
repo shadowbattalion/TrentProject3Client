@@ -49,14 +49,14 @@ export default function OrderSuccessful() {
                 <Card bg="dark" text="white" key={orderHistoryLatest.id}>
                     <Card.Title><h1>Order Successful!!</h1></Card.Title>
                     <Card.Body>
-                        <div><strong className="order-history-text-label">Date/Time: </strong>{orderHistoryLatest.date}</div>
-                        <div><strong className="order-history-text-label">Status: </strong>{orderHistoryLatest.status}</div>
-                        <div><strong className="order-history-text-label">Payment method: </strong>{orderHistoryLatest.payment_method}</div>
+                        <div><strong className="text-label-color">Date/Time: </strong>{orderHistoryLatest.date}</div>
+                        <div><strong className="text-label-color">Status: </strong>{orderHistoryLatest.status}</div>
+                        <div><strong className="text-label-color">Payment method: </strong>{orderHistoryLatest.payment_method}</div>
                         <div>
-                            <div><strong className="order-history-text-label">Items: </strong></div>
+                            <div><strong className="text-label-color">Items: </strong></div>
                             <div>{orderHistoryLatest.order_items.map(item=>{return <div>&emsp;{item.game.title} = ${item.sub_total}</div> })}</div>
                         </div>
-                        <div><strong className="order-history-text-label">Total: </strong>${orderHistoryLatest.total}</div>
+                        <div><strong className="text-label-color">Total: </strong>${orderHistoryLatest.total}</div>
                     </Card.Body>
                 </Card>
             </React.Fragment>)

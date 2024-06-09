@@ -57,14 +57,14 @@ export default function GameDetails() {
                 order_jsx.push(
                     <Card bg="dark" text="white" key={order.id}>
                         <Card.Body>
-                            <div><strong className="order-history-text-label">Date/Time: </strong>{order.date}</div>
-                            <div><strong className="order-history-text-label">Status: </strong>{order.status}</div>
-                            <div><strong className="order-history-text-label">Payment method: </strong>{order.payment_method}</div>
+                            <div><strong className="text-label-color">Date/Time: </strong>{order.date}</div>
+                            <div><strong className="text-label-color">Status: </strong>{order.status}</div>
+                            <div><strong className="text-label-color">Payment method: </strong>{order.payment_method}</div>
                             <div>
-                                <div><strong className="order-history-text-label">Items: </strong></div>
+                                <div><strong className="text-label-color">Items: </strong></div>
                                 <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} = ${item.sub_total}</div> })}</div>
                             </div>
-                            <div><strong className="order-history-text-label">Total: </strong>${order.total}</div>
+                            <div><strong className="text-label-color">Total: </strong>${order.total}</div>
                             </Card.Body>
                         </Card>
                         )

@@ -253,10 +253,10 @@ export default function Cart() {
                                 </Container>
                                 <Row>
                                     <Col>
-                                        <Card.Text><h3><strong className="order-history-text-label">{cartItem.game.title}:</strong> ${cartItem.sub_total}</h3></Card.Text>
+                                        <Card.Text><h3><strong className="text-label-color">{cartItem.game.title}:</strong> ${cartItem.sub_total}</h3></Card.Text>
                                     </Col>
                                     <Col>
-                                        <Card.Text>{cartItem.game.discount>0?<h3><strong className="order-history-text-label">Discount: </strong>{cartItem.game.discount}%</h3>:<div></div>}</Card.Text>
+                                        <Card.Text>{cartItem.game.discount>0?<h3><strong className="text-label-color">Discount: </strong>{cartItem.game.discount}%</h3>:<div></div>}</Card.Text>
                                     </Col>
 
                                 </Row>
@@ -275,7 +275,7 @@ export default function Cart() {
                     <Card.Body>
                             <Row>
                                 <Col>
-                                    <h2><strong className="order-history-text-label">Total:</strong> ${total}</h2>
+                                    <h2><strong className="text-label-color">Total:</strong> ${total}</h2>
                                 </Col>
                                 <Col className="d-flex flex-row justify-content-end">
                                     <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{checkout()}}>
