@@ -97,7 +97,7 @@ export default function Navigation() {
                     </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            <div>{ creds?(<div class="mx-3 pt-4" >User: {creds.display_name}</div>):""}</div>
+                            <div>{ creds?(<div class="mx-lg-3 my-3" >User: {creds.display_name}</div>):""}</div>
                         </Navbar.Text>
                         <Navbar.Text>
                             <div>{ creds?(<Logout/>):""}</div> 

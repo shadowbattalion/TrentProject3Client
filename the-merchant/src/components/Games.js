@@ -3,6 +3,17 @@ import { Link, useHistory } from 'react-router-dom';
 import GamesContext from "../contexts/GamesContext";
 import CartContext from "../contexts/CartContext";
 import CredentialsContext from "../contexts/CredentialsContext";
+import Modal from './Modal';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Stack from "react-bootstrap/Stack";
+import Button from "react-bootstrap/Button";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
+
+
+
 
 export default function Games() {
 
@@ -13,6 +24,11 @@ export default function Games() {
         "message_content":"",
         "color":""
     })
+
+    const [showModal, setShowModal] = useState(false); //modal
+    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
+    
+
     const [field, setField] = useState({
         "title":"",
         "company_name":""
@@ -23,10 +39,11 @@ export default function Games() {
 
     useEffect(()=>{
 
-        
+        console.log(trigger)
         const requestGames =  async() =>{
             let gameList = await gamesContext.getGames(field.title, field.company_name)
             
+            console.log(gameList)
 
             if(gameList){
                 setUser(user)
@@ -85,7 +102,6 @@ export default function Games() {
     function searchSubmit(){
 
 
-
         if (trigger==0){
             setTrigger(1)
         }else if(trigger==1){
@@ -116,58 +132,33 @@ export default function Games() {
         if(games.length!=0){
             let game_jsx=[]
 
-            game_jsx.push(
-                    <div class="card table-headers">
-                            <div class="card-body">
-                                <div class="items">    
-                                    <h3 class="item-title mt-2">Title</h3>                                    
-                                    <h3 class="item-company-name mt-2">Company</h3>
-                                    <div class="price-details item-price">
-                                        <div class="mt-2 game-details-size">Price</div> 
-                                        <div class="mt-2 game-details-size">Discount</div> 
-                                        <div class="mt-2 game-details-size">Action</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>            
-            )
-
-
-
             for (let game of games){
                 game_jsx.push(
-                        <div class="card login-card mt-1">
-                            <div class="card-body">
-                                <div class="items" key={game.id}>    
-                                    <img src={game.banner_image_thumbnail} class="img-fluid item-thumb" alt="game banner image"/> 
-                                    <h3 class="item-title mt-2" style={{textOverflow:"ellipsis"}}><strong class="game-list-bold">Title: </strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
-                                    <h3 class="item-company-name mt-2" style={{textOverflow:"ellipsis"}}><strong class="game-list-bold">Company: </strong>{game.company_name}</h3>
-                                    <div class="price-details item-price">
-                                        <div class="mt-2 game-details-size">${game.cost}</div> 
-                                        <div class="mt-2 game-details-size">{game.discount}%</div> 
-                                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-lg" onClick={()=>{addGame(game.id, game.title)}}>Add to Cart</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>)
 
+                    <Card bg="dark" text="white" key={game.id}>
+                        <Card.Body>
+                            <Image src={game.banner_image_thumbnail} thumbnail style={{width:"120px"}} />
+                            <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label">Title: </strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
+                            <h3 style={{textOverflow:"ellipsis"}}><strong className="order-history-text-label">Company: </strong>{game.company_name}</h3>
+                            <div>
+                                <div><strong className="order-history-text-label">Price: </strong>${game.cost}</div> 
+                                <div><strong className="order-history-text-label">Discount: </strong>{game.discount}%</div>
+                            </div>
+                            <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{addGame(game.id, game.title)}}>Cart</Button> 
+                        </Card.Body>
+                    </Card>)
             }
 
             game_list_jsx=(<React.Fragment>
-                    <div class="game-list-page mt-3">
                         {game_jsx}
-                    </div>
             </React.Fragment>)
         } else {
 
             game_list_jsx=(<React.Fragment>
-                <div class="game-list-page mt-3">   
-                    <div class="card login-card">
-                        <div class="card-body">
-                            <h1 class="card-title">Loading Game List</h1>
-                        </div>
-                    </div>         
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body><h1>Loading Game List</h1></Card.Body>
+                    <small style={{color:message.color}}>{message.message_content}</small>
+                </Card>
             </React.Fragment>)
 
         }
@@ -178,42 +169,42 @@ export default function Games() {
     
     let search = (
         <React.Fragment>
-            <div class="game-list-page">   
-                <div class="card login-card">
-                    <div class="card-body">
-                        <h1 class="card-title">Search For Games</h1>
-                        <small style={{color:"black"}}>Inputs are case sensitive.</small><br/>
-                        <div class="search-bar mt-3">
-                            <div>
-                                <label>Title: </label>
-                                <input type="text" name="title" value={field.title} onChange={updateState}/>
-                            </div>
-                            <div>
-                                <label>Company Name: </label>
-                                <input type="text" name="company_name" value={field.company_name} onChange={updateState}/>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-primary btn-custom-primary mt-3" onClick={searchSubmit}>Search</a>
-                    </div>
-                </div>         
-            </div>
-            <div class="game-list-page mt-3">   
-                <div class="card login-card">
-                    <div class="card-body">
-                        <h1 class="card-title">Game List</h1>
-                        <small style={{color:"black"}}>Click on the game Title name to check out the cool features!</small><br/>
-                        <small style={{color:message.color}}>{message.message_content}</small>
-                    </div>
-                </div>         
-            </div>
+            <Card bg="dark" text="white">
+                <Card.Body>
+                        <Stack gap={2}>
+                            <Form.Text muted data-bs-theme="dark">
+                                Inputs are case sensitive.
+                            </Form.Text>
+                            <FloatingLabel controlId="floatingInput" className="text-label" label="Search Title" data-bs-theme="dark">
+                                <Form.Control type="text" placeholder="" className="text-input" onChange={updateState}/>
+                            </FloatingLabel>
+                            <FloatingLabel controlId="floatingInput" className="text-label" label="Search Company" data-bs-theme="dark">
+                                <Form.Control type="text" placeholder="" className="text-input" onChange={updateState}/>
+                            </FloatingLabel>
+                            <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="md" variant="dark" onClick={searchSubmit}>Search</Button>
+                        </Stack>
+                </Card.Body>
+            </Card>
         </React.Fragment>)
   
-  
+    let title = (
+        <React.Fragment>
+            <Card bg="dark" text="white">
+                <Card.Body><h1>Game List</h1></Card.Body>
+                <small style={{color:message.color}}>{message.message_content}</small>
+            </Card>
+        </React.Fragment>)
 
     return (
         (<React.Fragment>
-            {search}
-            {game_list_jsx}
+            <Modal show={showModal} handleClose={() => {setShowModal(false)}} title={modalMessage.title} message={modalMessage.message}/>
+            <Container fluid className="container-positioning container-width" >
+                <Stack gap={3}>
+                    {title}
+                    {search}
+                    {game_list_jsx}
+                </Stack>
+            </Container>
         </React.Fragment>)
     )
 }

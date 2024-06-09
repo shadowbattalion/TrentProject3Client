@@ -51,8 +51,12 @@ p{
 }
 
 
-.cart-container-positioning{
+.container-positioning{
   margin-top:17%;
+}
+
+.order-history-text-label{
+  color:#887AFF;
 }
 
 
@@ -71,7 +75,7 @@ p{
     margin-top:5%;
   }
 
-  .cart-container-positioning{
+  .container-positioning{
     margin-top:10%;
   }
   
@@ -111,11 +115,11 @@ p{
     margin-top:5%;
   }
 
-  .cart-container-positioning{
+  .container-positioning{
     margin-top:10%;
   }
 
-  .cart-container-width{
+  .container-width{
     width:80%;
   }
 
@@ -151,11 +155,11 @@ p{
     margin-top:0%;
   }
 
-  .cart-container-positioning{
+  .container-positioning{
     margin-top:5%;
   }
 
-  .cart-container-width{
+  .container-width{
     width:60%;
   }
 

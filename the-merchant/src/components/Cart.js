@@ -3,11 +3,11 @@ import { useHistory, useParams } from 'react-router-dom';
 import CartContext from "../contexts/CartContext";
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Stack from "react-bootstrap/esm/Stack";
-import Button from "react-bootstrap/esm/Button";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
-import Image from "react-bootstrap/esm/Image";
+import Stack from "react-bootstrap/Stack";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 import Modal from './Modal';
 
 
@@ -247,7 +247,7 @@ export default function Cart() {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <Card.Text><h3>{cartItem.game.title} = ${cartItem.sub_total}</h3></Card.Text>
+                                        <Card.Text><h3><strong className="order-history-text-label">{cartItem.game.title}:</strong> ${cartItem.sub_total}</h3></Card.Text>
                                     </Col>
                                 </Row>
                             </Stack>
@@ -256,11 +256,6 @@ export default function Cart() {
             }
 
             cart_jsx=(<React.Fragment>
-            
-                    {/* <div class="card-body">
-                        <h1 class="card-title">Cart</h1>
-                        <small style={{color:message.color}}>{message.message_content}</small>
-                    </div> */}
             <Stack gap={3}>  
                 <Card bg="dark" text="white">
                     <Card.Body><h1>Cart</h1></Card.Body>
@@ -270,7 +265,7 @@ export default function Cart() {
                     <Card.Body>
                             <Row>
                                 <Col>
-                                    <h2>Total: ${total}</h2>
+                                    <h2><strong className="order-history-text-label">Total:</strong> ${total}</h2>
                                 </Col>
                                 <Col className="d-flex flex-row justify-content-end">
                                     <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{checkout()}}>
@@ -298,7 +293,7 @@ export default function Cart() {
     return (
         <React.Fragment>
             <Modal show={showModal} handleClose={() => {setShowModal(false)}} title={modalMessage.title} message={modalMessage.message}/>
-            <Container fluid className="cart-container-positioning cart-container-width" >
+            <Container fluid className="container-positioning container-width" >
                 {cart_jsx}
             </Container>
         </React.Fragment> 

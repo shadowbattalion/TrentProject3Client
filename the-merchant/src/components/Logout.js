@@ -1,6 +1,7 @@
 import React, { useContext, useState} from "react"
 import { useHistory} from 'react-router-dom';
 import CredentialsContext from "../contexts/CredentialsContext"
+import Button from "react-bootstrap/Button";
 
 
 export default function Login() {
@@ -48,7 +49,7 @@ export default function Login() {
 
     return (
         <React.Fragment>
-                <a class="btn btn-primary btn-custom-primary mt-3" onClick={logout}>Logout</a>
+                <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="md" variant="dark" onClick={logout}>Logout</Button>
         </React.Fragment>
 
     )
