@@ -145,10 +145,10 @@ export default function Games() {
                                     <Col md={2} className="mb-3">
                                     <Link to={"/game-details/" + game.id}><Image src={game.banner_image_thumbnail} thumbnail style={{width:"150px"}} /></Link>
                                     </Col>
-                                    <Col md={4} className="mb-3">
+                                    <Col md={3} className="mb-3">
                                         <h3 style={{textOverflow:"ellipsis"}}><strong className="text-label-color"></strong><Link to={"/game-details/" + game.id}>{game.title}</Link></h3>                                    
                                     </Col>
-                                    <Col md={3} className="mb-3">
+                                    <Col md={4} className="mb-3">
                                         <h3 style={{textOverflow:"ellipsis"}}><strong className="text-label-color"></strong>{game.company_name}</h3>
                                     </Col>
                                     <Col md={2} className="mb-3">

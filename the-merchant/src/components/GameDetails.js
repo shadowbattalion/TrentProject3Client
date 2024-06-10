@@ -179,9 +179,9 @@ export default function GameDetails() {
                                 <p>{game.description}</p>
                             </Row>
                             <Row>   
-                                <p><span className="text-label-color">Released Date: </span>{game.released_date}</p>
+                                <p><span className="text-label-color">Operationally Ready Date: </span>{game.released_date}</p>
                                 <p><span className="text-label-color">Category: </span>{game.category.name}</p>
-                                <p><span className="text-label-color">Platforms: </span>{game.platforms.map(platform=>(" "+platform.platform_name)).toString()}</p>
+                                <p><span className="text-label-color">In Service: </span>{game.platforms.map(platform=>(" "+platform.platform_name)).toString()}</p>
                                 <p><span className="text-label-color">Tags: </span>{tagPills(game.content_tags)}</p>
                             </Row>
                         </Stack>             
@@ -192,43 +192,44 @@ export default function GameDetails() {
                     {carousel(game.images)}
                 </div>
 
-                <Card bg="dark" text="white">
+                {/* <Card bg="dark" text="white">
                     <Card.Body>
                         <Stack gap={2}>
                             <h1 className="text-label-color">Reviews</h1>
                             {game.reviews.length>0?game.reviews.map(review=>(<h2>&ldquo;{review.review.split("|")[0]}&rdquo; - {review.review.split("|")[1]}</h2>)):""}    
                         </Stack>
                     </Card.Body>        
-                </Card>
+                </Card> */}
 
                 <Card bg="dark" text="white">
                     <Card.Body>
                         <Stack gap={2}>
                             <Row>
                                 <Col>
-                                    <h1 className="text-label-color">Requirements</h1>
+                                    <h1 className="text-label-color">Image sources:</h1>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col>
-                                    <h3 className="text-label-color">Minimum Requirements:</h3>
-                                    <div>{game.minimum_requirement}</div>
-                                </Col>
-                                <Col>
-                                    <h3 className="text-label-color">Your Specifications:</h3>
-                                    {profile?(<div>{profile}</div>):<div>No specifications found in profile</div>}
-                                </Col>
-                            </Row>       
-                            <Row className="mt-5">
-                                <Col>
-                                    <h3 className="text-label-color">Recommended Requirements:</h3>
+                                    <h3 className="text-label-color">Image:</h3>
                                     <div>{game.recommended_requirement}</div>
-                                </Col>     
-                                <Col>
+                                </Col>
+                                {/* <Col>
                                     <h3 className="text-label-color">Your Specifications:</h3>
                                     {profile?(<div>{profile}</div>):<div>No specifications found in profile</div>}
                                 
-                                </Col> 
+                                </Col> */}
+                            </Row>       
+                            <Row className="mt-5">
+                                <Col>
+                                    <h3 className="text-label-color">Carousel Image:</h3>
+                                    <div>{game.minimum_requirement}</div>
+                                </Col>
+                                {/* <Col>
+                                    <h3 className="text-label-color">Your Specifications:</h3>
+                                    {profile?(<div>{profile}</div>):<div>No specifications found in profile</div>}
+                                
+                                </Col>      */}
                             </Row>
                         </Stack>
                     </Card.Body>        

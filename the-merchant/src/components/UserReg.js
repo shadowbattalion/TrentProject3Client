@@ -153,7 +153,7 @@ export default function UserReg() {
                                                                 </Form.Group>
                                                             </Col>
                                                         </Row>
-                                                        <Row>
+                                                        {/* <Row>
                                                             <Col>
                                                                 <Form.Group controlId="validationCustom03">
                                                                 
@@ -163,7 +163,7 @@ export default function UserReg() {
                                                                     </FloatingLabel>
                                                                 </Form.Group>
                                                             </Col>
-                                                        </Row>
+                                                        </Row> */}
                                                         <Row>
                                                             <Col>
                                                                 <Form.Group controlId="validationCustom04">
