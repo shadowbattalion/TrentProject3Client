@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,600&family=Rajdhani:wght@500&display=swap');
 
 
+
+
 body {
   background-color: black;
   font-family: 'Rajdhani', sans-serif;
@@ -31,6 +33,11 @@ p{
 
 }
 
+
+.laptop-pad-main-logo{
+  width:350px;
+}
+
 .navlogo{
   width:175px;
   border-radius:8px;
@@ -56,10 +63,13 @@ p{
 }
 
 
-.landing-page-container-positioning{
-  margin-top:27%;
+.login-page-container-positioning{
+  margin-top:50%;
 }
 
+.signup-page-container-positioning{
+  margin-top:35%;
+}
 
 .container-positioning{
   margin-top:17%;
@@ -76,18 +86,27 @@ p{
     font-size: large;
   }
 
-  .landing-page-card{
-    width:700px;
-    margin: auto;
+  .landing-page-logo{
+    display:hidden;
   }
 
-  .landing-page-container-positioning{
-    margin-top:5%;
+  .landing-page-card{
+    width:700px;
+    /* margin: auto; */
+  }
+
+  .login-page-container-positioning{
+    margin-top:16%;
+  }
+
+  .signup-page-container-positioning{
+    margin-top:27%;
   }
 
   .container-positioning{
     margin-top:10%;
   }
+  
   
 
 
@@ -96,11 +115,15 @@ p{
 @media (min-width:1200px) {
 
   body {
-    font-size: x-large;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.753) 0%, rgba(0, 0, 0, 0) 59%, rgb(0, 0, 0) 100%), url("https://upload.wikimedia.org/wikipedia/commons/2/29/Royal_tank_museum_-_tank_show.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-color: white;
+
   }
 
   .landing-page-logo{
-    margin-top:25%;
     display:block;
   }
   
@@ -121,10 +144,12 @@ p{
     width:200px;
   }
 
-  .landing-page-container-positioning{
-    margin-top:5%;
+
+  .signup-page-container-positioning{
+    margin-top:8%;
   }
 
+  
   .container-positioning{
     margin-top:10%;
   }
@@ -140,9 +165,7 @@ p{
 
  
 
-  .landing-page-logo{
-    margin-top:22%;
-  }
+  
   
   .landing-page-form{
     margin-top:15%;
@@ -153,17 +176,13 @@ p{
     
   }
 
-  .laptop-pad-main-logo{
-    width:600px;
-  }
+  
 
   .navlogo{
     width:250px;
   }
 
-  .landing-page-container-positioning{
-    margin-top:0%;
-  }
+  
 
   .container-positioning{
     margin-top:5%;

@@ -73,37 +73,28 @@ export default function Games() {
 
     async function addGame(game_id, title){
 
-        // Checking if game has already been selected. In this case Games are soft copy. To simulate hardcopy, remove this and add quantity button in cart.
-        const gamesInCart =  await cartContext.getCart()
-        const gamesInCartIds =  gamesInCart.data.cart_games_list.map((game)=>{return game.game_id})
-        if(gamesInCartIds.includes(game_id)){
+
+        const message = await cartContext.addGame(game_id)
+
+        if(message){
+            if(message.data.message==true){
+
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":title+" added to cart!"})
+
+            }else{
+                
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":message.data.message})
+                
+            }
             
-            setShowModal(true)
-            setModalMessage({"title":"Attention", "message":title+" already added to cart. Please select another game."})
-        
         } else {
 
-            const message = await cartContext.addGame(game_id)
+            history.push("/error-page")
 
-            if(message){
-                if(message.data.message==true){
-
-                    setShowModal(true)
-                    setModalMessage({"title":"Attention", "message":title+" added to cart!"})
-
-                }else{
-                
-                    setShowModal(true)
-                    setModalMessage({"title":"Attention", "message":message.data.message})
-                
-                }
-            
-            } else {
-
-                history.push("/error-page")
-
-            }
         }
+        
 
 
     }

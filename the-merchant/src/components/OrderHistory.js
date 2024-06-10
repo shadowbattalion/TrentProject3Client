@@ -62,7 +62,7 @@ export default function GameDetails() {
                             <div><strong className="text-label-color">Payment method: </strong>{order.payment_method}</div>
                             <div>
                                 <div><strong className="text-label-color">Items: </strong></div>
-                                <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} = ${item.sub_total}</div> })}</div>
+                                <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
                             </div>
                             <div><strong className="text-label-color">Total: </strong>${order.total}</div>
                             </Card.Body>

@@ -47,14 +47,14 @@ export default function OrderSuccessful() {
 
             orderHistoryLatest_jsx=(<React.Fragment>
                 <Card bg="dark" text="white" key={orderHistoryLatest.id}>
-                    <Card.Title><h1>Order Successful!!</h1></Card.Title>
+                    <Card.Title><h1 className="text-label-color">Order Successful!!</h1></Card.Title>
                     <Card.Body>
                         <div><strong className="text-label-color">Date/Time: </strong>{orderHistoryLatest.date}</div>
                         <div><strong className="text-label-color">Status: </strong>{orderHistoryLatest.status}</div>
                         <div><strong className="text-label-color">Payment method: </strong>{orderHistoryLatest.payment_method}</div>
                         <div>
                             <div><strong className="text-label-color">Items: </strong></div>
-                            <div>{orderHistoryLatest.order_items.map(item=>{return <div>&emsp;{item.game.title} = ${item.sub_total}</div> })}</div>
+                            <div>{orderHistoryLatest.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
                         </div>
                         <div><strong className="text-label-color">Total: </strong>${orderHistoryLatest.total}</div>
                     </Card.Body>
@@ -67,7 +67,7 @@ export default function OrderSuccessful() {
             
             orderHistoryLatest_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>Couldn't fetch latest order. Please check order history to check latest transaction.</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Couldn't fetch latest order. Please check order history to check latest transaction.</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 

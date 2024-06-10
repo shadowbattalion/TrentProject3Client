@@ -95,36 +95,51 @@ export default function Cart() {
 
         } else if (operation=="-"){
 
-            const message = await cartContext.decreaseQuantity(game_id)
+            const cart = await cartContext.getCart()
 
-            
-            if(message){
-                if(message.data.message==true){
-                    
+            const retrieveGameInCart = cart.data.cart_games_list.filter((game)=>{
+                    return game.game_id === game_id
+            })
 
-                    setShowModal(true)
-                    setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" reduced"})
+            // console.log(retrieveGameInCart[0].quantity)
 
-                    
-        
-                }else{
+            if(retrieveGameInCart[0].quantity===1){
 
-                    setShowModal(true)
-                    setModalMessage({"title":"Attention", "message":message.data.message})
-        
-        
-                }
-                
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" is 1. Click on Remove to remove "+title+" from cart"})
+
             } else {
 
-                history.push("/error-page")
+                const message = await cartContext.decreaseQuantity(game_id)
 
-            }
+                if(message){
+                    if(message.data.message==true){
+                        
 
-            if (trigger==0){
-                setTrigger(1)
-            }else if(trigger==1){
-                setTrigger(0)
+                        setShowModal(true)
+                        setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" reduced"})
+
+                        
+            
+                    }else{
+
+                        setShowModal(true)
+                        setModalMessage({"title":"Attention", "message":message.data.message})
+            
+            
+                    }
+                    
+                } else {
+
+                    history.push("/error-page")
+
+                }
+
+                if (trigger==0){
+                    setTrigger(1)
+                }else if(trigger==1){
+                    setTrigger(0)
+                }
             }
 
         }
@@ -237,12 +252,8 @@ export default function Cart() {
                                         <Col className="d-flex flex-column justify-content-center"> 
                                             <Row>
                                                 <Col className="d-flex flex-row justify-content-end">
-                                                    {/* <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>
-                                                        - Quantity
-                                                    </Button>
-                                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>
-                                                        + Quantity
-                                                    </Button> */}
+                                                   
+                                                    
                                                     <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}}>
                                                         Remove
                                                     </Button>
@@ -252,10 +263,10 @@ export default function Cart() {
                                     </Row>
                                 </Container>
                                 <Row>
-                                    <Col>
-                                        <Card.Text><h3><strong className="text-label-color">{cartItem.game.title}:</strong> ${cartItem.sub_total}</h3></Card.Text>
+                                    <Col lg={3}>
+                                        <Card.Text><h3><strong className="text-label-color">{cartItem.game.title} X {cartItem.quantity}:</strong> ${cartItem.sub_total}</h3> <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF", marginRight:"10px",  width:"60px", fontSize:"25px"}} type="submit" size="sm" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>-</Button><Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF", width:"60px", fontSize:"25px"}} type="submit" size="sm" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+</Button></Card.Text>
                                     </Col>
-                                    <Col>
+                                    <Col lg={3}>
                                         <Card.Text>{cartItem.game.discount>0?<h3><strong className="text-label-color">Discount: </strong>{cartItem.game.discount}%</h3>:<div></div>}</Card.Text>
                                     </Col>
 
