@@ -177,7 +177,7 @@ export default function Games() {
 
             game_list_jsx=(<React.Fragment>
                 <Card bg="dark" text="white">
-                    <Card.Body><h1 className="text-label-color">Loading Game List</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Loading Items List</h1></Card.Body>
                 </Card>
             </React.Fragment>)
 
@@ -210,7 +210,7 @@ export default function Games() {
     let title = (
         <React.Fragment>
             <Card bg="dark" text="white">
-                <Card.Body><h1 className="text-label-color">Game List</h1></Card.Body>
+                <Card.Body><h1 className="text-label-color">Items List</h1></Card.Body>
             </Card>
         </React.Fragment>)
 
