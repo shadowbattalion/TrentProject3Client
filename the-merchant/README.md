@@ -2,7 +2,8 @@
 
 ## Summary
 
-This project is where users can share their paranormal encounters with others, by uploading their encounter information and image of the paranormal on our website.
+Attention!!
+Update: This website has changed from an e-commerce selling online games to an e-commerce selling military surplus. The context of this project has changed due to the lack of availability of free to use images which can help simulate an online game shop platform. Thank you!
 
 The purpose of this project is to create an online store to sell online games to avid gamers. There are two parts to the project, the backend and the frontend. The backend caters to the vendor who can manage the game product list and orders. The frontend caters to the general public, especially gamers who wish to buy online games. The cart system is implemented in order to facilitate easy browsing and buying of games. The checkout system is also implemented using Stripe to facilitate the transactions between the user and the vendor.
 
