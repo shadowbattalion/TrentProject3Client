@@ -10,7 +10,7 @@ export default function OrderFailure() {
         <React.Fragment>
             <Container fluid className="container-positioning container-width" >
                 <Card bg="dark" text="white">
-                    <Card.Body><h1>Order Failed. Please try again.</h1></Card.Body>
+                    <Card.Body><h1 className="text-label-color">Order Failed. Please try again.</h1></Card.Body>
                 </Card>
             </Container>
         </React.Fragment> 

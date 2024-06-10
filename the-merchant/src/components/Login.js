@@ -183,6 +183,7 @@ export default function Login() {
                                             <Card.Body>
                                                 <Card.Title><h1 className="text-label-color">Log In</h1></Card.Title>
                                                 <p><span id="disclaimer">!! This is a demonstration website. <b>Do not</b> put real email and password.</span></p>
+                                                <small><span className="text-label-color">Bakcground Image by: </span><a href="https://commons.wikimedia.org/wiki/File:Royal_tank_museum_-_tank_show.jpg" target="_blank">AliAbuRas</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, via Wikimedia Commons</small>
                                                 <Form className="my-3 mx-2" noValidate validated={validated} onSubmit={handleSubmit}>
                                                     <Stack gap={2}>
                                                         <Row>
