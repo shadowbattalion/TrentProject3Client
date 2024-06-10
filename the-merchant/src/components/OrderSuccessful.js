@@ -47,8 +47,8 @@ export default function OrderSuccessful() {
 
             orderHistoryLatest_jsx=(<React.Fragment>
                 <Card bg="dark" text="white" key={orderHistoryLatest.id}>
-                    <Card.Title><h1 className="text-label-color">Order Successful!!</h1></Card.Title>
                     <Card.Body>
+                        <h1 className="text-label-color">Order Successful!!</h1>
                         <div><strong className="text-label-color">Date/Time: </strong>{orderHistoryLatest.date}</div>
                         <div><strong className="text-label-color">Status: </strong>{orderHistoryLatest.status}</div>
                         <div><strong className="text-label-color">Payment method: </strong>{orderHistoryLatest.payment_method}</div>

@@ -14,8 +14,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+
 
 export default function UserReg() {
 
@@ -138,6 +137,8 @@ export default function UserReg() {
                                                                 
                                                                 </Form.Group>
                                                             </Col>
+                                                        <Row>
+                                                        </Row>
                                                             <Col> 
                                                                 <Form.Group controlId="validationCustom02">
                                                                     <FloatingLabel controlId="floatingInput" label="Enter Email Address" className="mb-3 text-label" data-bs-theme="dark">
@@ -175,6 +176,8 @@ export default function UserReg() {
                                                                     </FloatingLabel>
                                                                 </Form.Group>
                                                             </Col>
+                                                        <Row>
+                                                        </Row>
                                                             <Col>
                                                                 <Form.Group controlId="validationCustom05">
                                                                     <FloatingLabel controlId="floatingPassword" label="Confirm Password" className="mb-3 text-label" data-bs-theme="dark">
