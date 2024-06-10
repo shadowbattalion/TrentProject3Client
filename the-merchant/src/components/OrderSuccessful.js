@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory} from 'react-router-dom';
 import CartContext from "../contexts/CartContext";
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 export default function OrderSuccessful() {
     
@@ -44,21 +46,19 @@ export default function OrderSuccessful() {
     if(orderHistoryLatest){
 
             orderHistoryLatest_jsx=(<React.Fragment>
-                <div class="card login-card cart-page mt-1">
-                            <div class="card-body order-container">
-                            <h1 class="card-title">Order Successful!!</h1>
-                            <div  key={orderHistoryLatest.id}>
-                                <div class="game-details-size"><strong>Date/Time: </strong>{orderHistoryLatest.date}</div>
-                                <div class="game-details-size"><strong>Status: </strong>{orderHistoryLatest.status}</div>
-                                <div class="game-details-size"><strong>Payment method: </strong>{orderHistoryLatest.payment_method}</div>
-                                <div class="game-details-size">
-                                    <div><strong>Items: </strong></div>
-                                    <div>{orderHistoryLatest.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
-                                </div>
-                                <div class="game-details-size"><strong>Total: </strong>${orderHistoryLatest.total}</div>
-                            </div>
-                         </div>
-                    </div>
+                <Card bg="dark" text="white" key={orderHistoryLatest.id}>
+                    <Card.Title><h1 className="text-label-color">Order Successful!!</h1></Card.Title>
+                    <Card.Body>
+                        <div><strong className="text-label-color">Date/Time: </strong>{orderHistoryLatest.date}</div>
+                        <div><strong className="text-label-color">Status: </strong>{orderHistoryLatest.status}</div>
+                        <div><strong className="text-label-color">Payment method: </strong>{orderHistoryLatest.payment_method}</div>
+                        <div>
+                            <div><strong className="text-label-color">Items: </strong></div>
+                            <div>{orderHistoryLatest.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
+                        </div>
+                        <div><strong className="text-label-color">Total: </strong>${orderHistoryLatest.total}</div>
+                    </Card.Body>
+                </Card>
             </React.Fragment>)
 
 
@@ -66,7 +66,9 @@ export default function OrderSuccessful() {
     } else {
             
             orderHistoryLatest_jsx=(<React.Fragment>
-                <h1>Couldn't fetch latest order. Please check order history to check latest transaction.</h1>
+                <Card bg="dark" text="white">
+                    <Card.Body><h1 className="text-label-color">Couldn't fetch latest order. Please check order history to check latest transaction.</h1></Card.Body>
+                </Card>
             </React.Fragment>)
 
     }
@@ -75,7 +77,9 @@ export default function OrderSuccessful() {
   
     return (
         <React.Fragment>
-            {orderHistoryLatest_jsx}
+            <Container fluid className="container-positioning container-width" >
+                {orderHistoryLatest_jsx}
+            </Container>
         </React.Fragment> 
     )
 }

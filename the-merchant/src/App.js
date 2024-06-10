@@ -26,7 +26,7 @@ import OrderSuccessfulPage from './pages/OrderSuccessfulPage'
 import OrderFailurePage from './pages/OrderFailurePage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 
 //  'url("http://res.cloudinary.com/dl2qwodyu/image/upload/v1638999230/gjwgrrxmpzdcyspu7ran.jpg")'
 
@@ -47,43 +47,43 @@ function App(){
            
               <Switch>
                 <Route exact path="/">
-                  <Nav/>
+                  <Navigation/>
                   <LoginPage/>
                 </Route>
                 <Route exact path="/user-reg">
-                  <Nav/>
+                  <Navigation/>
                   <UserRegPage/>
                 </Route>
                 <Route exact path="/error-page">
-                  <Nav/>
+                  <Navigation/>
                   <ErrorPage/>
                 </Route>
                 <Route exact path="/order-history">
-                  <Nav/>
+                  <Navigation/>
                   <OrderHistoryPage/>
                 </Route>
                 <Route exact path="/cart">
-                  <Nav/>
+                  <Navigation/>
                   <CartPage/>
                 </Route>
                 <Route exact path="/checkout">
-                  <Nav/>
+                  <Navigation/>
                   <CheckoutPage/>
                 </Route>
                 <Route exact path="/order-success">
-                  <Nav/>
+                  <Navigation/>
                   <OrderSuccessfulPage/>
                 </Route>
                 <Route exact path="/order-fail">
-                  <Nav/>
+                  <Navigation/>
                   <OrderFailurePage/>
                 </Route>
                 <Route exact path="/games">
-                  <Nav/>
+                  <Navigation/>
                   <GamesPage/>
                 </Route>
                 <Route exact path="/game-details/:gameId">
-                  <Nav/>
+                  <Navigation/>
                   <GameDetailsPage/>
                 </Route>       
               </Switch>

@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory} from 'react-router-dom';
 import CartContext from "../contexts/CartContext";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Stack from "react-bootstrap/Stack";
+
 
 export default function GameDetails() {
 
@@ -51,29 +55,28 @@ export default function GameDetails() {
             for (let order of orderHistory){
 
                 order_jsx.push(
-                    <div class="card login-card cart-page mt-1">
-                            <div class="card-body order-container">
-                            <div  key={order.id}>
-                                <div class="game-details-size"><strong>Date/Time: </strong>{order.date}</div>
-                                <div class="game-details-size"><strong>Status: </strong>{order.status}</div>
-                                <div class="game-details-size"><strong>Payment method: </strong>{order.payment_method}</div>
-                                <div class="game-details-size">
-                                    <div><strong>Items: </strong></div>
-                                    <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
-                                </div>
-                                <div class="game-details-size"><strong>Total: </strong>${order.total}</div>
+                    <Card bg="dark" text="white" key={order.id}>
+                        <Card.Body>
+                            <div><strong className="text-label-color">Date/Time: </strong>{order.date}</div>
+                            <div><strong className="text-label-color">Status: </strong>{order.status}</div>
+                            <div><strong className="text-label-color">Payment method: </strong>{order.payment_method}</div>
+                            <div>
+                                <div><strong className="text-label-color">Items: </strong></div>
+                                <div>{order.order_items.map(item=>{return <div>&emsp;{item.game.title} X {item.quantity} = ${item.sub_total}</div> })}</div>
                             </div>
-                         </div>
-                    </div>)
+                            <div><strong className="text-label-color">Total: </strong>${order.total}</div>
+                            </Card.Body>
+                        </Card>
+                        )
             }
 
             orderHistory_jsx=(<React.Fragment>
-                <div class="card login-card cart-page my-3">
-                    <div class="card-body">
-                        <h1 class="card-title">Order History</h1>
-                    </div>
-                </div>
-                {order_jsx}
+                <Stack gap={3}>
+                    <Card bg="dark" text="white">
+                        <Card.Body><h1 className="text-label-color">Order History</h1></Card.Body>
+                    </Card>
+                    {order_jsx}
+                </Stack>
             </React.Fragment>)
 
 
@@ -81,11 +84,9 @@ export default function GameDetails() {
         } else {
             
             orderHistory_jsx=(<React.Fragment>
-                <div class="card login-card cart-page mt-1">
-                    <div class="card-body order-container">
-                        <h1 class="card-title">There are no orders currently</h1>
-                    </div>
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body><h1 className="text-label-color">There are no orders currently.</h1></Card.Body>
+                </Card>
             </React.Fragment>)
 
         }
@@ -94,7 +95,9 @@ export default function GameDetails() {
 
     return (
         (<React.Fragment>
-            {orderHistory_jsx}
+            <Container fluid className="container-positioning container-width" >
+                {orderHistory_jsx}
+            </Container>
         </React.Fragment>)
     )
 }

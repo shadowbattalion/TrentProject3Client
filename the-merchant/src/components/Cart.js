@@ -1,6 +1,15 @@
 import React, { useContext, useEffect, useState} from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import CartContext from "../contexts/CartContext";
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import Stack from "react-bootstrap/Stack";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Modal from './Modal';
+
 
 
  
@@ -11,13 +20,11 @@ export default function Cart() {
     const cartContext = useContext(CartContext);
 
     const history = useHistory()
-    let [message, setMessage]=useState({
-        "message_content":"",
-        "color":""
-    })
     let [trigger, setTrigger] = useState(0)
     const [cartStatus, setCartStatus] = useState(null)
 
+    const [showModal, setShowModal] = useState(false); //modal
+    const [modalMessage, setModalMessage] = useState({"title":"", "message":""});//modal
   
 
     useEffect(()=>{
@@ -26,6 +33,7 @@ export default function Cart() {
         const requestCart =  async() =>{
             
             let cart = await cartContext.getCart()
+            console.log(cart.data)
             
             if(cart){
 
@@ -54,24 +62,23 @@ export default function Cart() {
 
         if (operation=="+"){
 
-            message = await cartContext.increaseQuantity(game_id)
+            const message = await cartContext.increaseQuantity(game_id)
             
 
             if(message){
                 if(message.data.message==true){
                     
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" increased"})
                     
-                    setMessage({
-                        "message_content":"Quantity of item "+title+" increased",
-                        "color":"green"
-                    })
         
                 }else{
         
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
+                    
         
                 }
             } else {
@@ -88,37 +95,51 @@ export default function Cart() {
 
         } else if (operation=="-"){
 
-            message = await cartContext.decreaseQuantity(game_id)
+            const cart = await cartContext.getCart()
 
-            console.log(message)
-            if(message){
-                if(message.data.message==true){
-                    
+            const retrieveGameInCart = cart.data.cart_games_list.filter((game)=>{
+                    return game.game_id === game_id
+            })
 
-                    setMessage({
-                        "message_content":"Quantity of item "+title+" reduced",
-                        "color":"green"
-                    })
-        
-                }else{
-        
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
-        
-                }
-                
+            // console.log(retrieveGameInCart[0].quantity)
+
+            if(retrieveGameInCart[0].quantity===1){
+
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" is 1. Click on Remove to remove "+title+" from cart"})
+
             } else {
 
-                history.push("/error-page")
+                const message = await cartContext.decreaseQuantity(game_id)
 
-            }
+                if(message){
+                    if(message.data.message==true){
+                        
 
-            if (trigger==0){
-                setTrigger(1)
-            }else if(trigger==1){
-                setTrigger(0)
+                        setShowModal(true)
+                        setModalMessage({"title":"Attention", "message":"Quantity of item "+title+" reduced"})
+
+                        
+            
+                    }else{
+
+                        setShowModal(true)
+                        setModalMessage({"title":"Attention", "message":message.data.message})
+            
+            
+                    }
+                    
+                } else {
+
+                    history.push("/error-page")
+
+                }
+
+                if (trigger==0){
+                    setTrigger(1)
+                }else if(trigger==1){
+                    setTrigger(0)
+                }
             }
 
         }
@@ -131,24 +152,21 @@ export default function Cart() {
     async function removeGame(game_id, title){
 
 
-            message = await cartContext.removeGame(game_id)
+            const message = await cartContext.removeGame(game_id)
 
             if(message){
                 if(message.data.message==true){
                     
-            
-                    setMessage({
-                        "message_content":title+" has been removed",
-                        "color":"green"
-                    })
+
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":title+" has been removed"})
         
                 }else{
         
+                    setShowModal(true)
+                    setModalMessage({"title":"Attention", "message":message.data.message})
                     
-                    setMessage({
-                        "message_content":message.data.message,
-                        "color":"red"
-                    })
+                    
         
                 } 
             } else {
@@ -172,9 +190,8 @@ export default function Cart() {
 
     async function checkout(){
         alert("This is just a stripe test module. Enter '4242 4242 4242 4242' for the card info. Expiry Date and CVC number can be anything. Email and Name can be anything also. Then click pay.")
-        message = await cartContext.checkout()
+        const message = await cartContext.checkout()
 
-        console.log(message)
         if(message){
 
             if(message.data.message==true){
@@ -191,7 +208,8 @@ export default function Cart() {
 
             }else if(message.data.message==false){
                         
-                setMessage("Please select at least one item in the cart")
+                setShowModal(true)
+                setModalMessage({"title":"Attention", "message":"Please select at least one item in the game list"})
 
             }
 
@@ -223,45 +241,69 @@ export default function Cart() {
             for (let cartItem of cart){
 
                 cart_item_jsx.push(
-                    <div class="card login-card cart-page mt-1">
-                            <div class="card-body cart-items-container">
-                                <div class="cart-tems" key={cartItem.id}>  
-                                <div class="cart-items-flex-1">      
-                                    <div class="mt-2 game-details-size">{cartItem.game.title} X {cartItem.quantity} = ${cartItem.sub_total}</div>
-                                </div>
-                                <div class="cart-items-flex-2 mt-3">
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>- Quantity</a></div> 
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+ Quantity</a></div>
-                                    <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}} >Remove</a></div>
-                                </div>
-                            </div>
-                         </div>
-                    </div>)
+                    <Card bg="dark" text="white" key={cartItem.id}>
+                        <Card.Body>
+                            <Stack gap={3}>
+                                <Container fluid>
+                                    <Row>
+                                        <Col>
+                                            <Image src={cartItem.game.banner_image_thumbnail } thumbnail style={{width:"150px"}} />
+                                        </Col>
+                                        <Col className="d-flex flex-column justify-content-center"> 
+                                            <Row>
+                                                <Col className="d-flex flex-row justify-content-end">
+                                                   
+                                                    
+                                                    <Button  style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{removeGame(cartItem.game.id, cartItem.game.title)}}>
+                                                        Remove
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                                <Row>
+                                    <Col lg={3}>
+                                        <Card.Text><h3><strong className="text-label-color">{cartItem.game.title} X {cartItem.quantity}:</strong> ${cartItem.sub_total}</h3> <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF", marginRight:"10px",  width:"60px", fontSize:"25px"}} type="submit" size="sm" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "-")}}>-</Button><Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF", width:"60px", fontSize:"25px"}} type="submit" size="sm" variant="dark" onClick={()=>{updateQuantityGame(cartItem.game.id, cartItem.game.title, "+")}}>+</Button></Card.Text>
+                                    </Col>
+                                    <Col lg={3}>
+                                        <Card.Text>{cartItem.game.discount>0?<h3><strong className="text-label-color">Discount: </strong>{cartItem.game.discount}%</h3>:<div></div>}</Card.Text>
+                                    </Col>
+
+                                </Row>
+                            </Stack>
+                         </Card.Body>
+                    </Card>)
             }
 
             cart_jsx=(<React.Fragment>
-                <div class="card login-card cart-page my-3">
-                    <div class="card-body">
-                        <h1 class="card-title">Cart</h1>
-                        <small style={{color:message.color}}>{message.message_content}</small>
-                    </div>
-                </div>
+            <Stack gap={3}>  
+                <Card bg="dark" text="white">
+                    <Card.Body><h1 className="text-label-color">Cart</h1></Card.Body>
+                </Card>
                 {cart_item_jsx}
-                <div class="card login-card cart-page my-3">
-                    <div class="card-body">
-                        <h2 class="card-title">Total: ${total}</h2>
-                        <div><a href="#" class="btn btn-primary btn-custom-primary btn-md" onClick={()=>{checkout()}}>Checkout</a></div>
-                    </div>
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body>
+                            <Row>
+                                <Col>
+                                    <h2><strong className="text-label-color">Total:</strong> ${total}</h2>
+                                </Col>
+                                <Col className="d-flex flex-row justify-content-end">
+                                    <Button style={{backgroundColor:"#887AFF", borderColor:"#887AFF"}} type="submit" size="lg" variant="dark" onClick={()=>{checkout()}}>
+                                        Checkout
+                                    </Button>
+                                </Col>
+                            </Row>
+                    </Card.Body>
+                </Card>
+            </Stack>
             </React.Fragment>)
         } else {
 
             cart_jsx=(<React.Fragment>
-                <div class="card login-card cart-page mt-1">
-                    <div class="card-body order-container">
-                        <h1 class="card-title">Cart is empty</h1>
-                    </div>
-                </div>
+                <Card bg="dark" text="white">
+                    <Card.Body><h1 className="text-label-color">Cart is empty</h1></Card.Body>
+                </Card>
             </React.Fragment>)
 
         }
@@ -271,7 +313,10 @@ export default function Cart() {
     
     return (
         <React.Fragment>
-          {cart_jsx}
+            <Modal show={showModal} handleClose={() => {setShowModal(false)}} title={modalMessage.title} message={modalMessage.message}/>
+            <Container fluid className="container-positioning container-width" >
+                {cart_jsx}
+            </Container>
         </React.Fragment> 
     )
 }
