@@ -172,7 +172,7 @@ export default function Login() {
                             <Col sm={12} lg={6} className="d-flex flex-column justify-content-center mb-3 mb-lg-0"> 
                                 <Row>
                                     <Col className="d-flex flex-row justify-content-center justify-content-lg-start">
-                                        <img style={{borderRadius:"8px"}} src="https://res.cloudinary.com/dl2qwodyu/image/upload/v1717954744/5_pdzo3u.png" alt="the merchant logo" className="laptop-pad-main-logo"/>
+                                        <img style={{borderRadius:"8px"}} src="https://res.cloudinary.com/dl2qwodyu/image/upload/v1718039665/7_dngvbw.png" alt="the merchant logo" className="laptop-pad-main-logo"/>
                                     </Col>
                                 </Row>
                             </Col>
