@@ -209,7 +209,7 @@ export default function Cart() {
             }else if(message.data.message==false){
                         
                 setShowModal(true)
-                setModalMessage({"title":"Attention", "message":"Please select at least one item in the game list"})
+                setModalMessage({"title":"Attention", "message":"Please select at least one item in the Items list"})
 
             }
 
