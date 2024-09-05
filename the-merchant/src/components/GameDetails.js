@@ -131,7 +131,7 @@ export default function GameDetails() {
 
    
     if(game){
-        
+        console.log(game.minimum_requirement.split("|").map((imageSourceString)=>{return <div>{imageSourceString}</div>}))
         if(game!="No such games"){
 
             const tagPills = (tags) =>{
@@ -223,7 +223,7 @@ export default function GameDetails() {
                             <Row className="mt-5">
                                 <Col>
                                     <h3 className="text-label-color">Carousel Image:</h3>
-                                    <div>{game.minimum_requirement}</div>
+                                    <div>{game.minimum_requirement.split("|").map((imageSourceString)=>{return <div>{imageSourceString}</div>})}</div>
                                 </Col>
                                 {/* <Col>
                                     <h3 className="text-label-color">Your Specifications:</h3>

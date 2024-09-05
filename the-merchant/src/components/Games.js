@@ -50,7 +50,7 @@ export default function Games() {
                     setGameList(gameList.data.games)
                 }else{
                     setShowModal(true)
-                    setModalMessage({"title":"Attention", "message":"No such games"})
+                    setModalMessage({"title":"Attention", "message":"No such items"})
                 }
 
             } else {
