@@ -131,11 +131,10 @@ export default function GameDetails() {
 
    
     if(game){
-        console.log(game.minimum_requirement.split("|").map((imageSourceString)=>{return <div>{imageSourceString}</div>}))
+
         if(game!="No such games"){
 
             const tagPills = (tags) =>{
-                console.log(tags)
 
                 const tagsPanel = []
 

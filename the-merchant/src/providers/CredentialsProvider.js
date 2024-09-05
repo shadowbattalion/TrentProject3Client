@@ -17,7 +17,6 @@ export default function CredentialsProvider(props){
         register: async (display_name,password,email,device_specs) =>{
             try{
 
-                console.log(display_name,password,email,device_specs)
 
                 let response = await axios.post(BASE_URL+'/api/users/user-reg',{
                     display_name,
@@ -39,15 +38,12 @@ export default function CredentialsProvider(props){
         login: async (display_name_email, password) =>{
 
             try{
-                console.log(display_name_email)
                 let response = await axios.post(BASE_URL+'/api/users/user-login',{
                     "display_name_email":display_name_email,
                     "password":password
                 })
-                console.log(response)
 
                 if (response.data?.access_token){
-                    console.log(response.data)
                     localStorage.setItem('access_token', response.data.access_token);
                     localStorage.setItem('refresh_token', response.data.refresh_token);
 
@@ -121,7 +117,6 @@ export default function CredentialsProvider(props){
                         'refresh_token': localStorage.getItem('refresh_token')
                     });
                 
-                    console.log(response.data);
                 
                 
                     localStorage.setItem('access_token','')

@@ -124,12 +124,10 @@ export default function CartProvider(props){
         checkout: async()=>{
 
             try{
-                console.log("TESTING123")
                 let response = await axios.get(BASE_URL+'/api/checkout/',{
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
-                console.log(response)
                 return response
             } catch(e){
                     
@@ -163,7 +161,6 @@ export default function CartProvider(props){
                     headers: { Authorization: `Bearer: ${localStorage.getItem('access_token')}` }
                 })
 
-                console.log(response.data.latest_user_order)
                 return response
             } catch(e){
                     

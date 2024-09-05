@@ -33,7 +33,6 @@ export default function Cart() {
         const requestCart =  async() =>{
             
             let cart = await cartContext.getCart()
-            console.log(cart.data)
             
             if(cart){
 
@@ -101,7 +100,6 @@ export default function Cart() {
                     return game.game_id === game_id
             })
 
-            // console.log(retrieveGameInCart[0].quantity)
 
             if(retrieveGameInCart[0].quantity===1){
 

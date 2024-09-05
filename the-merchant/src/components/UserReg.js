@@ -67,7 +67,6 @@ export default function UserReg() {
                     })
             
             } else if(reg_outcome.data.message=="Display name or email already exists"){
-                console.log("TESTING")
                 setShowModal(true)
                 setModalMessage({"title":"Failed Login", "message":"Display name or email already exists"})           
                             

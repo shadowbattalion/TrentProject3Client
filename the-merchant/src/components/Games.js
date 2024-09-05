@@ -39,7 +39,6 @@ export default function Games() {
 
     useEffect(()=>{
 
-        console.log(trigger)
         const requestGames =  async() =>{
             let gameList = await gamesContext.getGames(field.title, field.company_name)
            
@@ -115,7 +114,6 @@ export default function Games() {
     const updateState = (event) =>{
         
         const { name, value } = event.target;
-        console.log(name, value)
         setField({
             ...field,
             [name]:value

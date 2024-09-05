@@ -46,7 +46,6 @@ export default function GameDetails() {
 
     let orderHistory_jsx
 
-    console.log(orderHistory)
     if(orderHistory){
         if(orderHistory.length!=0){
 
