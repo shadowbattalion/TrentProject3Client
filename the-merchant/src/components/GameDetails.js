@@ -178,9 +178,10 @@ export default function GameDetails() {
                                 <p>{game.description}</p>
                             </Row>
                             <Row>   
-                                <p><span className="text-label-color">Operationally Ready Date: </span>{game.released_date}</p>
+                                <p><span className="text-label-color">Date of Design: </span>{game.released_date}</p>
+                                <p><span className="text-label-color">Designer: </span>{game.company_name}</p>
                                 <p><span className="text-label-color">Category: </span>{game.category.name}</p>
-                                <p><span className="text-label-color">In Service: </span>{game.platforms.map(platform=>(" "+platform.platform_name)).toString()}</p>
+                                <p><span className="text-label-color">Countries: </span>{game.platforms.map(platform=>(" "+platform.platform_name)).toString()}</p>
                                 <p><span className="text-label-color">Tags: </span>{tagPills(game.content_tags)}</p>
                             </Row>
                         </Stack>             
