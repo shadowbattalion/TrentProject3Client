@@ -5,7 +5,7 @@
 **Attention!!
 Update: This website has changed from an e-commerce selling online games to an e-commerce selling military surplus. The context of this project has changed due to the lack of availability of free to use images which can help simulate an online game shop platform. Thank you!**
 
-The purpose of this project is to create an online store to sell online games to avid gamers. There are two parts to the project, the backend and the frontend. The backend caters to the vendor who can manage the game product list and orders. The frontend caters to the general public, especially gamers who wish to buy online games. The cart system is implemented in order to facilitate easy browsing and buying of games. The checkout system is also implemented using Stripe to facilitate the transactions between the user and the vendor.
+The purpose of this project is to create an online store to sell military surplus from the two World Wars to history buffs. There are two parts to the project, the backend and the frontend. The backend caters to the vendor who can manage the item list and orders. The frontend caters to the general public, especially history buffs who love collecting vintage weapons for display. The cart system is implemented in order to facilitate easy browsing and buying of items. The checkout system is also implemented using Stripe to facilitate the transactions between the user and the vendor.
 
 
 ## Landing Page
@@ -49,12 +49,14 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/8aa4a58e-5af3-4304-89fe-b367263c0ab1)
 
-<p>Once the user have clicked the cart button from either the Item Details Page or Items List Page, they will be brought to the Cart page. From here, users can add the amount or remove the amount of each items. They can also remove the items totally.</p>
+<p>Once the user have clicked the Cart button from either the Item Details Page or Items List Page, they will be brought to the Cart page. From here, users can add the amount or remove the amount of each items. They can also remove the items totally. Once done, users can click on the Checkout button to go to the Checkout Page</p>
 
 
 ## Cart Checkout Page (Stripe)
 
 ![image](https://github.com/user-attachments/assets/ebb67892-5f00-4601-9f0c-e3bf6693823a)
+
+<p>This is the Checkout Page, using Stripe. If the user clicks on the back arrow, it will go back to the website. A Cart Checkout Fail Page will be shown. They user can click on the Checkout button in the Cart page to go restart the checkout procedure. If the user clicks on the Pay button, the Checkout will be a success.</p>
 
 
 ## Cart Checkout Page Fail
@@ -67,13 +69,18 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/12ef8e07-1166-43b6-ba13-1cf70ba8c0dd)
 
+<p>Once Checkout is a success, they it will go back to the website. A Order Successful page will appear.</p>
+
 ![image](https://github.com/user-attachments/assets/854400b1-256c-457b-a483-ee1727973b27)
+
+<p>This will show the payment details that have been made.</p>
 
 
 ## Order History
 
 ![image](https://github.com/user-attachments/assets/ab080f0d-e745-4c27-ad52-8e1b5843a305)
 
+<p>Users can also access their order history to view previous purchases.</p>
 
 
 ## ERD Diagram
