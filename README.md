@@ -31,12 +31,19 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/53d81c67-90ea-488c-a7a5-16d2fd88258f)
 
+<p>This is the Item Details page where users can see the history behind the item. The main text box is the place where the details of the items will be located. Preferably, the details should include the historical facts of the item, since this website are for people who take keen interest in history and the two World Wars. </p> 
+
 ![image](https://github.com/user-attachments/assets/d40ac066-0f3a-405e-87dd-0c23c638c02b)
+
+<p>Below the main text area, there are several descriptions: Date of Design (the date that the item was designed), Designer (the designer's name), Category (the catgory that the items falls under), Countries (the countries which the item is in service), Tags (the tags for easy searching).</p>
 
 ![image](https://github.com/user-attachments/assets/c7b35637-a150-49b6-b402-21775ede8cfc)
 
+<p> Below the main display is the carousel to show several aspects of the items. </p>
+
 ![image](https://github.com/user-attachments/assets/1bffa48d-8bfa-4c02-a9f3-56ee000a4d32)
 
+<p> The last space at the bottom are for extra texts (In this case, I am putting the image source as part of the portfolio showcase). </p>
 
 ## Cart
 
