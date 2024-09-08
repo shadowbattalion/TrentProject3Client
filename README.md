@@ -11,7 +11,7 @@ The purpose of this project is to create an online store to sell online games to
 ## Landing Page
 
 ![image](https://github.com/user-attachments/assets/072e3952-959a-4b0a-9ea5-866342079043)
-
+ <p>This is the landing page where users can log in.</p> 
 
 ## Sign up Page
 
