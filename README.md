@@ -17,11 +17,13 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/ab3f803a-3e58-4d93-8fcf-2a33f982eb60)
 
+
 ## Item List Page
 
 ![image](https://github.com/user-attachments/assets/b37df61e-26f6-4af7-9904-a804c40f47a1)
 
 ![image](https://github.com/user-attachments/assets/03e6d627-3082-4e98-b2d1-cb2fc96ebbe5)
+
 
 ## Item Details Page
 
@@ -29,11 +31,7 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/d40ac066-0f3a-405e-87dd-0c23c638c02b)
 
-### Carousel
-
 ![image](https://github.com/user-attachments/assets/c7b35637-a150-49b6-b402-21775ede8cfc)
-
-### Extra space for text
 
 ![image](https://github.com/user-attachments/assets/1bffa48d-8bfa-4c02-a9f3-56ee000a4d32)
 
@@ -43,16 +41,15 @@ The purpose of this project is to create an online store to sell online games to
 ![image](https://github.com/user-attachments/assets/8aa4a58e-5af3-4304-89fe-b367263c0ab1)
 
 
-
 ## Cart Checkout Page (Stripe)
 
 ![image](https://github.com/user-attachments/assets/ebb67892-5f00-4601-9f0c-e3bf6693823a)
 
 
-
 ## Cart Checkout Page Fail
 
 ![image](https://github.com/user-attachments/assets/885e5f42-eeab-4ec2-b350-786a8b315a77)
+
 
 ## Cart Checkout Page Success
 
@@ -495,15 +492,7 @@ https://mhu-game-store.herokuapp.com/users/user-login
 
 ## Deployment
 ### Database
-Remote Postgres server somewhere in Heroku
-
-(This must be done after deploying to Heroku shown in Backend section)
-
-heroku addons:create heroku-postgresql
-
-Go to your app in heroku and click on Settings
-
-Click on Reveal Config. The database URL will be used to initialise the environment variables for the database.
+Remote Postgres server in Supabase database hosting website
 
 ### Environment Variables
 
@@ -514,6 +503,7 @@ Database: to intialise access to the remote database
 	<li>DB_PASSWORD
 	<li>DB_DATABASE
 	<li>DB_HOST
+	<li>DB_PORT
 </ul>
 
 Cloudinary: to initialise access to cloudinary account so that images can be uploaded and stored
@@ -597,7 +587,6 @@ Wait for it to run.
 |Express|https://expressjs.com/|
 |NodeJS|https://nodejs.org/en/|
 |React|https://reactjs.org/|
-|Background Image|https://www.pexels.com/@padrinan|
 |Cloudinary|https://cloudinary.com/|
 |Stripe|https://stripe.com/|
 |React-router-dom@5.2.0|https://v5.reactrouter.com/web/guides/quick-start|
