@@ -8,6 +8,71 @@ Update: This website has changed from an e-commerce selling online games to an e
 The purpose of this project is to create an online store to sell online games to avid gamers. There are two parts to the project, the backend and the frontend. The backend caters to the vendor who can manage the game product list and orders. The frontend caters to the general public, especially gamers who wish to buy online games. The cart system is implemented in order to facilitate easy browsing and buying of games. The checkout system is also implemented using Stripe to facilitate the transactions between the user and the vendor.
 
 
+## Landing Page
+
+![image](https://github.com/user-attachments/assets/072e3952-959a-4b0a-9ea5-866342079043)
+
+
+## Sign up Page
+
+![image](https://github.com/user-attachments/assets/ab3f803a-3e58-4d93-8fcf-2a33f982eb60)
+
+## Item List Page
+
+![image](https://github.com/user-attachments/assets/b37df61e-26f6-4af7-9904-a804c40f47a1)
+
+![image](https://github.com/user-attachments/assets/03e6d627-3082-4e98-b2d1-cb2fc96ebbe5)
+
+## Item Details Page
+
+![image](https://github.com/user-attachments/assets/53d81c67-90ea-488c-a7a5-16d2fd88258f)
+
+![image](https://github.com/user-attachments/assets/d40ac066-0f3a-405e-87dd-0c23c638c02b)
+
+### Carousel
+
+![image](https://github.com/user-attachments/assets/c7b35637-a150-49b6-b402-21775ede8cfc)
+
+### Extra space for text
+
+![image](https://github.com/user-attachments/assets/1bffa48d-8bfa-4c02-a9f3-56ee000a4d32)
+
+
+## Cart
+
+![image](https://github.com/user-attachments/assets/8aa4a58e-5af3-4304-89fe-b367263c0ab1)
+
+
+
+## Cart Checkout Page (Stripe)
+
+![image](https://github.com/user-attachments/assets/ebb67892-5f00-4601-9f0c-e3bf6693823a)
+
+
+
+## Cart Checkout Page Fail
+
+![image](https://github.com/user-attachments/assets/885e5f42-eeab-4ec2-b350-786a8b315a77)
+
+## Cart Checkout Page Success
+
+![image](https://github.com/user-attachments/assets/12ef8e07-1166-43b6-ba13-1cf70ba8c0dd)
+
+![image](https://github.com/user-attachments/assets/854400b1-256c-457b-a483-ee1727973b27)
+
+
+## Order History
+
+![image](https://github.com/user-attachments/assets/ab080f0d-e745-4c27-ad52-8e1b5843a305)
+
+
+
+
+
+
+
+
+
 <ins>Organisation goals (vendor):</ins>
 <ul>
 	<li>Promote awareness of online games that are in the market</li>
