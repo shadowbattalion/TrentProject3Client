@@ -16,13 +16,15 @@ The purpose of this project is to create an online store to sell online games to
 ## Sign up Page
 
 ![image](https://github.com/user-attachments/assets/ab3f803a-3e58-4d93-8fcf-2a33f982eb60)
-
+<p>This is the sign up page where users can register.</p>
 
 ## Item List Page
 
 ![image](https://github.com/user-attachments/assets/b37df61e-26f6-4af7-9904-a804c40f47a1)
 
 ![image](https://github.com/user-attachments/assets/03e6d627-3082-4e98-b2d1-cb2fc96ebbe5)
+
+<p>This is the main page where users can browse through the list of items. They can click on the cart button if they wish to buy the item. They can also click on the thumbnail or the item name to see the item details page. The search bar is used to filter the items that users are looking for.</p>
 
 
 ## Item Details Page
