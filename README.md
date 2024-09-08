@@ -66,12 +66,12 @@ The purpose of this project is to create an online store to sell online games to
 
 ## ERD Diagram
 
-![](readme_images/the_merchant_erd.png)
+![](the-merchant/readme_images/the_merchant_erd.png)
 
 
 ## SQLDBM Diagram
 
-![](readme_images/the_merchant_sqldbm.png)
+![](the-merchant/readme_images/the_merchant_sqldbm.png)
 
 
 
