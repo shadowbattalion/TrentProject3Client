@@ -18,7 +18,7 @@ The purpose of this project is to create an online store to sell online games to
 ![image](https://github.com/user-attachments/assets/ab3f803a-3e58-4d93-8fcf-2a33f982eb60)
 <p>This is the sign up page where users can register.</p>
 
-## Item List Page
+## Items List Page
 
 ![image](https://github.com/user-attachments/assets/b37df61e-26f6-4af7-9904-a804c40f47a1)
 
@@ -31,7 +31,7 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/53d81c67-90ea-488c-a7a5-16d2fd88258f)
 
-<p>This is the Item Details page where users can see the history behind the item. The main text box is the place where the details of the items will be located. Preferably, the details should include the historical facts of the item, since this website are for people who take keen interest in history and the two World Wars. </p> 
+<p>This is the Item Details page where users can see the history behind the item. The main text box is the place where the details of the items will be located. Preferably, the details should include the historical facts of the item, since this website are for people who take keen interest in history and the two World Wars. Users can click on the cart button if they wish to add to the cart. </p> 
 
 ![image](https://github.com/user-attachments/assets/d40ac066-0f3a-405e-87dd-0c23c638c02b)
 
@@ -49,6 +49,8 @@ The purpose of this project is to create an online store to sell online games to
 
 ![image](https://github.com/user-attachments/assets/8aa4a58e-5af3-4304-89fe-b367263c0ab1)
 
+<p>Once the user have clicked the cart button from either the Item Details Page or Items List Page, they will be brought to the Cart page. From here, users can add the amount or remove the amount of each items. They can also remove the items totally.</p>
+
 
 ## Cart Checkout Page (Stripe)
 
@@ -58,6 +60,7 @@ The purpose of this project is to create an online store to sell online games to
 ## Cart Checkout Page Fail
 
 ![image](https://github.com/user-attachments/assets/885e5f42-eeab-4ec2-b350-786a8b315a77)
+
 
 
 ## Cart Checkout Page Success
